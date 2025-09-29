@@ -3,8 +3,8 @@
 @import 'tailwindcss';
 
 @theme {
-	--font-unbounded: 'Unbounded';
-	--font-funnel: 'Funnel Display';
+	--font-unbounded: 'Unbounded', sans-serif;
+	--font-funnel: 'Funnel Display', sans-serif;
 
 	--color-spotify-green: #1ed760;
 	--color-spotify-black: #121212;

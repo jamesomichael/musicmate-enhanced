@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import StoreProvider from '@/redux/StoreProvider';
 
 import '../globals.css';
 
@@ -15,11 +16,13 @@ export default function Layout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className="bg-black select-none antialiased">
-				<div className="min-h-screen h-screen">{children}</div>
-				<Footer />
-			</body>
-		</html>
+		<StoreProvider>
+			<html lang="en">
+				<body className="bg-black select-none antialiased">
+					<div className="min-h-screen h-screen">{children}</div>
+					<Footer />
+				</body>
+			</html>
+		</StoreProvider>
 	);
 }

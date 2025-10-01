@@ -11,7 +11,7 @@ const Logo = ({ className, light = false, dark = false }: LogoProps) => {
 		<span
 			className={`select-none leading-none font-unbounded font-black ${
 				light
-					? 'text-neutral-300'
+					? 'text-neutral-500'
 					: dark
 					? 'text-black'
 					: 'text-spotify-green'
@@ -20,7 +20,11 @@ const Logo = ({ className, light = false, dark = false }: LogoProps) => {
 			music
 			<span
 				className={`font-extralight ${
-					dark ? 'text-black' : 'text-neutral-300'
+					dark
+						? 'text-black'
+						: light
+						? 'text-neutral-500'
+						: 'text-white'
 				} ${className}`}
 			>
 				mate

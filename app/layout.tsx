@@ -1,7 +1,5 @@
 import './globals.css';
 
-import StoreProvider from '@/redux/StoreProvider';
-
 export default function RootLayout({
 	children,
 }: {
@@ -10,7 +8,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="bg-black min-h-screen antialiased select-none">
-				<StoreProvider>{children}</StoreProvider>
+				{children}
 			</body>
 		</html>
 	);

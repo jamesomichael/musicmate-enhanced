@@ -1,8 +1,10 @@
-import type { Metadata } from 'next';
-
 import '../globals.css';
 
+import type { Metadata } from 'next';
+
 import AuthLayout from '@/layouts/AuthLayout';
+
+import StoreProvider from '@/redux/StoreProvider';
 
 export const metadata: Metadata = {
 	title: 'musicmate',
@@ -32,5 +34,9 @@ export default function Layout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return <AuthLayout>{children}</AuthLayout>;
+	return (
+		<StoreProvider>
+			<AuthLayout>{children}</AuthLayout>;
+		</StoreProvider>
+	);
 }

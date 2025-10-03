@@ -1,8 +1,17 @@
-import type { Metadata } from 'next';
-
 import '../globals.css';
 
+import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import axios from 'axios';
+
 import AppLayout from '@/layouts/AppLayout';
+
+import spotifyService from '@/services/spotify.service';
+
+import StoreProvider from '@/redux/StoreProvider';
+import { preloadedAuthState } from '@/redux/slices/authSlice';
+import { preloadedUserState } from '@/redux/slices/userSlice';
 
 export const metadata: Metadata = {
 	title: 'musicmate',
@@ -27,10 +36,35 @@ export const metadata: Metadata = {
 	// },
 };
 
-export default function Layout({
+export default async function Layout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return <AppLayout>{children}</AppLayout>;
+	const cookieStore = await cookies();
+	const accessToken = cookieStore.get('access_token')?.value;
+
+	if (!accessToken) {
+		redirect('/login');
+	}
+
+	let currentUser = null;
+	try {
+		currentUser = await spotifyService.fetchCurrentUser(accessToken);
+	} catch (error) {
+		if (axios.isAxiosError(error) && error.response?.status === 403) {
+			redirect('/unauthorised');
+		}
+	}
+
+	return (
+		<StoreProvider
+			preloadedState={{
+				auth: preloadedAuthState(true),
+				user: preloadedUserState(currentUser),
+			}}
+		>
+			<AppLayout>{children}</AppLayout>
+		</StoreProvider>
+	);
 }

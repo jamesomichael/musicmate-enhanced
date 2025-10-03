@@ -4,6 +4,7 @@ import React from 'react';
 import Navigation from '../Navigation';
 import Search from '../Search';
 import NavButton from '../NavButton';
+import AccountIcon from '../AccountIcon';
 
 import { GoHomeFill, GoHome } from 'react-icons/go';
 import { BiSolidCategory, BiCategory } from 'react-icons/bi';
@@ -30,6 +31,9 @@ const Navbar = () => {
 					InactiveIcon={BiCategory}
 					iconSize={22}
 				/>
+			</div>
+			<div className="h-full flex justify-end items-center">
+				<AccountIcon />
 			</div>
 		</div>
 	);

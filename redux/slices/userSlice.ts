@@ -29,6 +29,33 @@ interface UserState {
 	uri: string | null;
 }
 
+interface SpotifyUserDto {
+	display_name: string | null;
+	country: string | null;
+	email: string | null;
+	explicit_content: {
+		filter_enabled: boolean;
+		filter_locked: boolean;
+	} | null;
+	external_urls: {
+		spotify: string;
+	} | null;
+	followers: {
+		href: string | null;
+		total: number;
+	} | null;
+	href: string | null;
+	id: string | null;
+	images: Array<{
+		height: number | null;
+		url: string;
+		width: number | null;
+	}> | null;
+	product: string | null;
+	type: string | null;
+	uri: string | null;
+}
+
 const initialState: UserState = {
 	displayName: null,
 	country: null,
@@ -44,7 +71,9 @@ const initialState: UserState = {
 	uri: null,
 };
 
-export const preloadedUserState = (user: any): UserState => ({
+export const preloadedUserState = (
+	user: Partial<SpotifyUserDto>
+): UserState => ({
 	displayName: user?.display_name ?? null,
 	country: user?.country ?? null,
 	email: user?.email ?? null,
@@ -79,7 +108,7 @@ const userSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(logOut.fulfilled, (state) => {
+		builder.addCase(logOut.fulfilled, () => {
 			return initialState;
 		});
 	},

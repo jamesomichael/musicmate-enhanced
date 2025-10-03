@@ -40,3 +40,6 @@ export default function Layout({
 		</StoreProvider>
 	);
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;

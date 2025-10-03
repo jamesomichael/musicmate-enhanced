@@ -1,23 +1,17 @@
-import {
-	configureStore,
-	StateFromReducersMapObject,
-	PreloadedStateShapeFromReducersMapObject,
-} from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import authReducer from './slices/authSlice';
 import userReducer from './slices/userSlice';
 
-const reducer = {
+const reducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
-};
+});
 
 export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = StateFromReducersMapObject<typeof reducer>;
+export type RootState = ReturnType<typeof reducer>;
 
-export const makeStore = (
-	preloadedState?: PreloadedStateShapeFromReducersMapObject<RootState>
-) => {
+export const makeStore = (preloadedState?: Partial<RootState>) => {
 	return configureStore({
 		reducer,
 		preloadedState,

@@ -43,18 +43,19 @@ export default async function Layout({
 }>) {
 	const cookieStore = await cookies();
 	const accessToken = cookieStore.get('access_token')?.value;
+	let currentUser = null;
 
 	if (!accessToken) {
 		redirect('/login');
 	}
 
-	let currentUser = null;
 	try {
 		currentUser = await spotifyService.fetchCurrentUser(accessToken);
 	} catch (error) {
 		if (axios.isAxiosError(error) && error.response?.status === 403) {
 			redirect('/unauthorised');
 		}
+		redirect('/login');
 	}
 
 	return (

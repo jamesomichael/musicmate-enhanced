@@ -33,7 +33,7 @@ const Navigation = () => {
 				size={30}
 				className={`${
 					canNavigateBack
-						? 'text-gray-300 hover:text-white cursor-pointer'
+						? 'transition-all duration-200 text-neutral-400 hover:text-white cursor-pointer'
 						: 'opacity-50 cursor-not-allowed'
 				}`}
 			/>
@@ -42,7 +42,7 @@ const Navigation = () => {
 				size={30}
 				className={`${
 					canNavigateForward
-						? 'text-gray-300 hover:text-white cursor-pointer'
+						? 'transition-all duration-200 text-neutral-400 hover:text-white cursor-pointer'
 						: 'opacity-50 cursor-not-allowed'
 				}`}
 			/>

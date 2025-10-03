@@ -42,7 +42,7 @@ const Login = async () => {
 				<Link
 					href="https://unsplash.com/@shmabbss?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
 					target="_blank"
-					className="hover:underline"
+					className="hover:underline hover:text-neutral-300"
 				>
 					Abigail Lynn
 				</Link>

@@ -3,6 +3,8 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
+import { BACKGROUND_IMAGES } from '@/constants/backgrounds';
+
 import Logo from '@/components/shared/Logo';
 
 // import spotifyService from '@/services/spotify';
@@ -18,6 +20,8 @@ const authUrl = `${SPOTIFY_AUTH_URL}?response_type=code&client_id=${SPOTIFY_CLIE
 )}&scope=${encodeURIComponent(SPOTIFY_SCOPES.join(' '))}`;
 
 const Login = async () => {
+	const backgroundImage =
+		BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
 	// const cookieStore = await cookies();
 	// const accessToken = cookieStore.get('access_token')?.value;
 
@@ -31,23 +35,26 @@ const Login = async () => {
 	return (
 		<div className="h-full flex items-center relative">
 			<div
-				className="absolute inset-0 grayscale bg-cover bg-center opacity-40"
+				className="blur-xs sm:blur-none absolute inset-0 grayscale bg-cover bg-center opacity-40"
 				style={{
-					backgroundImage:
-						'url(https://images.unsplash.com/photo-1450044804117-534ccd6e6a3a?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+					backgroundImage: `url(${backgroundImage.url})`,
 				}}
 			></div>
 			<span className="absolute bottom-4 w-full text-center md:text-right px-4 text-xs font-funnel text-neutral-400 z-50 opacity-40">
 				Background image courtesy of&nbsp;
 				<Link
-					href="https://unsplash.com/@shmabbss?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+					href={backgroundImage.attribution.url}
 					target="_blank"
 					className="hover:underline hover:text-neutral-300"
 				>
-					Abigail Lynn
+					{backgroundImage.attribution.name}
 				</Link>
 			</span>
-			<div className="absolute inset-0 bg-black opacity-60 md:opacity-55"></div>
+			<div
+				className={`absolute inset-0 ${
+					backgroundImage.opacity || 'bg-black/40'
+				}`}
+			></div>
 
 			<div className="relative z-10 py-4 md:py-0 flex gap-4 w-full h-full md:px-8 flex-col md:flex-row justify-start md:justify-between items-center">
 				<div className="flex-1 order-2 md:order-1 flex flex-col justify-center items-center md:items-start gap-3 w-auto">

@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import { MdMail } from 'react-icons/md';
 
+import { BACKGROUND_IMAGES } from '@/constants/backgrounds';
+
 import useLogOut from '@/hooks/useLogOut';
 
 import Button from '@/components/shared/Button';
@@ -12,25 +14,32 @@ import Logo from '@/components/shared/Logo';
 const Unauthorised = () => {
 	const logOut = useLogOut();
 
+	const backgroundImage =
+		BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
+
 	return (
-		<div className="relative flex justify-center items-center h-full bg-spotify-black">
+		<div className="relative flex justify-center items-center h-full">
 			<div
-				className="absolute inset-0 grayscale bg-cover bg-bottom opacity-40"
+				className="blur-xs sm:blur-none absolute inset-0 grayscale bg-cover bg-center opacity-40"
 				style={{
-					backgroundImage: `url(https://images.unsplash.com/photo-1488036106564-87ecb155bb15?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+					backgroundImage: `url(${backgroundImage.url})`,
 				}}
 			></div>
 			<span className="absolute bottom-4 w-full text-center md:text-right px-4 text-xs font-funnel text-neutral-400 z-50 opacity-40">
 				Background image courtesy of&nbsp;
 				<Link
-					href="https://unsplash.com/photos/people-watching-concert-wnX-fXzB6Cw?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
+					href={backgroundImage.attribution.url}
 					target="_blank"
 					className="hover:underline hover:text-neutral-300"
 				>
-					Aaron Paul
+					{backgroundImage.attribution.name}
 				</Link>
 			</span>
-			<div className="absolute inset-0 bg-black opacity-60 md:opacity-55"></div>
+			<div
+				className={`absolute inset-0 ${
+					backgroundImage.opacity || 'bg-black/40'
+				}`}
+			></div>
 			<div className="relative flex justify-center items-center bg-black w-full sm:w-auto rounded-md px-10 py-8">
 				<div className="text-center flex flex-col items-center gap-3">
 					<Logo className="text-xl lg:text-2xl leading-none" />

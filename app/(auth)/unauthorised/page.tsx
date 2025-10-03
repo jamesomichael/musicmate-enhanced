@@ -25,11 +25,11 @@ const Unauthorised = () => {
 					<span className="py-1 font-funnel font-bold text-2xl sm:text-3xl text-white">
 						Thanks for your interest!
 					</span>
-					<span className="font-funnel text-sm text-gray-200">
+					<span className="font-funnel text-sm text-neutral-200">
 						Unfortunately, you are not currently authorised to
 						access musicmate.
 					</span>
-					<span className="font-funnel text-sm text-gray-200">
+					<span className="font-funnel text-sm text-neutral-200">
 						Please&nbsp;
 						<Link
 							href="mailto:musicmate@jamesmichael.dev?subject=Access%20Request"

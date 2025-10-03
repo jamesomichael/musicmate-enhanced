@@ -14,18 +14,7 @@ export async function middleware(request: NextRequest) {
 		}
 
 		if (accessToken) {
-			try {
-				await axios.get('https://api.spotify.com/v1/me', {
-					headers: {
-						Authorization: `Bearer ${accessToken}`,
-					},
-				});
-				return NextResponse.next();
-			} catch (error) {
-				return NextResponse.redirect(
-					new URL('/unauthorised', request.url)
-				);
-			}
+			return NextResponse.next();
 		}
 
 		if (refreshToken) {

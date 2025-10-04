@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 import { MdMail } from 'react-icons/md';
@@ -10,17 +10,38 @@ import useLogOut from '@/hooks/useLogOut';
 
 import Button from '@/components/shared/Button';
 import Logo from '@/components/shared/Logo';
+import Loader from '@/components/shared/Loader';
+
+interface BackgroundImage {
+	url: string;
+	attribution: {
+		name: string;
+		url: string;
+	};
+	opacity?: string;
+}
 
 const Unauthorised = () => {
 	const logOut = useLogOut();
+	const [backgroundImage, setBackgroundImage] =
+		useState<BackgroundImage | null>(null);
 
-	const backgroundImage =
-		BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
+	useEffect(() => {
+		const randomImage =
+			BACKGROUND_IMAGES[
+				Math.floor(Math.random() * BACKGROUND_IMAGES.length)
+			];
+		setBackgroundImage(randomImage);
+	}, []);
 
-	return (
+	return !backgroundImage ? (
+		<div className="h-full bg-spotify-black">
+			<Loader />
+		</div>
+	) : (
 		<div className="relative flex justify-center items-center h-full">
 			<div
-				className="blur-xs sm:blur-none absolute inset-0 grayscale bg-cover bg-center opacity-40"
+				className="blur-xs absolute inset-0 grayscale bg-cover bg-center opacity-40"
 				style={{
 					backgroundImage: `url(${backgroundImage.url})`,
 				}}

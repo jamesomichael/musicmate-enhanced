@@ -1,0 +1,48 @@
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
+
+import spotifyService from '@/services/spotify.service';
+
+import type { Category } from '@/types/categories';
+
+const GET = async () => {
+	const cookieStore = await cookies();
+	const accessToken = cookieStore.get('access_token')?.value;
+
+	if (!accessToken) {
+		return NextResponse.json(
+			{ message: 'No access token provided.' },
+			{ status: 401 }
+		);
+	}
+
+	try {
+		const limit = 50;
+		let offset = 0;
+		let allCategories: Category[] = [];
+		let hasMore = true;
+
+		while (hasMore) {
+			const data = await spotifyService.fetchCategories(
+				{ limit, offset },
+				accessToken
+			);
+			allCategories = [...allCategories, ...data.categories.items];
+			offset += limit;
+			hasMore = data.categories.items.length === limit;
+		}
+
+		const uniqueCategories = [
+			...new Map(allCategories.map((item) => [item.id, item])).values(),
+		];
+
+		return NextResponse.json(uniqueCategories);
+	} catch (error) {
+		return NextResponse.json(
+			{ message: 'Failed to fetch categories.' },
+			{ status: 500 }
+		);
+	}
+};
+
+export { GET };

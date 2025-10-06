@@ -3,11 +3,13 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
 import userReducer from './slices/userSlice';
 import categoriesReducer from './slices/categoriesSlice';
+import playerReducer from './slices/playerSlice';
 
 const reducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
 	categories: categoriesReducer,
+	player: playerReducer,
 });
 
 export type AppStore = ReturnType<typeof makeStore>;

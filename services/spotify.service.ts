@@ -48,7 +48,33 @@ const fetchCategories = async (
 	}
 };
 
+const fetchPlaybackState = async (accessToken: string) => {
+	console.log('[fetchPlaybackState] Fetching playback state...');
+	try {
+		const response = await axios.get(
+			'https://api.spotify.com/v1/me/player',
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[fetchPlaybackState] Playback state retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchPlaybackState] Error fetching playback state:',
+				error
+			);
+		}
+		throw error;
+	}
+};
+
 export default {
 	fetchCurrentUser,
 	fetchCategories,
+	fetchPlaybackState,
 };

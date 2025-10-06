@@ -1,8 +1,12 @@
 import React from 'react';
+import { cookies } from 'next/headers';
 
 import Navbar from '@/components/navbar/Navbar';
+import PlayerContainer from '@/components/player/PlayerContainer';
 
-const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
+const DesktopLayout = async ({ children }: { children: React.ReactNode }) => {
+	const cookieStore = await cookies();
+	const accessToken = cookieStore.get('access_token')?.value;
 	return (
 		<div className="flex flex-col h-full">
 			<div className="h-14">
@@ -13,12 +17,12 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
 					<div className="bg-yellow-400 w-72 rounded-md">
 						LIBRARY PANEL
 					</div>
-					<div className="bg-red-500 rounded-md overflow-y-scroll">
+					<div className="bg-spotify-black rounded-md overflow-y-scroll">
 						{children}
 					</div>
 				</div>
 			</div>
-			<div className="bg-purple-500 h-16">PLAYER CONTAINER</div>
+			{accessToken && <PlayerContainer accessToken={accessToken} />}
 		</div>
 	);
 };

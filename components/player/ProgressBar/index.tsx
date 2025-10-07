@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SeekBar from '@/components/player/SeekBar';
+import SeekBar from '@/components/shared/SeekBar';
 
 const ProgressBar = () => {
 	const [position, setPosition] = useState(60);

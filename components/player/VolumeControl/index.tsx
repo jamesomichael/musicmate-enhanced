@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { FaVolumeHigh } from 'react-icons/fa6';
 
-import SeekBar from '@/components/player/SeekBar';
+import SeekBar from '@/components/shared/SeekBar';
 
 const VolumeControl = () => {
 	const [volume, setVolume] = useState(10);

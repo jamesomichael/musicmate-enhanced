@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
 	FaShuffle,
@@ -7,13 +7,11 @@ import {
 	FaCirclePlay,
 	FaBackwardStep,
 	FaForwardStep,
-	FaVolumeHigh,
 } from 'react-icons/fa6';
 
-import SeekBar from '@/components/player/SeekBar';
+import ProgressBar from '../ProgressBar';
 
 const PlayerControls = () => {
-	const [position, setPosition] = useState(0);
 	return (
 		<div className="flex flex-col gap-2 justify-center items-center">
 			<div className="flex items-center gap-6">
@@ -47,49 +45,7 @@ const PlayerControls = () => {
 					<FaRepeat className="cursor-pointer text-neutral-300 hover:text-white" />
 				</div>
 			</div>
-			<div className="flex justify-center items-center gap-2 w-full">
-				<span className="font-funnel text-xs text-neutral-300">
-					1:15
-					{/* {dayjs.duration(progress, 'milliseconds').format('m:ss')} */}
-				</span>
-				<SeekBar
-					duration={10}
-					position={position}
-					onSeek={(e) => {
-						setPosition(e);
-					}}
-				/>
-				<span className="font-funnel text-xs text-neutral-300">
-					3:00
-					{/* {dayjs.duration(progress, 'milliseconds').format('m:ss')} */}
-				</span>
-				{/**
-				  * 
-				  * 
-				<div className="progress-bar-container w-full">
-					<input
-						type="range"
-						min="0"
-						// max={duration}
-						// value={progress}
-						// onChange={
-						// 	playbackState.device.id === deviceId
-						// 		? handleSeek
-						// 		: () => {}
-						// }
-						// className={`progress-bar ${
-						// 	playbackState.device.id !== deviceId &&
-						// 	'opacity-50 cursor-not-allowed'
-						// }`}
-					/>
-				</div>
-				<span className="font-copy text-xs text-gray-300">
-					3:00
-					{/* {dayjs.duration(duration, 'milliseconds').format('m:ss')} 
-				</span>
-				  * 
-				  */}
-			</div>
+			<ProgressBar />
 		</div>
 	);
 };

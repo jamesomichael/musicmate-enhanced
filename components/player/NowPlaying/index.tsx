@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
+import type { SpotifyArtist } from '@/types/artists';
+
 const NowPlaying = () => {
 	const { isPodcast = false, item } = useAppSelector(getNowPlaying);
 
@@ -27,20 +29,22 @@ const NowPlaying = () => {
 						</span>
 
 						<div className="truncate overflow-hidden w-full">
-							{item.artists.map((artist, idx: number) => (
-								<span
-									key={artist.id}
-									className="font-funnel text-neutral-400 text-sm"
-								>
-									<Link
-										href={`/artists/${artist.id}`}
-										className="hover:text-white hover:underline"
+							{item.artists.map(
+								(artist: SpotifyArtist, idx: number) => (
+									<span
+										key={artist.id}
+										className="font-funnel text-neutral-400 text-sm"
 									>
-										{artist.name}
-									</Link>
-									{idx < item.artists.length - 1 && ', '}
-								</span>
-							))}
+										<Link
+											href={`/artists/${artist.id}`}
+											className="hover:text-white hover:underline"
+										>
+											{artist.name}
+										</Link>
+										{idx < item.artists.length - 1 && ', '}
+									</span>
+								)
+							)}
 						</div>
 					</div>
 				</>

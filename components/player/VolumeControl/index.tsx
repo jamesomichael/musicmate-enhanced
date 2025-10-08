@@ -12,8 +12,11 @@ const VolumeControl = () => {
 	};
 
 	return (
-		<div className="flex items-center gap-2">
-			<FaVolumeHigh className="cursor-pointer text-neutral-300 hover:text-white" />
+		<div className="flex items-center gap-2.5">
+			<FaVolumeHigh
+				size={17}
+				className="cursor-pointer text-neutral-300 hover:text-white"
+			/>
 			<SeekBar
 				duration={10}
 				position={volume}

@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.9.0",
 		"axios": "^1.12.2",
+		"dayjs": "^1.11.18",
 		"motion": "^12.23.22",
 		"next": "15.5.4",
 		"react": "19.1.0",

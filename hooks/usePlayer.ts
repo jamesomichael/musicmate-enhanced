@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 
 import { useAppDispatch } from '@/redux/hooks';

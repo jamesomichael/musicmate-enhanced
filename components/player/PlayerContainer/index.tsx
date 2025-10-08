@@ -4,22 +4,22 @@ import React from 'react';
 import NowPlaying from '../NowPlaying';
 import PlayerControls from '../PlayerControls';
 import PlayerExtras from '../PlayerExtras';
+import ExternalDeviceIndicator from '../ExternalDeviceIndicator';
 
 import usePlayer from '@/hooks/usePlayer';
 
 import { useAppSelector } from '@/redux/hooks';
-import { getCurrentTrack } from '@/redux/slices/playerSlice';
-import ExternalDeviceIndicator from '../ExternalDeviceIndicator';
+import { getNowPlaying } from '@/redux/slices/playerSlice';
 
 const PlayerContainer = ({ accessToken }: { accessToken: string }) => {
 	usePlayer(accessToken);
 
-	// const playbackState = useAppSelector((state) => state.player.playbackState);
-	// const currentTrack = useAppSelector(getCurrentTrack);
+	const { isPlaying = false, isExternal = false } =
+		useAppSelector(getNowPlaying);
 
-	// if (!currentTrack) {
-	// 	return null;
-	// }
+	if (!isPlaying) {
+		return null;
+	}
 
 	return (
 		<div className="flex flex-col">
@@ -28,7 +28,7 @@ const PlayerContainer = ({ accessToken }: { accessToken: string }) => {
 				<PlayerControls />
 				<PlayerExtras />
 			</div>
-			{true && <ExternalDeviceIndicator />}
+			{isExternal && <ExternalDeviceIndicator />}
 		</div>
 	);
 };

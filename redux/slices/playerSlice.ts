@@ -8,12 +8,8 @@ import axios from 'axios';
 const initialState = {
 	deviceId: null,
 	isReady: false,
-	// player: null,
 	playbackState: null,
-
 	isLoading: false,
-	// hasFetched: false,
-	// categories: [],
 };
 
 export const play = createAsyncThunk('player/play', async () => {
@@ -54,21 +50,24 @@ const playerSlice = createSlice({
 			state.playbackState = action.payload;
 			state.isLoading = false;
 		});
-		// builder.addCase(fetchCategories.rejected, (state) => {
-		// 	state.categories = [];
-		// 	state.hasFetched = true;
-		// 	state.isLoading = false;
-		// });
 	},
 });
 
-export const getCurrentTrack = createSelector(
-	[(state) => state.player.playbackState],
-	(playbackState) => {
+export const getNowPlaying = createSelector(
+	[(state) => state.player.deviceId, (state) => state.player.playbackState],
+	(deviceId, playbackState) => {
 		if (!playbackState) {
-			return null;
+			return { isPlaying: false };
 		}
-		return playbackState.item;
+		return {
+			isPlaying: playbackState.is_playing,
+			isExternal: playbackState.device.id !== deviceId,
+			isPodcast: playbackState.currently_playing_type === 'episode',
+			device: playbackState.device,
+			progress: playbackState.progress_ms,
+			item: playbackState.item,
+			context: playbackState.context,
+		};
 	}
 );
 

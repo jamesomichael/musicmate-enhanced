@@ -2,12 +2,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import authReducer from './slices/authSlice';
 import userReducer from './slices/userSlice';
+import libraryReducer from './slices/librarySlice';
 import categoriesReducer from './slices/categoriesSlice';
 import playerReducer from './slices/playerSlice';
 
 const reducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
+	library: libraryReducer,
 	categories: categoriesReducer,
 	player: playerReducer,
 });

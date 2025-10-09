@@ -73,8 +73,36 @@ const fetchPlaybackState = async (accessToken: string) => {
 	}
 };
 
+const fetchUserPlaylists = async (
+	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
+	accessToken: string
+) => {
+	console.log("[fetchUserPlaylists] Fetching the user's playlists...");
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchUserPlaylists] Playlists retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchUserPlaylists] Unable to fetch playlists:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
 export default {
 	fetchCurrentUser,
 	fetchCategories,
 	fetchPlaybackState,
+	fetchUserPlaylists,
 };

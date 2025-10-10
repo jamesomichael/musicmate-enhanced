@@ -1,4 +1,5 @@
-import type { LikedSongsPlaylist, SpotifyPlaylist } from './playlists';
+import type { AlbumsState } from './albums';
+import type { PlaylistsState } from './playlists';
 
 export type LibraryTabType = 'playlists' | 'albums' | 'tracks' | null;
 
@@ -12,7 +13,7 @@ interface LibraryPanel {
 	tabs: LibraryTab[];
 }
 
-interface Pagination {
+export interface Pagination {
 	href: string;
 	limit: number;
 	offset: number;
@@ -21,13 +22,8 @@ interface Pagination {
 	total: number;
 }
 
-interface PlaylistsState {
-	isLoading: boolean;
-	pagination: Pagination | null;
-	items: (LikedSongsPlaylist | SpotifyPlaylist)[];
-}
-
 export interface LibraryState {
 	panel: LibraryPanel;
 	playlists: PlaylistsState;
+	albums: AlbumsState;
 }

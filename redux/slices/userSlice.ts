@@ -2,59 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { logOut } from './authSlice';
 
-interface UserState {
-	displayName: string | null;
-	country: string | null;
-	email: string | null;
-	explicitContent: {
-		filter_enabled: boolean;
-		filter_locked: boolean;
-	} | null;
-	externalUrls: {
-		spotify: string;
-	} | null;
-	followers: {
-		href: string | null;
-		total: number;
-	} | null;
-	href: string | null;
-	id: string | null;
-	images: Array<{
-		height: number | null;
-		url: string;
-		width: number | null;
-	}> | null;
-	product: string | null;
-	type: string | null;
-	uri: string | null;
-}
-
-interface SpotifyUserDto {
-	display_name: string | null;
-	country: string | null;
-	email: string | null;
-	explicit_content: {
-		filter_enabled: boolean;
-		filter_locked: boolean;
-	} | null;
-	external_urls: {
-		spotify: string;
-	} | null;
-	followers: {
-		href: string | null;
-		total: number;
-	} | null;
-	href: string | null;
-	id: string | null;
-	images: Array<{
-		height: number | null;
-		url: string;
-		width: number | null;
-	}> | null;
-	product: string | null;
-	type: string | null;
-	uri: string | null;
-}
+import type { SpotifyUser } from '@/types/spotify';
+import type { UserState } from '@/types/user';
 
 const initialState: UserState = {
 	displayName: null,
@@ -71,9 +20,7 @@ const initialState: UserState = {
 	uri: null,
 };
 
-export const preloadedUserState = (
-	user: Partial<SpotifyUserDto>
-): UserState => ({
+export const preloadedUserState = (user: Partial<SpotifyUser>): UserState => ({
 	displayName: user?.display_name ?? null,
 	country: user?.country ?? null,
 	email: user?.email ?? null,

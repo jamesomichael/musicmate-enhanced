@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 import spotifyService from '@/services/spotify.service';
 
-import type { Category } from '@/types/categories';
+import type { SpotifyCategory } from '@/types/spotify';
 
 const GET = async () => {
 	const cookieStore = await cookies();
@@ -19,7 +19,7 @@ const GET = async () => {
 	try {
 		const limit = 50;
 		let offset = 0;
-		let allCategories: Category[] = [];
+		let allCategories: SpotifyCategory[] = [];
 		let hasMore = true;
 
 		while (hasMore) {

@@ -22,8 +22,14 @@ const LibraryPlaylists = () => {
 					}
 					imageUrl={playlist.images[0]?.url}
 					name={playlist.name}
-					isPinned={playlist.isPinned}
-					secondaryText={playlist.owner?.display_name}
+					isPinned={
+						'isPinned' in playlist ? playlist.isPinned : false
+					}
+					secondaryText={
+						'owner' in playlist
+							? playlist.owner.display_name
+							: undefined
+					}
 				/>
 			))}
 		</div>

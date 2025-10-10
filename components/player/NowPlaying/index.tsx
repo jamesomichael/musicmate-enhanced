@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
-import type { SpotifyArtist } from '@/types/artists';
+import type { SpotifyArtist } from '@/types/spotify';
 
 const NowPlaying = () => {
 	const { isPodcast = false, item } = useAppSelector(getNowPlaying);

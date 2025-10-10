@@ -10,9 +10,9 @@ const Browse = () => {
 	return (
 		<div className="h-full grid grid-rows-[auto_1fr] gap-4">
 			<div className="px-8 pt-8 flex flex-col gap-2">
-				<div className="flex justify-start items-center gap-2 text-neutral-300">
-					<BiSolidCategory size={30} />
-					<span className="font-unbounded md:text-lg lg:text-xl font-bold">
+				<div className="flex justify-start items-center gap-1.5 lg:gap-2 text-neutral-300">
+					<BiSolidCategory className="w-6 h-6 lg:w-8 lg:h-8" />
+					<span className="font-funnel md:text-lg lg:text-2xl font-bold">
 						Browse all
 					</span>
 				</div>

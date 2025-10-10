@@ -110,6 +110,7 @@ export interface SpotifyPlaylist {
 
 export interface SpotifyTrack {
 	artists: SpotifyArtist[];
+	album: SpotifyAlbum;
 	available_markets: string[];
 	disc_number: number;
 	duration_ms: number;
@@ -123,6 +124,11 @@ export interface SpotifyTrack {
 	type: 'track';
 	uri: string;
 	is_local: boolean;
+}
+
+export interface SpotifyLibraryLikedSong {
+	added_at: string;
+	track: SpotifyTrack;
 }
 
 export interface SpotifyUser {

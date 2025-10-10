@@ -123,6 +123,33 @@ export const fetchUserAlbums = async (
 				error.message
 			);
 		}
-		return error;
+		throw error;
+	}
+};
+
+export const fetchLikedSongs = async (
+	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
+	accessToken: string
+) => {
+	console.log("[fetchLikedSongs] Fetching the user's liked songs...");
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/me/tracks?limit=${limit}&offset=${offset}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchLikedSongs] Liked songs retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchLikedSongs] Unable to fetch liked songs:',
+				error.message
+			);
+		}
+		throw error;
 	}
 };

@@ -1,5 +1,6 @@
 import type { AlbumsState } from './albums';
 import type { PlaylistsState } from './playlists';
+import type { LikedSongsState } from './tracks';
 
 export type LibraryTabType = 'playlists' | 'albums' | 'tracks' | null;
 
@@ -26,4 +27,5 @@ export interface LibraryState {
 	panel: LibraryPanel;
 	playlists: PlaylistsState;
 	albums: AlbumsState;
+	likedSongs: LikedSongsState;
 }

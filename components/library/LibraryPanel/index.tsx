@@ -38,10 +38,7 @@ const LibraryPanel = () => {
 				</div>
 				<LibraryTabs />
 			</div>
-			<div
-				id="library-infinite-scroll-container"
-				className="h-full text-white overflow-auto"
-			>
+			<div className="h-full text-white overflow-hidden">
 				{activeTab === 'playlists' ? (
 					<LibraryPlaylists />
 				) : activeTab === 'albums' ? (

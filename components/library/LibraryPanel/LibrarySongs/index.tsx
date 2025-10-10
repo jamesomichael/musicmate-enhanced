@@ -24,39 +24,41 @@ const LibrarySongs = () => {
 	return likedSongs.isLoading && likedSongs.items.length === 0 ? (
 		<Loader />
 	) : (
-		<InfiniteScroll
-			dataLength={likedSongs.items.length}
-			next={loadMore}
-			hasMore={hasMore}
-			loader={
-				<div className="py-6">
-					<Loader />
+		<div className="h-full overflow-auto" id="panel-songs-scroll-container">
+			<InfiniteScroll
+				dataLength={likedSongs.items.length}
+				next={loadMore}
+				hasMore={hasMore}
+				loader={
+					<div className="py-6">
+						<Loader />
+					</div>
+				}
+				scrollableTarget="panel-songs-scroll-container"
+				style={{ overflow: 'visible' }}
+			>
+				<div className="flex flex-col pb-3">
+					{likedSongs.items.map(({ track }) => {
+						const artistNames = track.artists.map(
+							(artist) => artist.name
+						);
+						const albumName = track.album.name;
+						const secondaryText = `${artistNames.join(
+							', '
+						)} • ${albumName}`;
+						return (
+							<ListItem
+								key={track.id}
+								href={`/album/${track.album.id}`}
+								imageUrl={track.album.images[0]?.url}
+								name={track.name}
+								secondaryText={secondaryText}
+							/>
+						);
+					})}
 				</div>
-			}
-			scrollableTarget="library-infinite-scroll-container"
-			style={{ overflow: 'visible' }}
-		>
-			<div className="flex flex-col pb-3">
-				{likedSongs.items.map(({ track }) => {
-					const artistNames = track.artists.map(
-						(artist) => artist.name
-					);
-					const albumName = track.album.name;
-					const secondaryText = `${artistNames.join(
-						', '
-					)} • ${albumName}`;
-					return (
-						<ListItem
-							key={track.id}
-							href={`/album/${track.album.id}`}
-							imageUrl={track.album.images[0]?.url}
-							name={track.name}
-							secondaryText={secondaryText}
-						/>
-					);
-				})}
-			</div>
-		</InfiniteScroll>
+			</InfiniteScroll>
+		</div>
 	);
 };
 

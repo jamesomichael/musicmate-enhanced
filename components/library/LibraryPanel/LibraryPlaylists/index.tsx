@@ -27,52 +27,57 @@ const LibraryPlaylists = () => {
 	return playlists.isLoading && playlists.items.length === 1 ? (
 		<Loader />
 	) : (
-		<InfiniteScroll
-			dataLength={playlists.items.length}
-			next={loadMore}
-			hasMore={hasMore}
-			loader={
-				<div className="py-6">
-					<Loader />
-				</div>
-			}
-			scrollableTarget="library-infinite-scroll-container"
-			style={{ overflow: 'visible' }}
+		<div
+			className="h-full overflow-auto"
+			id="panel-playlists-scroll-container"
 		>
-			<div className="flex flex-col pb-3">
-				{playlists.items.map((playlist) => {
-					const isLikedSongs = playlist.id === 'liked-songs';
-					const secondaryText =
-						isLikedSongs && totalLikedSongs
-							? `${totalLikedSongs.toLocaleString()} songs`
-							: 'owner' in playlist
-							? playlist.owner.display_name
-							: undefined;
-					return (
-						<ListItem
-							key={playlist.id}
-							href={
-								playlist.id === 'liked-songs'
-									? '/liked-songs'
-									: `/playlist/${playlist.id}`
-							}
-							imageUrl={
-								playlist.images?.length > 0
-									? playlist.images[0].url
-									: undefined
-							}
-							name={playlist.name}
-							isPinned={
-								'isPinned' in playlist
-									? playlist.isPinned
-									: false
-							}
-							secondaryText={secondaryText}
-						/>
-					);
-				})}
-			</div>
-		</InfiniteScroll>
+			<InfiniteScroll
+				dataLength={playlists.items.length}
+				next={loadMore}
+				hasMore={hasMore}
+				loader={
+					<div className="py-6">
+						<Loader />
+					</div>
+				}
+				scrollableTarget="panel-playlists-scroll-container"
+				style={{ overflow: 'visible' }}
+			>
+				<div className="flex flex-col pb-3">
+					{playlists.items.map((playlist) => {
+						const isLikedSongs = playlist.id === 'liked-songs';
+						const secondaryText =
+							isLikedSongs && totalLikedSongs
+								? `${totalLikedSongs.toLocaleString()} songs`
+								: 'owner' in playlist
+								? playlist.owner.display_name
+								: undefined;
+						return (
+							<ListItem
+								key={playlist.id}
+								href={
+									playlist.id === 'liked-songs'
+										? '/liked-songs'
+										: `/playlist/${playlist.id}`
+								}
+								imageUrl={
+									playlist.images?.length > 0
+										? playlist.images[0].url
+										: undefined
+								}
+								name={playlist.name}
+								isPinned={
+									'isPinned' in playlist
+										? playlist.isPinned
+										: false
+								}
+								secondaryText={secondaryText}
+							/>
+						);
+					})}
+				</div>
+			</InfiniteScroll>
+		</div>
 	);
 };
 

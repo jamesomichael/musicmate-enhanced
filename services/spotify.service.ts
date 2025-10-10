@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const fetchCurrentUser = async (accessToken: string) => {
+export const fetchCurrentUser = async (accessToken: string) => {
 	console.log('[fetchCurrentUser] Fetching user...');
 	try {
 		const response = await axios.get('https://api.spotify.com/v1/me', {
@@ -21,7 +21,7 @@ const fetchCurrentUser = async (accessToken: string) => {
 	}
 };
 
-const fetchCategories = async (
+export const fetchCategories = async (
 	{ limit = 50, offset = 0 },
 	accessToken: string
 ) => {
@@ -48,7 +48,7 @@ const fetchCategories = async (
 	}
 };
 
-const fetchPlaybackState = async (accessToken: string) => {
+export const fetchPlaybackState = async (accessToken: string) => {
 	console.log('[fetchPlaybackState] Fetching playback state...');
 	try {
 		const response = await axios.get(
@@ -73,7 +73,7 @@ const fetchPlaybackState = async (accessToken: string) => {
 	}
 };
 
-const fetchUserPlaylists = async (
+export const fetchUserPlaylists = async (
 	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
 	accessToken: string
 ) => {
@@ -100,7 +100,7 @@ const fetchUserPlaylists = async (
 	}
 };
 
-const fetchUserAlbums = async (
+export const fetchUserAlbums = async (
 	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
 	accessToken: string
 ) => {
@@ -125,12 +125,4 @@ const fetchUserAlbums = async (
 		}
 		return error;
 	}
-};
-
-export default {
-	fetchCurrentUser,
-	fetchCategories,
-	fetchPlaybackState,
-	fetchUserPlaylists,
-	fetchUserAlbums,
 };

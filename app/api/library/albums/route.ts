@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-import spotifyService from '@/services/spotify.service';
+import { fetchUserAlbums } from '@/services/spotify.service';
 
 const GET = async () => {
 	const cookieStore = await cookies();
@@ -15,7 +15,7 @@ const GET = async () => {
 	}
 
 	try {
-		const data = await spotifyService.fetchUserAlbums({}, accessToken);
+		const data = await fetchUserAlbums({}, accessToken);
 		return NextResponse.json(data);
 	} catch (error) {
 		return NextResponse.json(

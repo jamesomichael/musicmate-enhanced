@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-import spotifyService from '@/services/spotify.service';
+import { fetchCategories } from '@/services/spotify.service';
 
 import type { SpotifyCategory } from '@/types/spotify';
 
@@ -23,10 +23,7 @@ const GET = async () => {
 		let hasMore = true;
 
 		while (hasMore) {
-			const data = await spotifyService.fetchCategories(
-				{ limit, offset },
-				accessToken
-			);
+			const data = await fetchCategories({ limit, offset }, accessToken);
 			allCategories = [...allCategories, ...data.categories.items];
 			offset += limit;
 			hasMore = data.categories.items.length === limit;

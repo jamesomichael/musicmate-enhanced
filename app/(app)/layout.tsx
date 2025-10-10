@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import AppLayout from '@/layouts/AppLayout';
 
-import spotifyService from '@/services/spotify.service';
+import { fetchCurrentUser } from '@/services/spotify.service';
 
 import StoreProvider from '@/redux/StoreProvider';
 import { preloadedAuthState } from '@/redux/slices/authSlice';
@@ -50,7 +50,7 @@ export default async function Layout({
 	}
 
 	try {
-		currentUser = await spotifyService.fetchCurrentUser(accessToken);
+		currentUser = await fetchCurrentUser(accessToken);
 	} catch (error) {
 		if (axios.isAxiosError(error) && error.response?.status === 403) {
 			redirect('/unauthorised');

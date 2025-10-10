@@ -6,10 +6,14 @@ import { LuSquareLibrary } from 'react-icons/lu';
 import Loader from '@/components/shared/Loader';
 import LibraryTabs from './LibraryTabs';
 import LibraryPlaylists from './LibraryPlaylists';
+import LibraryAlbums from './LibraryAlbums';
 
 import { useAppSelector } from '@/redux/hooks';
 import { useAppDispatch } from '@/redux/hooks';
-import { fetchUserPlaylists } from '@/redux/slices/librarySlice';
+import {
+	fetchUserPlaylists,
+	fetchUserAlbums,
+} from '@/redux/slices/librarySlice';
 
 const LibraryPanel = () => {
 	const { activeTab } = useAppSelector((state) => state.library.panel);
@@ -17,6 +21,7 @@ const LibraryPanel = () => {
 
 	useEffect(() => {
 		dispatch(fetchUserPlaylists());
+		dispatch(fetchUserAlbums());
 	}, []);
 
 	return (
@@ -31,7 +36,13 @@ const LibraryPanel = () => {
 				<LibraryTabs />
 			</div>
 			<div className="h-full text-white overflow-auto">
-				{activeTab === 'playlists' ? <LibraryPlaylists /> : <Loader />}
+				{activeTab === 'playlists' ? (
+					<LibraryPlaylists />
+				) : activeTab === 'albums' ? (
+					<LibraryAlbums />
+				) : (
+					<Loader />
+				)}
 			</div>
 		</div>
 	);

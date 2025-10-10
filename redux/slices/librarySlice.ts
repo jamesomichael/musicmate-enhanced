@@ -37,12 +37,26 @@ const initialState: LibraryState = {
 			},
 		],
 	},
+	albums: {
+		isLoading: true,
+		pagination: null,
+		items: [],
+	},
 };
 
 export const fetchUserPlaylists = createAsyncThunk(
 	'library/fetchUserPlaylists',
 	async () => {
 		const response = await axios.get('/api/library/playlists');
+		const data = response.data;
+		return data;
+	}
+);
+
+export const fetchUserAlbums = createAsyncThunk(
+	'library/fetchUserAlbums',
+	async () => {
+		const response = await axios.get('/api/library/albums');
 		const data = response.data;
 		return data;
 	}
@@ -72,6 +86,24 @@ const librarySlice = createSlice({
 			};
 			state.playlists.items = [
 				...state.playlists.items,
+				...action.payload.items,
+			];
+		});
+		builder.addCase(fetchUserAlbums.rejected, (state) => {
+			state.albums.isLoading = false;
+		});
+		builder.addCase(fetchUserAlbums.fulfilled, (state, action) => {
+			state.albums.isLoading = false;
+			state.albums.pagination = {
+				href: action.payload.href,
+				limit: action.payload.limit,
+				offset: action.payload.offset,
+				next: action.payload.next,
+				previous: action.payload.previous,
+				total: action.payload.total,
+			};
+			state.albums.items = [
+				...state.albums.items,
 				...action.payload.items,
 			];
 		});

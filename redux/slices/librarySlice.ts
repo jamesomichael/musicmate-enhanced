@@ -51,8 +51,10 @@ const initialState: LibraryState = {
 
 export const fetchUserPlaylists = createAsyncThunk(
 	'library/fetchUserPlaylists',
-	async () => {
-		const response = await axios.get('/api/library/playlists');
+	async ({ offset = 0, limit = 50 }: { offset?: number; limit?: number }) => {
+		const response = await axios.get(
+			`/api/library/playlists?offset=${offset}&limit=${limit}`
+		);
 		const data = response.data;
 		return data;
 	}

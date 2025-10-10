@@ -22,7 +22,7 @@ const LibraryPanel = () => {
 	}, []);
 
 	return (
-		<div className="h-full flex flex-col gap-2 p-2 overflow-auto">
+		<div className="h-full flex flex-col gap-2 p-2">
 			<div className="flex flex-col gap-4 p-2">
 				<div className="flex items-center py-1 gap-2 text-neutral-300">
 					<LuSquareLibrary size={25} />
@@ -32,7 +32,7 @@ const LibraryPanel = () => {
 				</div>
 				<LibraryTabs />
 			</div>
-			<div className="h-full text-white">
+			<div className="h-full text-white overflow-auto">
 				{playlists.isLoading ? (
 					<Loader />
 				) : (

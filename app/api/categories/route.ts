@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-import { fetchCategories } from '@/services/spotify.service';
+import { fetchCategories } from '@/services/spotify';
 
 import type { SpotifyCategory } from '@/types/spotify';
 

@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-import { fetchUserPlaylists } from '@/services/spotify.service';
+import { fetchUserPlaylists } from '@/services/spotify';
 
 const GET = async () => {
 	const cookieStore = await cookies();

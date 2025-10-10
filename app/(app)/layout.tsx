@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import AppLayout from '@/layouts/AppLayout';
 
-import { fetchCurrentUser } from '@/services/spotify.service';
+import { fetchCurrentUser } from '@/services/spotify';
 
 import StoreProvider from '@/redux/StoreProvider';
 import { preloadedAuthState } from '@/redux/slices/authSlice';

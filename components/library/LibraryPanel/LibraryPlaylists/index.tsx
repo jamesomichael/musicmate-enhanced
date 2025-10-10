@@ -23,6 +23,7 @@ const LibraryPlaylists = () => {
 		}
 	};
 
+	// Show a loader if loading and only the default "Liked Songs" playlist exists...
 	return playlists.isLoading && playlists.items.length === 1 ? (
 		<Loader />
 	) : (

@@ -1,20 +1,18 @@
 'use client';
 import React, { useEffect } from 'react';
-import Link from 'next/link';
 
 import { LuSquareLibrary } from 'react-icons/lu';
-import { BsFillPinAngleFill } from 'react-icons/bs';
 
-import LibraryTabs from './LibraryTabs';
 import Loader from '@/components/shared/Loader';
+import LibraryTabs from './LibraryTabs';
+import LibraryPlaylists from './LibraryPlaylists';
 
 import { useAppSelector } from '@/redux/hooks';
 import { useAppDispatch } from '@/redux/hooks';
 import { fetchUserPlaylists } from '@/redux/slices/librarySlice';
-import ListItem from './ListItem';
 
 const LibraryPanel = () => {
-	const { playlists } = useAppSelector((state) => state.library);
+	const { activeTab } = useAppSelector((state) => state.library.panel);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -33,22 +31,7 @@ const LibraryPanel = () => {
 				<LibraryTabs />
 			</div>
 			<div className="h-full text-white overflow-auto">
-				{playlists.isLoading ? (
-					<Loader />
-				) : (
-					<div className="flex flex-col pb-3">
-						{playlists.items.map((playlist) => (
-							<ListItem
-								key={playlist.id}
-								href={`/playlist/${playlist.id}`}
-								imageUrl={playlist.images[0]?.url}
-								name={playlist.name}
-								isPinned={playlist.isPinned}
-								secondaryText={playlist.owner?.display_name}
-							/>
-						))}
-					</div>
-				)}
+				{activeTab === 'playlists' ? <LibraryPlaylists /> : <Loader />}
 			</div>
 		</div>
 	);

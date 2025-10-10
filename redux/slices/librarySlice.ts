@@ -26,7 +26,7 @@ const initialState: LibraryState = {
 		pagination: null,
 		items: [
 			{
-				id: 'library',
+				id: 'liked-songs',
 				name: 'Liked Songs',
 				images: [
 					{

@@ -5,7 +5,7 @@ interface PlaylistImage {
 }
 
 export interface LikedSongsPlaylist extends BasePlaylist {
-	id: 'library';
+	id: 'liked-songs';
 	name: 'Liked Songs';
 	isPinned: true;
 }

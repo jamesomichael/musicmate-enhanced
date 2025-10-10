@@ -13,11 +13,11 @@ const LibraryAlbums = () => {
 	) : (
 		<div className="flex flex-col pb-3">
 			{albums.items.map(({ album }) => {
-				const artist = album.artists[0]?.name;
+				const artistNames = album.artists.map((artist) => artist.name);
 				const secondaryText =
 					album.album_type === 'single'
-						? `Single • ${artist}`
-						: artist;
+						? `Single • ${artistNames.join(', ')}`
+						: artistNames.join(', ');
 				return (
 					<ListItem
 						key={album.id}

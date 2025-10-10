@@ -36,16 +36,16 @@ const ListItem = ({
 				></div>
 			)}
 			<div className="flex flex-col justify-center truncate">
-				<div className="flex items-center gap-1">
-					{isPinned && (
-						<BsFillPinAngleFill className="text-spotify-green" />
-					)}
-					<span className="font-funnel truncate">{name}</span>
-				</div>
+				<span className="font-funnel truncate">{name}</span>
 				{secondaryText && (
-					<span className="truncate font-funnel text-sm text-neutral-400">
-						{secondaryText}
-					</span>
+					<div className="flex items-center gap-1">
+						{isPinned && (
+							<BsFillPinAngleFill className="text-spotify-green" />
+						)}
+						<span className="truncate font-funnel text-sm text-neutral-400">
+							{secondaryText}
+						</span>
+					</div>
 				)}
 			</div>
 		</Link>

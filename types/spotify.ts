@@ -32,7 +32,7 @@ export interface SpotifyFollowers {
 	total: number;
 }
 
-interface SpotifyPaginatedResponse {
+export interface SpotifyPaginatedResponse {
 	href: string;
 	limit: number;
 	next: string | null;

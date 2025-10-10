@@ -1,50 +1,39 @@
 import React from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Loader from '@/components/shared/Loader';
+import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 import ListItem from '../ListItem';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+
+import { useAppSelector } from '@/redux/hooks';
 import { fetchUserPlaylists } from '@/redux/slices/librarySlice';
+
+import type { LikedSongsPlaylist } from '@/types/playlists';
+import type { SpotifyPlaylist } from '@/types/spotify';
 
 const LibraryPlaylists = () => {
 	const { playlists, likedSongs } = useAppSelector((state) => state.library);
-	const dispatch = useAppDispatch();
+	const { hasMore, loadMore } = useInfiniteScroll(
+		playlists?.pagination,
+		fetchUserPlaylists
+	);
 
 	const totalLikedSongs = likedSongs.pagination?.total;
-
-	const hasMore = !!playlists.pagination?.next;
-
-	const loadMore = () => {
-		if (playlists.pagination && hasMore) {
-			const { offset, limit } = playlists.pagination;
-			const newOffset = offset + limit;
-			dispatch(fetchUserPlaylists({ offset: newOffset, limit }));
-		}
-	};
 
 	// Show a loader if loading and only the default "Liked Songs" playlist exists...
 	return playlists.isLoading && playlists.items.length === 1 ? (
 		<Loader />
 	) : (
-		<div
-			className="h-full overflow-auto"
+		<InfiniteScrollContainer
 			id="panel-playlists-scroll-container"
+			dataLength={playlists.items.length}
+			next={loadMore}
+			hasMore={hasMore}
 		>
-			<InfiniteScroll
-				dataLength={playlists.items.length}
-				next={loadMore}
-				hasMore={hasMore}
-				loader={
-					<div className="py-6">
-						<Loader />
-					</div>
-				}
-				scrollableTarget="panel-playlists-scroll-container"
-				style={{ overflow: 'visible' }}
-			>
-				<div className="flex flex-col pb-3">
-					{playlists.items.map((playlist) => {
+			<div className="flex flex-col pb-3">
+				{playlists.items.map(
+					(playlist: LikedSongsPlaylist | SpotifyPlaylist) => {
 						const isLikedSongs = playlist.id === 'liked-songs';
 						const secondaryText =
 							isLikedSongs && totalLikedSongs
@@ -74,10 +63,10 @@ const LibraryPlaylists = () => {
 								secondaryText={secondaryText}
 							/>
 						);
-					})}
-				</div>
-			</InfiniteScroll>
-		</div>
+					}
+				)}
+			</div>
+		</InfiniteScrollContainer>
 	);
 };
 

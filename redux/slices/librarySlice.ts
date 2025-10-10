@@ -69,8 +69,10 @@ export const fetchUserAlbums = createAsyncThunk(
 
 export const fetchUserLikedSongs = createAsyncThunk(
 	'library/fetchUserLikedSongs',
-	async () => {
-		const response = await axios.get('/api/library/songs');
+	async ({ offset = 0, limit = 50 }: { offset?: number; limit?: number }) => {
+		const response = await axios.get(
+			`/api/library/songs?offset=${offset}&limit=${limit}`
+		);
 		const data = response.data;
 		return data;
 	}

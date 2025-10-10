@@ -24,7 +24,7 @@ const LibraryPanel = () => {
 	useEffect(() => {
 		dispatch(fetchUserPlaylists());
 		dispatch(fetchUserAlbums());
-		dispatch(fetchUserLikedSongs());
+		dispatch(fetchUserLikedSongs({}));
 	}, []);
 
 	return (
@@ -38,7 +38,10 @@ const LibraryPanel = () => {
 				</div>
 				<LibraryTabs />
 			</div>
-			<div className="h-full text-white overflow-auto">
+			<div
+				id="library-infinite-scroll-container"
+				className="h-full text-white overflow-auto"
+			>
 				{activeTab === 'playlists' ? (
 					<LibraryPlaylists />
 				) : activeTab === 'albums' ? (

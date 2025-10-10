@@ -23,7 +23,7 @@ const LibraryPanel = () => {
 
 	useEffect(() => {
 		dispatch(fetchUserPlaylists({}));
-		dispatch(fetchUserAlbums());
+		dispatch(fetchUserAlbums({}));
 		dispatch(fetchUserLikedSongs({}));
 	}, []);
 

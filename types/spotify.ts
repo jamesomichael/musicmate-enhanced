@@ -53,8 +53,10 @@ export interface SpotifyCategory {
 	name: string;
 }
 
+export type SpotifyAlbumType = 'album' | 'single' | 'compilation';
+
 export interface SpotifyAlbum {
-	album_type: 'album' | 'single' | 'compilation';
+	album_type: SpotifyAlbumType;
 	total_tracks: number;
 	external_urls: SpotifyExternalUrl;
 	available_markets: string[];
@@ -67,7 +69,7 @@ export interface SpotifyAlbum {
 	type: 'album';
 	uri: string;
 	artists: SpotifyArtist[];
-	tracks: SpotifyPaginatedResponse[];
+	tracks: SpotifyPaginatedResponse;
 	copyrights: SpotifyCopyright[];
 	label: string;
 	popularity: number;
@@ -103,7 +105,7 @@ export interface SpotifyPlaylist {
 	primary_color: string | null;
 	public: boolean;
 	snapshot_id: string;
-	tracks: SpotifyPaginatedResponse[];
+	tracks: SpotifyPaginatedResponse;
 	type: 'playlist';
 	uri: string;
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import he from 'he';
 
+import { IoIosMusicalNotes } from 'react-icons/io';
+
 import type { Creator } from '@/types/collections';
 import type { SpotifyAlbumType } from '@/types/spotify';
 
@@ -34,13 +36,17 @@ const CollectionHeader = ({
 		>
 			<div className="grid grid-rows-[auto_1fr]">
 				<div className="h-72 grid grid-cols-[auto_1fr] gap-6 p-8">
-					{imageUrl && (
+					{imageUrl ? (
 						<div
 							className="bg-cover bg-center h-full aspect-square rounded-md"
 							style={{
 								backgroundImage: `url(${imageUrl})`,
 							}}
 						></div>
+					) : (
+						<div className="h-full flex justify-center items-center aspect-square rounded-md bg-neutral-800">
+							<IoIosMusicalNotes className="w-28 h-28 text-neutral-400" />
+						</div>
 					)}
 					<div className="flex flex-col justify-end gap-2 overflow-auto">
 						<span className="capitalize leading-none font-funnel text-xs text-white">

@@ -153,3 +153,82 @@ export const fetchLikedSongs = async (
 		throw error;
 	}
 };
+
+export const fetchPlaylistById = async (
+	playlistId: string,
+	accessToken: string
+) => {
+	console.log('[fetchPlaylistById] Fetching playlist...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/playlists/${playlistId}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchPlaylistById] Playlist retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchPlaylistById] Unable to fetch playlist:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
+export const fetchPlaylistItems = async (
+	playlistId: string,
+	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
+	accessToken: string
+) => {
+	console.log('[fetchPlaylistItems] Fetching playlist items...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=${limit}&offset=${offset}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchPlaylistItems] Playlist items retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchPlaylistItems] Unable to fetch playlist items:',
+				error.message
+			);
+		}
+		throw Error;
+	}
+};
+
+export const fetchAlbumById = async (id: string, accessToken: string) => {
+	console.log('[fetchAlbumById] Fetching album...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/albums/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchAlbumById] Album retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchAlbumById] Unable to fetch album:',
+				error.message
+			);
+		}
+		throw Error;
+	}
+};

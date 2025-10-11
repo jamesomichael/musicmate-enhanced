@@ -22,7 +22,7 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 	return (
 		<CollectionHeader
 			type={albumData.album_type}
-			imageUrl={albumData.images[0]?.url}
+			imageUrl={albumData.images?.[0]?.url}
 			title={albumData.name}
 			creators={artists}
 			totalTracks={albumData.total_tracks}

@@ -6,10 +6,10 @@ import type { AsyncThunk } from '@reduxjs/toolkit';
 import type { Pagination } from '@/types/library';
 import type { SpotifyPaginatedResponse } from '@/types/spotify';
 
-const useInfiniteScroll = (
+const useInfiniteScroll = <T>(
 	paginationData: Pagination | null,
 	fetchThunk: AsyncThunk<
-		SpotifyPaginatedResponse,
+		SpotifyPaginatedResponse<T>,
 		{ offset?: number; limit?: number },
 		object
 	>

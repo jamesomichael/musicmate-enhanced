@@ -14,7 +14,7 @@ import type { SpotifyPlaylist } from '@/types/spotify';
 
 const LibraryPlaylists = () => {
 	const { playlists, likedSongs } = useAppSelector((state) => state.library);
-	const { hasMore, loadMore } = useInfiniteScroll(
+	const { hasMore, loadMore } = useInfiniteScroll<SpotifyPlaylist>(
 		playlists?.pagination,
 		fetchUserPlaylists
 	);

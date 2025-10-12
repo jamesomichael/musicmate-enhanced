@@ -9,9 +9,11 @@ import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 import { useAppSelector } from '@/redux/hooks';
 import { fetchUserAlbums } from '@/redux/slices/librarySlice';
 
+import type { SpotifyLibraryAlbum } from '@/types/spotify';
+
 const LibraryAlbums = () => {
 	const { albums } = useAppSelector((state) => state.library);
-	const { hasMore, loadMore } = useInfiniteScroll(
+	const { hasMore, loadMore } = useInfiniteScroll<SpotifyLibraryAlbum>(
 		albums?.pagination,
 		fetchUserAlbums
 	);

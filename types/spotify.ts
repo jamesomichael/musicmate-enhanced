@@ -32,18 +32,14 @@ export interface SpotifyFollowers {
 	total: number;
 }
 
-export interface SpotifyPaginatedResponse {
+export interface SpotifyPaginatedResponse<T> {
 	href: string;
 	limit: number;
 	next: string | null;
 	offset: number;
 	previous: string | null;
 	total: number;
-	items:
-		| SpotifyTrack[]
-		| SpotifyAlbum[]
-		| SpotifyArtist[]
-		| SpotifyCategory[];
+	items: T[];
 }
 
 export interface SpotifyCategory {
@@ -69,7 +65,7 @@ export interface SpotifyAlbum {
 	type: 'album';
 	uri: string;
 	artists: SpotifyArtist[];
-	tracks: SpotifyPaginatedResponse;
+	tracks: SpotifyPaginatedResponse<SpotifyTrack>;
 	copyrights: SpotifyCopyright[];
 	label: string;
 	popularity: number;
@@ -78,6 +74,14 @@ export interface SpotifyAlbum {
 export interface SpotifyLibraryAlbum {
 	added_at: string;
 	album: SpotifyAlbum;
+}
+
+export interface SpotifyPlaylistItem {
+	added_at: string;
+	added_by: SpotifyUser;
+	is_local: boolean;
+	primary_color: string | null;
+	track: SpotifyTrack;
 }
 
 export interface SpotifyArtist {
@@ -105,7 +109,7 @@ export interface SpotifyPlaylist {
 	primary_color: string | null;
 	public: boolean;
 	snapshot_id: string;
-	tracks: SpotifyPaginatedResponse;
+	tracks: SpotifyPaginatedResponse<SpotifyPlaylistItem>;
 	type: 'playlist';
 	uri: string;
 }
@@ -133,17 +137,26 @@ export interface SpotifyLibraryLikedSong {
 	track: SpotifyTrack;
 }
 
-export interface SpotifyUser {
+interface SpotifyBaseUser {
+	id: string;
+	uri: string;
+	type: 'user';
+	external_urls: SpotifyExternalUrl;
+}
+export interface SpotifyUser extends SpotifyBaseUser {
+	display_name?: string;
+	followers?: SpotifyFollowers;
+	href: string;
+	images?: SpotifyImage[];
+}
+
+export interface SpotifyCurrentUser extends SpotifyBaseUser {
 	country?: string;
 	display_name?: string;
 	email?: string;
 	explicit_content: SpotifyExplicitContent;
-	external_urls: SpotifyExternalUrl;
 	followers: SpotifyFollowers;
 	href: string;
-	id: string;
 	images: SpotifyImage[];
 	product: string;
-	type: 'user';
-	uri: string;
 }

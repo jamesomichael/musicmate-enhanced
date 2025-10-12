@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { logOut } from './authSlice';
 
-import type { SpotifyUser } from '@/types/spotify';
+import type { SpotifyCurrentUser } from '@/types/spotify';
 import type { UserState } from '@/types/user';
 
 const initialState: UserState = {
@@ -20,7 +20,9 @@ const initialState: UserState = {
 	uri: null,
 };
 
-export const preloadedUserState = (user: Partial<SpotifyUser>): UserState => ({
+export const preloadedUserState = (
+	user: Partial<SpotifyCurrentUser>
+): UserState => ({
 	displayName: user?.display_name ?? null,
 	country: user?.country ?? null,
 	email: user?.email ?? null,

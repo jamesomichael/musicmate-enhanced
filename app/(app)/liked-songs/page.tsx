@@ -2,6 +2,7 @@
 import React from 'react';
 
 import CollectionHeader from '@/components/collection/CollectionHeader';
+import CollectionTracklist from '@/components/collection/CollectionTracklist';
 
 import { useAppSelector } from '@/redux/hooks';
 
@@ -9,7 +10,7 @@ const LikedSongs = () => {
 	const { likedSongs } = useAppSelector((state) => state.library);
 	const user = useAppSelector((state) => state.user);
 
-	if (!user || !likedSongs) {
+	if (!user || !likedSongs || !likedSongs.pagination) {
 		return null;
 	}
 
@@ -19,16 +20,23 @@ const LikedSongs = () => {
 	};
 
 	return (
-		<CollectionHeader
-			type="playlist"
-			imageUrl="/liked-songs-300.jpg"
-			title="Liked Songs"
-			creators={[owner]}
-			gradientFrom="from-blue-800"
-			gradientTo="to-blue-950"
-			totalTracks={likedSongs.pagination!.total}
-			showControls={true}
-		/>
+		<>
+			<CollectionHeader
+				type="playlist"
+				imageUrl="/liked-songs-300.jpg"
+				title="Liked Songs"
+				creators={[owner]}
+				gradientFrom="from-blue-800"
+				gradientTo="to-blue-950"
+				totalTracks={likedSongs.pagination.total}
+				showControls={true}
+			/>
+			<CollectionTracklist
+				type="playlist"
+				paginationData={likedSongs.pagination}
+				tracks={likedSongs.items}
+			/>
+		</>
 	);
 };
 

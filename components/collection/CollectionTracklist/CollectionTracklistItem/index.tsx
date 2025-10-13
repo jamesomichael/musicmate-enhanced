@@ -102,7 +102,7 @@ const CollectionTracklistItem = ({
 					<span className="text-neutral-300">{formattedAddedAt}</span>
 				</>
 			)}
-			<span className="text-right text-neutral-400">
+			<span className="mr-2 text-right text-neutral-400">
 				{dayjs
 					.duration(track.duration_ms, 'milliseconds')
 					.format('m:ss')}

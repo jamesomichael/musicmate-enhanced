@@ -27,8 +27,8 @@ type Props =
 const CollectionTracklist = ({ type, paginationData, tracks }: Props) => {
 	const gridConfig =
 		type === 'playlist'
-			? 'grid grid-cols-[2rem_1.5fr_1fr_1fr_5rem] gap-5'
-			: 'grid grid-cols-[2rem_1.5fr_5rem] gap-5';
+			? 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5'
+			: 'grid grid-cols-[1.75rem_1.5fr_5rem] gap-5';
 	return (
 		<div className="text-white p-8 divide-y divide-neutral-700 rounded-full">
 			<div
@@ -42,7 +42,7 @@ const CollectionTracklist = ({ type, paginationData, tracks }: Props) => {
 						<span>Date added</span>
 					</>
 				)}
-				<div className="flex justify-end items-center">
+				<div className="flex justify-end items-center mr-2">
 					<FaRegClock className="w-4 h-4" />
 				</div>
 			</div>

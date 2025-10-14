@@ -1,26 +1,47 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { FaPodcast } from 'react-icons/fa6';
+import { FiLock } from 'react-icons/fi';
+
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
 import type { SpotifyArtist } from '@/types/spotify';
 
 const NowPlaying = () => {
-	const { isPodcast = false, item } = useAppSelector(getNowPlaying);
+	const {
+		isPodcast = false,
+		isPrivate = false,
+		item,
+	} = useAppSelector(getNowPlaying);
 
 	return (
 		<div className="flex items-center gap-3 overflow-hidden py-3 pr-8">
-			{isPodcast ? (
-				<span className="font-funnel font-medium text-white">
-					Podcasts are not currently supported.
-				</span>
+			{isPrivate ? (
+				<div className="flex items-center gap-2">
+					<div className="h-9 flex justify-center items-center aspect-square rounded-full bg-gradient-to-b from-blue-600 to-blue-800">
+						<FiLock className="w-4 h-4 text-white" />
+					</div>
+					<span className="font-funnel font-medium text-neutral-300 leading-none">
+						Session is private.
+					</span>
+				</div>
+			) : isPodcast ? (
+				<div className="flex items-center gap-1.5">
+					<div className="h-9 flex justify-center items-center aspect-square rounded-full bg-gradient-to-b from-green-900 to-green-950">
+						<FaPodcast className="w-4 h-4 text-spotify-green" />
+					</div>
+					<span className="font-funnel font-medium text-neutral-300 leading-none">
+						Podcasts are not currently supported.
+					</span>
+				</div>
 			) : (
 				<>
 					<div
 						className="h-full bg-cover bg-center aspect-square bg-black rounded-md"
 						style={{
-							backgroundImage: `url(${item.album.images[0].url})`,
+							backgroundImage: `url(${item.album?.images?.[0].url})`,
 						}}
 					></div>
 					<div className="flex flex-col overflow-hidden">
@@ -32,7 +53,7 @@ const NowPlaying = () => {
 							{item.artists.map(
 								(artist: SpotifyArtist, idx: number) => (
 									<span
-										key={artist.id}
+										key={`${idx}_${artist.id}`}
 										className="font-funnel text-neutral-400 text-sm"
 									>
 										<Link

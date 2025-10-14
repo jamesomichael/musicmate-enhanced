@@ -160,3 +160,34 @@ export interface SpotifyCurrentUser extends SpotifyBaseUser {
 	images: SpotifyImage[];
 	product: string;
 }
+
+interface SpotifyDevice {
+	id: string | null;
+	is_active: boolean;
+	is_private_session: boolean;
+	is_restricted: boolean;
+	name: string;
+	type: string;
+	volume_percent: number;
+	supports_volume: boolean;
+}
+
+interface SpotifyContext {
+	type: string;
+	href: string;
+	external_urls: SpotifyExternalUrl;
+	uri: string;
+}
+
+export interface SpotifyPlaybackState {
+	device: SpotifyDevice;
+	shuffle_state: boolean;
+	smart_shuffle: boolean;
+	repeat_state: string;
+	is_playing: boolean;
+	timestamp: number;
+	context: SpotifyContext;
+	progress_ms: number;
+	item: SpotifyTrack;
+	currently_playing_type: string;
+}

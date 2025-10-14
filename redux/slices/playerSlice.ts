@@ -62,11 +62,15 @@ const playerSlice = createSlice({
 					progress_ms: action.payload.progress || 0,
 					is_playing: true,
 					timestamp: +new Date(),
+					...(action.payload.context && {
+						context: action.payload.context,
+					}),
 				};
 			} else {
 				state.playbackState.item = action.payload.track;
 				state.playbackState.progress_ms = action.payload.progress || 0;
 				state.playbackState.timestamp = +new Date();
+				state.playbackState.context = action.payload.context;
 			}
 		},
 		setProgress(state, action) {

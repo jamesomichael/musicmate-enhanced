@@ -49,12 +49,21 @@ const usePlayer = (accessToken: string) => {
 					console.log('[Player] Player state changed:', state);
 					const track = state.track_window.current_track;
 					const progress = state.position;
-					dispatch(setPlaybackState({ track, progress }));
-					// setDuration(state.track_window.current_track.duration_ms);
-					// setProgress(state.position);
-					// // setCurrentTrack({
-					// // 	...track,
-					// // });
+					const context = state.context;
+					const albumId = track.album?.uri?.split(':')[2] ?? null;
+					const trackWithAlbumId = albumId
+						? {
+								...track,
+								album: { ...track.album, id: albumId },
+						  }
+						: track;
+					dispatch(
+						setPlaybackState({
+							track: trackWithAlbumId,
+							progress,
+							context,
+						})
+					);
 				}
 			});
 

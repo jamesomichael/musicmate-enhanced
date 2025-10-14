@@ -5,8 +5,13 @@ interface TempDevice {
 	is_active: boolean;
 }
 
+interface TempContext {
+	uri: string;
+}
+
 interface TempPlaybackState {
 	item: SpotifyTrack;
+	context: TempContext;
 	progress_ms: number;
 	is_playing: boolean;
 	timestamp: number;

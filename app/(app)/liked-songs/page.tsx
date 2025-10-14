@@ -35,6 +35,7 @@ const LikedSongs = () => {
 				type="playlist"
 				paginationData={likedSongs.pagination}
 				tracks={likedSongs.items}
+				contextUri={`${user.uri}:collection`}
 			/>
 		</>
 	);

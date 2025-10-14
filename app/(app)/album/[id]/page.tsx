@@ -36,6 +36,7 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 				type={albumData.album_type}
 				tracks={items}
 				paginationData={paginationData}
+				contextUri={albumData.uri}
 			/>
 		</>
 	);

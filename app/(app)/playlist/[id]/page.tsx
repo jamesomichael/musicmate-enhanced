@@ -40,6 +40,7 @@ const Playlist = async ({ params }: { params: Promise<{ id: string }> }) => {
 				type={playlistData.type}
 				tracks={items}
 				paginationData={paginationData}
+				contextUri={playlistData.uri}
 			/>
 		</>
 	);

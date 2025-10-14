@@ -17,14 +17,21 @@ type Props =
 			type: 'playlist';
 			tracks: SpotifyPlaylistItem[] | SpotifyLibraryLikedSong[];
 			paginationData: Pagination;
+			contextUri: string;
 	  }
 	| {
 			type: SpotifyAlbumType;
 			tracks: SpotifyTrack[];
 			paginationData: Pagination;
+			contextUri: string;
 	  };
 
-const CollectionTracklist = ({ type, paginationData, tracks }: Props) => {
+const CollectionTracklist = ({
+	type,
+	contextUri,
+	paginationData,
+	tracks,
+}: Props) => {
 	const gridConfig =
 		type === 'playlist'
 			? 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5'
@@ -57,6 +64,8 @@ const CollectionTracklist = ({ type, paginationData, tracks }: Props) => {
 								number={idx + 1}
 								track={track}
 								type={type}
+								uri={track.uri}
+								contextUri={contextUri}
 							/>
 					  ))
 					: tracks.map((track) => (
@@ -66,6 +75,8 @@ const CollectionTracklist = ({ type, paginationData, tracks }: Props) => {
 								number={track.track_number}
 								track={track}
 								type={type}
+								uri={track.uri}
+								contextUri={contextUri}
 							/>
 					  ))}
 			</div>

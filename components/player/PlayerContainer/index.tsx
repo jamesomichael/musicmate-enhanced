@@ -14,10 +14,16 @@ import { getNowPlaying } from '@/redux/slices/playerSlice';
 const PlayerContainer = ({ accessToken }: { accessToken: string }) => {
 	usePlayer(accessToken);
 
-	const { isPlaying = false, isExternal = false } =
-		useAppSelector(getNowPlaying);
+	const {
+		isPlaying = false,
+		isExternal = false,
+		isActive = false,
+		isPrivate = false,
+		isPodcast = false,
+		item,
+	} = useAppSelector(getNowPlaying);
 
-	if (!isPlaying) {
+	if ((!isPlaying && !isActive) || (isActive && !isPlaying && !item)) {
 		return null;
 	}
 
@@ -25,8 +31,12 @@ const PlayerContainer = ({ accessToken }: { accessToken: string }) => {
 		<div className="flex flex-col">
 			<div className="grid grid-cols-3 h-20 px-3">
 				<NowPlaying />
-				<PlayerControls />
-				<PlayerExtras />
+				{!isPrivate && !isPodcast && (
+					<>
+						<PlayerControls />
+						<PlayerExtras />
+					</>
+				)}
 			</div>
 			{isExternal && <ExternalDeviceIndicator />}
 		</div>

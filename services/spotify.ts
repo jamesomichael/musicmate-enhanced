@@ -232,3 +232,39 @@ export const fetchAlbumById = async (id: string, accessToken: string) => {
 		throw Error;
 	}
 };
+
+export const play = async (
+	deviceId: string,
+	{
+		contextUri,
+		offset,
+		uris,
+	}: { contextUri: string; offset?: number; uris: string[] },
+	accessToken: string
+) => {
+	console.log('[play] Playing item...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
+			{
+				...(contextUri && { context_uri: contextUri }),
+				...(offset && { offset }),
+				...(uris && { uris }),
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[play] Item is now playing.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[play] Error playing:', error);
+		}
+		throw Error;
+	}
+};

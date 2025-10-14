@@ -38,16 +38,20 @@ const NowPlaying = () => {
 				</div>
 			) : (
 				<>
-					<div
+					<Link
+						href={`/album/${item.album.id}`}
 						className="h-full bg-cover bg-center aspect-square bg-black rounded-md"
 						style={{
 							backgroundImage: `url(${item.album?.images?.[0].url})`,
 						}}
-					></div>
+					></Link>
 					<div className="flex flex-col overflow-hidden">
-						<span className="leading-5 truncate font-funnel font-medium text-white text-base">
+						<Link
+							href={`/album/${item.album.id}`}
+							className="leading-5 truncate hover:underline font-funnel font-medium text-white text-base"
+						>
 							{item.name}
-						</span>
+						</Link>
 
 						<div className="truncate overflow-hidden w-full">
 							{item.artists.map(
@@ -57,7 +61,7 @@ const NowPlaying = () => {
 										className="font-funnel text-neutral-400 text-sm"
 									>
 										<Link
-											href={`/artists/${artist.id}`}
+											href={`/artist/${artist.id}`}
 											className="hover:text-white hover:underline"
 										>
 											{artist.name}

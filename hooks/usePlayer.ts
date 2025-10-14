@@ -3,8 +3,15 @@
 import { useState, useEffect } from 'react';
 
 import { useAppDispatch } from '@/redux/hooks';
-import { setIsReady, setDeviceId } from '@/redux/slices/playerSlice';
-import { fetchPlaybackState } from '@/redux/slices/playerSlice';
+import {
+	setIsReady,
+	setDeviceId,
+	setProgress,
+} from '@/redux/slices/playerSlice';
+import {
+	fetchPlaybackState,
+	setPlaybackState,
+} from '@/redux/slices/playerSlice';
 
 const usePlayer = (accessToken: string) => {
 	const dispatch = useAppDispatch();
@@ -40,9 +47,11 @@ const usePlayer = (accessToken: string) => {
 			spotifyPlayer.addListener('player_state_changed', (state) => {
 				if (state) {
 					console.log('[Player] Player state changed:', state);
+					const track = state.track_window.current_track;
+					const progress = state.position;
+					dispatch(setPlaybackState({ track, progress }));
 					// setDuration(state.track_window.current_track.duration_ms);
 					// setProgress(state.position);
-					// // const track = state.track_window.current_track;
 					// // setCurrentTrack({
 					// // 	...track,
 					// // });
@@ -69,12 +78,12 @@ const usePlayer = (accessToken: string) => {
 		};
 
 		dispatch(fetchPlaybackState());
-		// const intervalId = setInterval(() => {
-		// 	dispatch(fetchPlaybackState());
-		// }, 5000);
+		const intervalId = setInterval(() => {
+			dispatch(fetchPlaybackState());
+		}, 20000);
 
 		return () => {
-			// clearInterval(intervalId);
+			clearInterval(intervalId);
 			if (player) {
 				player.disconnect();
 			}

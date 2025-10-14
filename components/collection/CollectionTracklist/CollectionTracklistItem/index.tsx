@@ -51,8 +51,19 @@ const CollectionTracklistItem = ({
 	contextUri,
 }: Props) => {
 	const dispatch = useAppDispatch();
-	const { isActive, isExternal, device } = useAppSelector(getNowPlaying);
+	const {
+		isActive,
+		isExternal,
+		isPlaying,
+		device,
+		context,
+		item: itemNowPlaying,
+	} = useAppSelector(getNowPlaying);
 	const { deviceId: localDeviceId } = useAppSelector((state) => state.player);
+
+	const isActiveTrack =
+		itemNowPlaying?.id === track.id && context.uri === contextUri;
+	const isNowPlaying = isActiveTrack && isPlaying;
 
 	const formattedAddedAt = useMemo(() => {
 		if (type !== 'playlist' || !addedAt) {
@@ -73,7 +84,12 @@ const CollectionTracklistItem = ({
 		);
 		if (isExternal) {
 			const externalTrackData = { ...track, ...(album && { album }) };
-			dispatch(setPlaybackState({ track: externalTrackData }));
+			dispatch(
+				setPlaybackState({
+					track: externalTrackData,
+					context: { uri: contextUri },
+				})
+			);
 		}
 	}, [
 		isActive,
@@ -92,9 +108,19 @@ const CollectionTracklistItem = ({
 			className={`group h-16 px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel`}
 			onDoubleClick={playItem}
 		>
-			<span className="mr-1 text-right text-neutral-400 group-hover:text-white">
-				{number}
-			</span>
+			{isNowPlaying ? (
+				<img src="/eq-animated.gif" className="h-4 w-4 ml-2.5"></img>
+			) : (
+				<span
+					className={`mr-1 text-right group-hover:text-white ${
+						isActiveTrack
+							? 'text-spotify-green'
+							: 'text-neutral-400'
+					}`}
+				>
+					{number}
+				</span>
+			)}
 			<div className="flex items-center gap-2.5 h-full truncate">
 				{type === 'playlist' && (
 					<div
@@ -105,7 +131,13 @@ const CollectionTracklistItem = ({
 					></div>
 				)}
 				<div className="flex flex-col justify-center truncate">
-					<span className="truncate">{track.name}</span>
+					<span
+						className={`${
+							isActiveTrack ? 'text-spotify-green' : ''
+						} truncate`}
+					>
+						{track.name}
+					</span>
 					<div className="flex items-center">
 						{track.explicit && (
 							<div className="mr-1 flex justify-center items-center h-4 aspect-square bg-neutral-300 rounded-xs">

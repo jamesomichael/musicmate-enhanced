@@ -5,6 +5,7 @@ import { FaRegClock } from 'react-icons/fa6';
 import CollectionTracklistItem from './CollectionTracklistItem';
 
 import type {
+	SpotifyAlbum,
 	SpotifyAlbumType,
 	SpotifyLibraryLikedSong,
 	SpotifyPlaylistItem,
@@ -12,24 +13,28 @@ import type {
 } from '@/types/spotify';
 import type { Pagination } from '@/types/library';
 
+interface BaseProps {
+	contextUri: string;
+	paginationData: Pagination;
+}
+
 type Props =
-	| {
+	| (BaseProps & {
 			type: 'playlist';
 			tracks: SpotifyPlaylistItem[] | SpotifyLibraryLikedSong[];
-			paginationData: Pagination;
-			contextUri: string;
-	  }
-	| {
+			album?: never;
+	  })
+	| (BaseProps & {
 			type: SpotifyAlbumType;
 			tracks: SpotifyTrack[];
-			paginationData: Pagination;
-			contextUri: string;
-	  };
+			album: SpotifyAlbum;
+	  });
 
 const CollectionTracklist = ({
 	type,
 	contextUri,
 	paginationData,
+	album,
 	tracks,
 }: Props) => {
 	const gridConfig =
@@ -64,7 +69,6 @@ const CollectionTracklist = ({
 								number={idx + 1}
 								track={track}
 								type={type}
-								uri={track.uri}
 								contextUri={contextUri}
 							/>
 					  ))
@@ -75,8 +79,8 @@ const CollectionTracklist = ({
 								number={track.track_number}
 								track={track}
 								type={type}
-								uri={track.uri}
 								contextUri={contextUri}
+								album={album}
 							/>
 					  ))}
 			</div>

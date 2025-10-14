@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 
@@ -8,46 +9,88 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
-import type { SpotifyAlbumType, SpotifyTrack } from '@/types/spotify';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import {
+	play,
+	setPlaybackState,
+	getNowPlaying,
+} from '@/redux/slices/playerSlice';
+
+import type {
+	SpotifyAlbum,
+	SpotifyAlbumType,
+	SpotifyTrack,
+} from '@/types/spotify';
+
+interface BaseProps {
+	gridConfig?: string;
+	number: number;
+	track: SpotifyTrack;
+	contextUri: string;
+}
 
 type Props =
-	| {
+	| (BaseProps & {
 			type: 'playlist';
-			gridConfig: string;
-			number: number;
-			track: SpotifyTrack;
+			album?: never;
 			addedAt: string;
-	  }
-	| {
+	  })
+	| (BaseProps & {
 			type: SpotifyAlbumType;
-			gridConfig: string;
-			number: number;
-			track: SpotifyTrack;
 			addedAt?: never;
-	  };
+			album: SpotifyAlbum;
+	  });
 
 const CollectionTracklistItem = ({
 	type,
 	gridConfig = 'grid grid-cols-[2rem_1.5fr_5rem] gap-5',
 	number,
 	track,
+	album,
 	addedAt,
+	contextUri,
 }: Props) => {
-	let formattedAddedAt;
+	const dispatch = useAppDispatch();
+	const { isActive, isExternal, device } = useAppSelector(getNowPlaying);
+	const { deviceId: localDeviceId } = useAppSelector((state) => state.player);
 
-	if (type === 'playlist') {
+	const formattedAddedAt = useMemo(() => {
+		if (type !== 'playlist' || !addedAt) {
+			return;
+		}
 		const weeksAgo = dayjs().diff(dayjs(addedAt), 'weeks');
-		formattedAddedAt =
-			weeksAgo > 4
-				? dayjs(addedAt).format('D MMM YYYY')
-				: weeksAgo >= 1
-				? `${weeksAgo} week${weeksAgo > 1 ? 's' : ''} ago`
-				: dayjs(addedAt).fromNow();
-	}
+		return weeksAgo > 4
+			? dayjs(addedAt).format('D MMM YYYY')
+			: weeksAgo >= 1
+			? `${weeksAgo} week${weeksAgo > 1 ? 's' : ''} ago`
+			: dayjs(addedAt).fromNow();
+	}, [type, addedAt]);
+
+	const playItem = useCallback(() => {
+		const deviceId = isActive && isExternal ? device.id : localDeviceId;
+		dispatch(
+			play({ deviceId, contextUri, offset: { position: number - 1 } })
+		);
+		if (isExternal) {
+			const externalTrackData = { ...track, ...(album && { album }) };
+			dispatch(setPlaybackState({ track: externalTrackData }));
+		}
+	}, [
+		isActive,
+		isExternal,
+		device,
+		localDeviceId,
+		track,
+		album,
+		contextUri,
+		number,
+		dispatch,
+	]);
 
 	return (
 		<div
 			className={`group h-16 px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel`}
+			onDoubleClick={playItem}
 		>
 			<span className="mr-1 text-right text-neutral-400 group-hover:text-white">
 				{number}
@@ -83,6 +126,7 @@ const CollectionTracklistItem = ({
 								<Link
 									href={`/artist/${artist.id}`}
 									className="hover:underline"
+									prefetch={false}
 								>
 									{artist.name}
 								</Link>
@@ -96,6 +140,7 @@ const CollectionTracklistItem = ({
 					<Link
 						href={`/album/${track.album.id}`}
 						className="hover:underline truncate text-neutral-400 group-hover:text-white"
+						prefetch={false}
 					>
 						{track.album.name}
 					</Link>

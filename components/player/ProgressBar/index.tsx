@@ -12,8 +12,8 @@ import { getNowPlaying } from '@/redux/slices/playerSlice';
 const ProgressBar = () => {
 	const {
 		isPlaying,
-		isExternal,
 		progress,
+		timestamp,
 		item: { duration_ms: duration },
 	} = useAppSelector(getNowPlaying);
 
@@ -21,10 +21,10 @@ const ProgressBar = () => {
 
 	useEffect(() => {
 		setPosition(progress);
-	}, [progress]);
+	}, [progress, timestamp]);
 
 	useEffect(() => {
-		if (!isPlaying || !isExternal) {
+		if (!isPlaying) {
 			return;
 		}
 
@@ -39,7 +39,7 @@ const ProgressBar = () => {
 		}, 1000);
 
 		return () => clearInterval(interval);
-	}, [isPlaying, duration]);
+	}, [isPlaying, duration, timestamp]);
 
 	const handleSeek = (value: number) => {
 		setPosition(value);

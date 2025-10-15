@@ -67,6 +67,13 @@ export const skipToNext = createAsyncThunk('player/skipToNext', async () => {
 	await axios.post('/api/player/next');
 });
 
+export const skipToPrevious = createAsyncThunk(
+	'player/skipToPrevious',
+	async () => {
+		await axios.post('/api/player/previous');
+	}
+);
+
 const playerSlice = createSlice({
 	name: 'player',
 	initialState,

@@ -333,3 +333,26 @@ export const skipToNext = async (accessToken: string) => {
 		throw Error;
 	}
 };
+
+export const skipToPrevious = async (accessToken: string) => {
+	console.log('[skipToPrevious] Skipping to previous track...');
+	try {
+		await axios.post(
+			'https://api.spotify.com/v1/me/player/previous',
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[skipToPrevious] Skipped to previous track.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[skipToPrevious] Error skipping:', error);
+		}
+		throw Error;
+	}
+};

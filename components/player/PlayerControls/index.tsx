@@ -19,6 +19,7 @@ import {
 	resume,
 	seek,
 	skipToNext,
+	skipToPrevious,
 } from '@/redux/slices/playerSlice';
 
 const PlayerControls = () => {
@@ -44,18 +45,24 @@ const PlayerControls = () => {
 		}
 	};
 
+	const handleSkipToPrevious = async () => {
+		await dispatch(skipToPrevious());
+		if (isExternal) {
+			setTimeout(() => dispatch(fetchPlaybackState()), 500);
+		}
+	};
+
 	return (
 		<div className="flex flex-col gap-2 justify-center items-center">
 			<div className="flex items-center gap-6">
 				<div>
 					<FaShuffle className="cursor-pointer text-neutral-300 hover:text-white" />
 				</div>
-				<div>
-					<FaBackwardStep
-						className="cursor-pointer text-neutral-300 hover:text-white"
-						size={20}
-					/>
-				</div>
+				<FaBackwardStep
+					title="Previous"
+					className="cursor-pointer w-5 h-5 text-neutral-300 hover:text-white active:scale-95 active:text-neutral-400"
+					onClick={handleSkipToPrevious}
+				/>
 				{isPlaying ? (
 					<FaCirclePause
 						title="Pause"
@@ -69,18 +76,11 @@ const PlayerControls = () => {
 						onClick={handleResume}
 					/>
 				)}
-				{/* </div> */}
-				<div>
-					<div
-					// onClick={handleNextTrack}
-					>
-						<FaForwardStep
-							title="Next"
-							className="cursor-pointer w-5 h-5 text-neutral-300 hover:text-white active:scale-95 active:text-neutral-400"
-							onClick={handleSkipToNext}
-						/>
-					</div>
-				</div>
+				<FaForwardStep
+					title="Next"
+					className="cursor-pointer w-5 h-5 text-neutral-300 hover:text-white active:scale-95 active:text-neutral-400"
+					onClick={handleSkipToNext}
+				/>
 				<div>
 					<FaRepeat className="cursor-pointer text-neutral-300 hover:text-white" />
 				</div>

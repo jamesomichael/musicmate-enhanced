@@ -25,8 +25,8 @@ const PUT = async (request: NextRequest) => {
 	}
 
 	try {
-		const data = await pause(deviceId, accessToken);
-		return NextResponse.json(data);
+		await pause(deviceId, accessToken);
+		return new NextResponse(null, { status: 204 });
 	} catch (error) {
 		return NextResponse.json(
 			{ message: 'Failed to pause playback.' },

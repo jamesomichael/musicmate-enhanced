@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 import { skipToNext } from '@/services/spotify';
 
@@ -19,7 +19,7 @@ const POST = async () => {
 		return new NextResponse(null, { status: 204 });
 	} catch (error) {
 		return NextResponse.json(
-			{ message: 'Failed to pause playback.' },
+			{ message: 'Failed to skip to next track.' },
 			{ status: 500 }
 		);
 	}

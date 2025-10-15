@@ -41,7 +41,7 @@ const PUT = async (request: NextRequest) => {
 	const { contextUri, uris, offset } = body;
 
 	try {
-		const data = await play(
+		await play(
 			deviceId,
 			{
 				...(contextUri && { contextUri }),
@@ -50,7 +50,7 @@ const PUT = async (request: NextRequest) => {
 			},
 			accessToken
 		);
-		return NextResponse.json(data);
+		return new NextResponse(null, { status: 204 });
 	} catch (error) {
 		return NextResponse.json(
 			{ message: 'Failed to start playback.' },

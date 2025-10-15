@@ -413,3 +413,26 @@ export const setRepeatState = async (
 		throw Error;
 	}
 };
+
+export const setVolume = async (volume: number, accessToken: string) => {
+	console.log('[setVolume] Setting volume...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/volume?volume_percent=${volume}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[setVolume] Playback volume changed.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[setVolume] Error setting volume:', error);
+		}
+		throw Error;
+	}
+};

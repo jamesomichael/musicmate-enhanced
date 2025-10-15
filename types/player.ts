@@ -7,6 +7,7 @@ import type {
 interface TempDevice {
 	id: string;
 	is_active: boolean;
+	volume_percent: number;
 }
 
 interface TempContext {

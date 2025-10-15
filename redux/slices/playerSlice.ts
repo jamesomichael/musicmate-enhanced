@@ -91,6 +91,14 @@ export const setRepeatState = createAsyncThunk(
 	}
 );
 
+export const setVolume = createAsyncThunk(
+	'player/setVolume',
+	async (volume: number) => {
+		await axios.put(`/api/player/volume?value=${volume}`);
+		return volume;
+	}
+);
+
 const playerSlice = createSlice({
 	name: 'player',
 	initialState,
@@ -172,6 +180,12 @@ const playerSlice = createSlice({
 				return;
 			}
 			state.playbackState.repeat_state = action.payload;
+		});
+		builder.addCase(setVolume.fulfilled, (state, action) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.device.volume_percent = action.payload;
 		});
 	},
 });

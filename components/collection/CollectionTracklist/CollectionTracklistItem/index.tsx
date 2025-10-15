@@ -77,9 +77,9 @@ const CollectionTracklistItem = ({
 			: dayjs(addedAt).fromNow();
 	}, [type, addedAt]);
 
-	const playItem = useCallback(() => {
+	const playItem = useCallback(async () => {
 		const deviceId = isActive && isExternal ? device.id : localDeviceId;
-		dispatch(
+		await dispatch(
 			play({ deviceId, contextUri, offset: { position: number - 1 } })
 		);
 		if (isExternal) {

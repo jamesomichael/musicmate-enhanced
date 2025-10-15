@@ -314,3 +314,22 @@ export const seek = async (position: number, accessToken: string) => {
 		throw Error;
 	}
 };
+
+export const skipToNext = async (accessToken: string) => {
+	console.log('[skipToNext] Skipping to next track...');
+	try {
+		await axios.post('https://api.spotify.com/v1/me/player/next', null, {
+			headers: {
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+
+		console.log('[skipToNext] Skipped to next track.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[skipToNext] Error skipping:', error);
+		}
+		throw Error;
+	}
+};

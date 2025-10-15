@@ -12,10 +12,17 @@ import {
 import ProgressBar from '../ProgressBar';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { getNowPlaying, pause, resume, seek } from '@/redux/slices/playerSlice';
+import {
+	fetchPlaybackState,
+	getNowPlaying,
+	pause,
+	resume,
+	seek,
+	skipToNext,
+} from '@/redux/slices/playerSlice';
 
 const PlayerControls = () => {
-	const { isPlaying, device } = useAppSelector(getNowPlaying);
+	const { isPlaying, isExternal, device } = useAppSelector(getNowPlaying);
 	const dispatch = useAppDispatch();
 
 	const handlePause = () => {
@@ -28,6 +35,13 @@ const PlayerControls = () => {
 
 	const handleSeek = (position: number) => {
 		dispatch(seek(position));
+	};
+
+	const handleSkipToNext = async () => {
+		await dispatch(skipToNext());
+		if (isExternal) {
+			setTimeout(() => dispatch(fetchPlaybackState()), 500);
+		}
 	};
 
 	return (
@@ -61,8 +75,9 @@ const PlayerControls = () => {
 					// onClick={handleNextTrack}
 					>
 						<FaForwardStep
-							className="cursor-pointer text-gray-300 hover:text-white"
-							size={20}
+							title="Next"
+							className="cursor-pointer w-5 h-5 text-neutral-300 hover:text-white active:scale-95 active:text-neutral-400"
+							onClick={handleSkipToNext}
 						/>
 					</div>
 				</div>

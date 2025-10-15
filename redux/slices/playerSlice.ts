@@ -63,6 +63,10 @@ export const seek = createAsyncThunk(
 	}
 );
 
+export const skipToNext = createAsyncThunk('player/skipToNext', async () => {
+	await axios.post('/api/player/next');
+});
+
 const playerSlice = createSlice({
 	name: 'player',
 	initialState,

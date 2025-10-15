@@ -11,7 +11,21 @@ import {
 
 import ProgressBar from '../ProgressBar';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { getNowPlaying, pause, resume } from '@/redux/slices/playerSlice';
+
 const PlayerControls = () => {
+	const { isPlaying, device } = useAppSelector(getNowPlaying);
+	const dispatch = useAppDispatch();
+
+	const handlePause = () => {
+		dispatch(pause(device.id));
+	};
+
+	const handleResume = () => {
+		dispatch(resume(device.id));
+	};
+
 	return (
 		<div className="flex flex-col gap-2 justify-center items-center">
 			<div className="flex items-center gap-6">
@@ -24,13 +38,20 @@ const PlayerControls = () => {
 						size={20}
 					/>
 				</div>
-				<div>
-					<FaCirclePlay
-						className="cursor-pointer text-white hover:scale-105 hover:opacity-90"
-						// onClick={handlePlayPause}
-						size={35}
+				{isPlaying ? (
+					<FaCirclePause
+						title="Pause"
+						className="cursor-pointer w-9 h-9 text-white active:scale-95 active:text-neutral-300 hover:scale-105 hover:opacity-90"
+						onClick={handlePause}
 					/>
-				</div>
+				) : (
+					<FaCirclePlay
+						title="Play"
+						className="cursor-pointer w-9 h-9 text-white active:scale-95 active:text-neutral-300 hover:scale-105 hover:opacity-90"
+						onClick={handleResume}
+					/>
+				)}
+				{/* </div> */}
 				<div>
 					<div
 					// onClick={handleNextTrack}

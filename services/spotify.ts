@@ -239,7 +239,7 @@ export const play = async (
 		contextUri,
 		offset,
 		uris,
-	}: { contextUri: string; offset?: number; uris: string[] },
+	}: { contextUri?: string; offset?: number; uris?: string[] },
 	accessToken: string
 ) => {
 	console.log('[play] Playing item...');
@@ -264,6 +264,29 @@ export const play = async (
 	} catch (error) {
 		if (error instanceof Error) {
 			console.error('[play] Error playing:', error);
+		}
+		throw Error;
+	}
+};
+
+export const pause = async (deviceId: string, accessToken: string) => {
+	console.log('[pause] Pausing item...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/pause?device_id=${deviceId}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[pause] Item is now paused.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[pause] Error pausing:', error);
 		}
 		throw Error;
 	}

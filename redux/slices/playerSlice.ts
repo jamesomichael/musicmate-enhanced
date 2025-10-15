@@ -41,6 +41,20 @@ export const play = createAsyncThunk(
 	}
 );
 
+export const pause = createAsyncThunk(
+	'player/pause',
+	async (deviceId: string) => {
+		await axios.put(`/api/player/pause?device_id=${deviceId}`);
+	}
+);
+
+export const resume = createAsyncThunk(
+	'player/resume',
+	async (deviceId: string) => {
+		await axios.put(`/api/player/play?device_id=${deviceId}`);
+	}
+);
+
 const playerSlice = createSlice({
 	name: 'player',
 	initialState,
@@ -91,6 +105,18 @@ const playerSlice = createSlice({
 		builder.addCase(fetchPlaybackState.fulfilled, (state, action) => {
 			state.playbackState = action.payload;
 			state.isLoading = false;
+		});
+		builder.addCase(pause.fulfilled, (state) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.is_playing = false;
+		});
+		builder.addCase(resume.fulfilled, (state) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.is_playing = true;
 		});
 	},
 });

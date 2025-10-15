@@ -1,13 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { play } from '@/services/spotify';
-
-interface PlayBody {
-	contextUri?: string;
-	uris?: string[];
-	offset?: number;
-}
+import { pause } from '@/services/spotify';
 
 const PUT = async (request: NextRequest) => {
 	const { searchParams } = new URL(request.url);
@@ -30,30 +24,12 @@ const PUT = async (request: NextRequest) => {
 		);
 	}
 
-	let body: PlayBody = {};
-
 	try {
-		body = await request.json();
-	} catch {
-		body = {};
-	}
-
-	const { contextUri, uris, offset } = body;
-
-	try {
-		const data = await play(
-			deviceId,
-			{
-				...(contextUri && { contextUri }),
-				...(uris && { uris }),
-				...(offset && { offset }),
-			},
-			accessToken
-		);
+		const data = await pause(deviceId, accessToken);
 		return NextResponse.json(data);
 	} catch (error) {
 		return NextResponse.json(
-			{ message: 'Failed to start playback.' },
+			{ message: 'Failed to pause playback.' },
 			{ status: 500 }
 		);
 	}

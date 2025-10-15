@@ -9,7 +9,7 @@ import SeekBar from '@/components/shared/SeekBar';
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
-const ProgressBar = () => {
+const ProgressBar = ({ onSeek }: { onSeek: (position: number) => void }) => {
 	const {
 		isPlaying,
 		progress,
@@ -43,6 +43,7 @@ const ProgressBar = () => {
 
 	const handleSeek = (value: number) => {
 		setPosition(value);
+		onSeek(value);
 	};
 
 	return (

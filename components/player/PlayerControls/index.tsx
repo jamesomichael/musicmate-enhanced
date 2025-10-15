@@ -12,7 +12,7 @@ import {
 import ProgressBar from '../ProgressBar';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { getNowPlaying, pause, resume } from '@/redux/slices/playerSlice';
+import { getNowPlaying, pause, resume, seek } from '@/redux/slices/playerSlice';
 
 const PlayerControls = () => {
 	const { isPlaying, device } = useAppSelector(getNowPlaying);
@@ -24,6 +24,10 @@ const PlayerControls = () => {
 
 	const handleResume = () => {
 		dispatch(resume(device.id));
+	};
+
+	const handleSeek = (position: number) => {
+		dispatch(seek(position));
 	};
 
 	return (
@@ -66,7 +70,7 @@ const PlayerControls = () => {
 					<FaRepeat className="cursor-pointer text-neutral-300 hover:text-white" />
 				</div>
 			</div>
-			<ProgressBar />
+			<ProgressBar onSeek={handleSeek} />
 		</div>
 	);
 };

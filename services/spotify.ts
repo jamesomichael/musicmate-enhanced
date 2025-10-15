@@ -291,3 +291,26 @@ export const pause = async (deviceId: string, accessToken: string) => {
 		throw Error;
 	}
 };
+
+export const seek = async (position: number, accessToken: string) => {
+	console.log('[seek] Seeking...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/seek?position_ms=${position}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[seek] Seek complete.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[seek] Error seeking:', error);
+		}
+		throw Error;
+	}
+};

@@ -55,6 +55,14 @@ export const resume = createAsyncThunk(
 	}
 );
 
+export const seek = createAsyncThunk(
+	'player/seek',
+	async (position: number) => {
+		await axios.put(`/api/player/seek?position=${position}`);
+		return position;
+	}
+);
+
 const playerSlice = createSlice({
 	name: 'player',
 	initialState,
@@ -117,6 +125,12 @@ const playerSlice = createSlice({
 				return;
 			}
 			state.playbackState.is_playing = true;
+		});
+		builder.addCase(seek.fulfilled, (state, action) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.progress_ms = action.payload;
 		});
 	},
 });

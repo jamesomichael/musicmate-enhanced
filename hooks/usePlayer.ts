@@ -51,15 +51,23 @@ const usePlayer = (accessToken: string) => {
 					const progress = state.position;
 					const context = state.context;
 					const albumId = track.album?.uri?.split(':')[2] ?? null;
-					const trackWithAlbumId = albumId
-						? {
-								...track,
-								album: { ...track.album, id: albumId },
-						  }
-						: track;
+					const artistsWithArtistId = track.artists?.map(
+						(artist) => ({
+							...artist,
+							id: artist.uri?.split(':')[2],
+						})
+					);
+					const formattedTrack = {
+						...track,
+						artists: artistsWithArtistId,
+						album: {
+							...track.album,
+							...(albumId && { id: albumId }),
+						},
+					};
 					dispatch(
 						setPlaybackState({
-							track: trackWithAlbumId,
+							track: formattedTrack,
 							progress,
 							context,
 						})

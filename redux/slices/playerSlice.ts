@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 
 import type { PlayerState } from '@/types/player';
+import type { SpotifyRepeatState } from '@/types/spotify';
 
 const initialState: PlayerState = {
 	deviceId: null,
@@ -71,6 +72,22 @@ export const skipToPrevious = createAsyncThunk(
 	'player/skipToPrevious',
 	async () => {
 		await axios.post('/api/player/previous');
+	}
+);
+
+export const setShuffleState = createAsyncThunk(
+	'player/setShuffleState',
+	async (state: boolean) => {
+		await axios.put(`/api/player/shuffle?state=${state}`);
+		return state;
+	}
+);
+
+export const setRepeatState = createAsyncThunk(
+	'player/setRepeatState',
+	async (state: SpotifyRepeatState) => {
+		await axios.put(`/api/player/repeat?state=${state}`);
+		return state;
 	}
 );
 
@@ -143,6 +160,18 @@ const playerSlice = createSlice({
 			}
 			state.playbackState.progress_ms = action.payload;
 		});
+		builder.addCase(setShuffleState.fulfilled, (state, action) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.shuffle_state = action.payload;
+		});
+		builder.addCase(setRepeatState.fulfilled, (state, action) => {
+			if (!state.playbackState) {
+				return;
+			}
+			state.playbackState.repeat_state = action.payload;
+		});
 	},
 });
 
@@ -163,6 +192,8 @@ export const getNowPlaying = createSelector(
 			timestamp: playbackState.timestamp,
 			item: playbackState.item,
 			context: playbackState.context,
+			repeatState: playbackState.repeat_state,
+			shuffleState: playbackState.shuffle_state,
 		};
 	}
 );

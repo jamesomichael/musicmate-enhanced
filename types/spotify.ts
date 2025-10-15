@@ -179,11 +179,13 @@ interface SpotifyContext {
 	uri: string;
 }
 
+export type SpotifyRepeatState = 'off' | 'context' | 'track';
+
 export interface SpotifyPlaybackState {
 	device: SpotifyDevice;
 	shuffle_state: boolean;
 	smart_shuffle: boolean;
-	repeat_state: string;
+	repeat_state: SpotifyRepeatState;
 	is_playing: boolean;
 	timestamp: number;
 	context: SpotifyContext;

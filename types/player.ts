@@ -1,4 +1,8 @@
-import type { SpotifyPlaybackState, SpotifyTrack } from './spotify';
+import type {
+	SpotifyPlaybackState,
+	SpotifyRepeatState,
+	SpotifyTrack,
+} from './spotify';
 
 interface TempDevice {
 	id: string;
@@ -16,6 +20,8 @@ interface TempPlaybackState {
 	is_playing: boolean;
 	timestamp: number;
 	device: TempDevice;
+	shuffle_state: boolean;
+	repeat_state: SpotifyRepeatState;
 }
 
 export interface PlayerState {

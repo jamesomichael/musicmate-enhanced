@@ -1,13 +1,12 @@
 import React from 'react';
 
 import {
-	FaShuffle,
-	FaRepeat,
 	FaCirclePause,
 	FaCirclePlay,
 	FaBackwardStep,
 	FaForwardStep,
 } from 'react-icons/fa6';
+import { PiRepeatOnceBold, PiRepeatBold, PiShuffleBold } from 'react-icons/pi';
 
 import ProgressBar from '../ProgressBar';
 
@@ -18,12 +17,16 @@ import {
 	pause,
 	resume,
 	seek,
+	setShuffleState,
+	setRepeatState,
 	skipToNext,
 	skipToPrevious,
 } from '@/redux/slices/playerSlice';
+import { SpotifyRepeatState } from '@/types/spotify';
 
 const PlayerControls = () => {
-	const { isPlaying, isExternal, device } = useAppSelector(getNowPlaying);
+	const { isPlaying, isExternal, device, repeatState, shuffleState } =
+		useAppSelector(getNowPlaying);
 	const dispatch = useAppDispatch();
 
 	const handlePause = () => {
@@ -52,11 +55,47 @@ const PlayerControls = () => {
 		}
 	};
 
+	const toggleShuffle = () => dispatch(setShuffleState(!shuffleState));
+
+	const toggleRepeat = () => {
+		let nextState: SpotifyRepeatState;
+
+		switch (repeatState) {
+			case 'off':
+				nextState = 'context';
+				break;
+			case 'context':
+				nextState = 'track';
+				break;
+			case 'track':
+				nextState = 'off';
+				break;
+			default:
+				nextState = 'off';
+				break;
+		}
+
+		dispatch(setRepeatState(nextState));
+	};
+
 	return (
 		<div className="flex flex-col gap-2 justify-center items-center">
 			<div className="flex items-center gap-6">
-				<div>
-					<FaShuffle className="cursor-pointer text-neutral-300 hover:text-white" />
+				<div
+					title={`${shuffleState ? 'Disable' : 'Enable'} shuffle`}
+					className="group transition-all duration-200 hover:scale-105 active:scale-95 active:opacity-70 flex flex-col items-center justify-center relative"
+					onClick={toggleShuffle}
+				>
+					<PiShuffleBold
+						className={`cursor-pointer w-5 h-5 ${
+							shuffleState
+								? 'text-spotify-green'
+								: 'text-neutral-300 hover:text-white'
+						}`}
+					/>
+					{shuffleState && (
+						<div className="absolute -bottom-1.5 bg-spotify-green h-1 w-1 rounded-full"></div>
+					)}
 				</div>
 				<FaBackwardStep
 					title="Previous"
@@ -81,8 +120,27 @@ const PlayerControls = () => {
 					className="cursor-pointer w-5 h-5 text-neutral-300 hover:text-white active:scale-95 active:text-neutral-400"
 					onClick={handleSkipToNext}
 				/>
-				<div>
-					<FaRepeat className="cursor-pointer text-neutral-300 hover:text-white" />
+				<div
+					title={`${
+						repeatState === 'track' ? 'Disable' : 'Enable'
+					} repeat${repeatState === 'context' ? ' one' : ''}`}
+					className="group transition-all duration-200 hover:scale-105 active:scale-95 active:opacity-70 flex flex-col items-center justify-center relative"
+					onClick={toggleRepeat}
+				>
+					{repeatState === 'track' ? (
+						<PiRepeatOnceBold className="cursor-pointer w-5 h-5 text-spotify-green" />
+					) : (
+						<PiRepeatBold
+							className={`cursor-pointer w-5 h-5 ${
+								repeatState !== 'off'
+									? 'text-spotify-green'
+									: 'text-neutral-300 hover:text-white'
+							}`}
+						/>
+					)}
+					{repeatState !== 'off' && (
+						<div className="absolute -bottom-1.5 bg-spotify-green h-1 w-1 rounded-full"></div>
+					)}
 				</div>
 			</div>
 			<ProgressBar onSeek={handleSeek} />

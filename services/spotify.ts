@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import type { SpotifyRepeatState } from '@/types/spotify';
+
 export const fetchCurrentUser = async (accessToken: string) => {
 	console.log('[fetchCurrentUser] Fetching user...');
 	try {
@@ -352,6 +354,61 @@ export const skipToPrevious = async (accessToken: string) => {
 	} catch (error) {
 		if (error instanceof Error) {
 			console.error('[skipToPrevious] Error skipping:', error);
+		}
+		throw Error;
+	}
+};
+
+export const setShuffleState = async (state: boolean, accessToken: string) => {
+	console.log('[setShuffleState] Setting shuffle state...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/shuffle?state=${state}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[setShuffleState] Shuffle state changed.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[setShuffleState] Error setting shuffle state:',
+				error
+			);
+		}
+		throw Error;
+	}
+};
+
+export const setRepeatState = async (
+	state: SpotifyRepeatState,
+	accessToken: string
+) => {
+	console.log('[setRepeatState] Setting repeat state...');
+	try {
+		await axios.put(
+			`https://api.spotify.com/v1/me/player/repeat?state=${state}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+
+		console.log('[setRepeatState] Repeat state changed.');
+		return true;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[setRepeatState] Error setting repeat state:',
+				error
+			);
 		}
 		throw Error;
 	}

@@ -5,7 +5,7 @@ import { seek } from '@/services/spotify';
 
 const PUT = async (request: NextRequest) => {
 	const { searchParams } = new URL(request.url);
-	const position = Number(searchParams.get('position'));
+	const position = searchParams.get('position');
 
 	if (!position) {
 		return NextResponse.json(
@@ -25,7 +25,7 @@ const PUT = async (request: NextRequest) => {
 	}
 
 	try {
-		await seek(position, accessToken);
+		await seek(Number(position), accessToken);
 		return new NextResponse(null, { status: 204 });
 	} catch (error) {
 		return NextResponse.json(

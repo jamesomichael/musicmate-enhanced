@@ -235,6 +235,30 @@ export const fetchAlbumById = async (id: string, accessToken: string) => {
 	}
 };
 
+export const fetchArtistById = async (id: string, accessToken: string) => {
+	console.log('[fetchArtistById] Fetching artist...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/artists/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchArtistById] Artist retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchArtistById] Unable to fetch artist:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
 export const play = async (
 	deviceId: string,
 	{

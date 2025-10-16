@@ -30,6 +30,7 @@ const LikedSongs = () => {
 				gradientTo="to-blue-950"
 				totalTracks={likedSongs.pagination.total}
 				showControls={true}
+				showBlurredBackground={false}
 			/>
 			<CollectionTracklist
 				type="playlist"

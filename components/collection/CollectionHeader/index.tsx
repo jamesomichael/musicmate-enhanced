@@ -18,6 +18,7 @@ const CollectionHeader = ({
 	gradientFrom = 'from-neutral-600',
 	gradientTo = 'to-neutral-800',
 	showControls = false,
+	showBlurredBackground = true,
 }: {
 	type: SpotifyAlbumType | 'playlist';
 	imageUrl?: string;
@@ -29,15 +30,27 @@ const CollectionHeader = ({
 	gradientFrom?: string;
 	gradientTo?: string;
 	showControls?: boolean;
+	showBlurredBackground?: boolean;
 }) => {
 	return (
 		<div
-			className={`flex flex-col bg-gradient-to-b ${gradientFrom} ${gradientTo}`}
+			className={`relative flex flex-col bg-gradient-to-b ${gradientFrom} ${gradientTo} overflow-hidden`}
 		>
-			<div className="h-72 grid grid-cols-[auto_1fr] gap-6 p-8">
+			{showBlurredBackground && (
+				<>
+					<div
+						className="absolute inset-0 bg-cover bg-center blur-3xl"
+						style={{
+							backgroundImage: `url(${imageUrl})`,
+						}}
+					></div>
+					<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/65"></div>
+				</>
+			)}
+			<div className="relative h-72 grid grid-cols-[auto_1fr] gap-6 p-8">
 				{imageUrl ? (
 					<div
-						className="bg-cover bg-center h-full aspect-square rounded-md"
+						className="shadow-lg bg-cover bg-center h-full aspect-square rounded-md"
 						style={{
 							backgroundImage: `url(${imageUrl})`,
 						}}
@@ -101,7 +114,7 @@ const CollectionHeader = ({
 				</div>
 			</div>
 			{showControls && (
-				<div className="h-24 bg-gradient-to-b from-black/50 to-spotify-black p-4">
+				<div className="relative h-24 bg-gradient-to-b from-black/40 to-spotify-black px-8 py-4">
 					<div className="h-full aspect-square rounded-full bg-spotify-green"></div>
 				</div>
 			)}

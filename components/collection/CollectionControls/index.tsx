@@ -36,7 +36,6 @@ const CollectionControls = ({ contextUri }: { contextUri: string }) => {
 				play({
 					deviceId,
 					contextUri,
-					offset: { position: 0 },
 				})
 			);
 		}
@@ -56,7 +55,7 @@ const CollectionControls = ({ contextUri }: { contextUri: string }) => {
 	);
 
 	return (
-		<div className="relative h-24 flex items-center gap-6 bg-gradient-to-b from-black/40 to-spotify-black px-8 py-4">
+		<div className={'flex items-center gap-6'}>
 			<ControlIcon
 				title={isPlayingCollection ? 'Pause' : 'Play'}
 				onClick={isPlayingCollection ? handlePause : handlePlay}

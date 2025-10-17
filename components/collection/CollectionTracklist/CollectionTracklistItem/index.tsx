@@ -86,6 +86,7 @@ const CollectionTracklistItem = ({
 			const externalTrackData = { ...track, ...(album && { album }) };
 			dispatch(
 				setPlaybackState({
+					isPlaying: true,
 					track: externalTrackData,
 					context: { uri: contextUri },
 				})

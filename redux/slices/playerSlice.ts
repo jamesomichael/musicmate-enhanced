@@ -118,7 +118,7 @@ const playerSlice = createSlice({
 						is_active: true,
 					},
 					progress_ms: action.payload.progress || 0,
-					is_playing: true,
+					is_playing: action.payload.isPlaying,
 					timestamp: +new Date(),
 					...(action.payload.context && {
 						context: action.payload.context,
@@ -127,7 +127,7 @@ const playerSlice = createSlice({
 			} else {
 				state.playbackState.item = action.payload.track;
 				state.playbackState.progress_ms = action.payload.progress || 0;
-				state.playbackState.is_playing = true;
+				state.playbackState.is_playing = action.payload.isPlaying;
 				state.playbackState.timestamp = +new Date();
 				state.playbackState.context = action.payload.context;
 			}

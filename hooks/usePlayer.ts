@@ -67,6 +67,7 @@ const usePlayer = (accessToken: string) => {
 					};
 					dispatch(
 						setPlaybackState({
+							isPlaying: !state.paused,
 							track: formattedTrack,
 							progress,
 							context,

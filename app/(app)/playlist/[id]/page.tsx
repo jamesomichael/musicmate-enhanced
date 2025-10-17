@@ -29,6 +29,7 @@ const Playlist = async ({ params }: { params: Promise<{ id: string }> }) => {
 		<>
 			<CollectionHeader
 				type={playlistData.type}
+				contextUri={playlistData.uri}
 				imageUrl={playlistData.images?.[0]?.url}
 				title={playlistData.name}
 				description={playlistData.description}

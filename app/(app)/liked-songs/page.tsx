@@ -23,6 +23,7 @@ const LikedSongs = () => {
 		<>
 			<CollectionHeader
 				type="playlist"
+				contextUri={`${user.uri}:collection`}
 				imageUrl="/liked-songs-300.jpg"
 				title="Liked Songs"
 				creators={[owner]}

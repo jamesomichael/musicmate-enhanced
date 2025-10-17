@@ -4,11 +4,14 @@ import he from 'he';
 
 import { IoIosMusicalNotes } from 'react-icons/io';
 
+import CollectionControls from './CollectionControls';
+
 import type { Creator } from '@/types/collections';
 import type { SpotifyAlbumType } from '@/types/spotify';
 
 const CollectionHeader = ({
 	type,
+	contextUri,
 	imageUrl,
 	title,
 	description,
@@ -21,6 +24,7 @@ const CollectionHeader = ({
 	showBlurredBackground = true,
 }: {
 	type: SpotifyAlbumType | 'playlist';
+	contextUri: string;
 	imageUrl?: string;
 	title: string;
 	description?: string;
@@ -113,11 +117,7 @@ const CollectionHeader = ({
 					</div>
 				</div>
 			</div>
-			{showControls && (
-				<div className="relative h-24 bg-gradient-to-b from-black/40 to-spotify-black px-8 py-4">
-					<div className="h-full aspect-square rounded-full bg-spotify-green"></div>
-				</div>
-			)}
+			{showControls && <CollectionControls contextUri={contextUri} />}
 		</div>
 	);
 };

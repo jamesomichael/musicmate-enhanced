@@ -26,6 +26,7 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 		<>
 			<CollectionHeader
 				type={albumData.album_type}
+				contextUri={albumData.uri}
 				imageUrl={albumData.images?.[0]?.url}
 				title={albumData.name}
 				creators={artists}

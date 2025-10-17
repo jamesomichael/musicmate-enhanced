@@ -1,7 +1,7 @@
 import React from 'react';
 import { cookies } from 'next/headers';
 
-import CollectionHeader from '@/components/collection/CollectionHeader';
+import AlbumHeader from '@/components/album/AlbumHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
 
 import { fetchAlbumById } from '@/services/spotify';
@@ -15,23 +15,17 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 
 	const albumData: SpotifyAlbum = await fetchAlbumById(id, accessToken);
 
-	const artists = albumData.artists.map(({ id, name }) => ({
-		id,
-		name,
-	}));
-
 	const { items, ...paginationData } = albumData.tracks;
 
 	return (
 		<>
-			<CollectionHeader
-				type={albumData.album_type}
-				contextUri={albumData.uri}
+			<AlbumHeader
 				imageUrl={albumData.images?.[0]?.url}
-				title={albumData.name}
-				creators={artists}
+				type={albumData.album_type}
+				name={albumData.name}
+				artists={albumData.artists}
+				contextUri={albumData.uri}
 				totalTracks={albumData.total_tracks}
-				showControls={true}
 			/>
 			<CollectionTracklist
 				type={albumData.album_type}

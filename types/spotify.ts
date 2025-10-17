@@ -106,6 +106,7 @@ export interface SpotifyPlaylist {
 	images: SpotifyImage[];
 	name: string;
 	owner: SpotifyItemOwner;
+	followers?: { href: string | null; total: number };
 	primary_color: string | null;
 	public: boolean;
 	snapshot_id: string;

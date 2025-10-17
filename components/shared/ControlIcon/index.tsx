@@ -6,10 +6,18 @@ const ControlIcon = ({
 	title,
 	onClick,
 	isActive = false,
+	size,
+	activeClassName = 'text-spotify-green',
+	inactiveClassName = 'text-neutral-300 hover:text-white',
+	primaryClassName = 'text-white hover:text-neutral-300',
 	Icon,
 	isPrimary = false,
 }: {
 	title: string;
+	size?: string;
+	activeClassName?: string;
+	inactiveClassName?: string;
+	primaryClassName?: string;
 	onClick?: () => void;
 	isActive?: boolean;
 	isPrimary?: boolean;
@@ -23,13 +31,13 @@ const ControlIcon = ({
 		>
 			<Icon
 				className={`cursor-pointer ${
-					isPrimary ? 'w-9 h-9' : 'w-5 h-5'
+					size ? size : isPrimary ? 'w-9 h-9' : 'w-5 h-5'
 				} ${
 					isActive
-						? 'text-spotify-green'
+						? activeClassName
 						: isPrimary
-						? 'text-white hover:text-neutral-300'
-						: 'text-neutral-300 hover:text-white'
+						? primaryClassName
+						: inactiveClassName
 				}`}
 			/>
 			{isActive && (

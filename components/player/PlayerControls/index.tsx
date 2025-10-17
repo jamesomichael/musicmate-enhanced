@@ -9,7 +9,7 @@ import {
 import { PiRepeatOnceBold, PiRepeatBold, PiShuffleBold } from 'react-icons/pi';
 
 import ProgressBar from '../ProgressBar';
-import ControlIcon from './ControlIcon';
+import ControlIcon from '../../shared/ControlIcon';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import {
@@ -94,21 +94,12 @@ const PlayerControls = () => {
 					onClick={handleSkipToPrevious}
 					Icon={FaBackwardStep}
 				/>
-				{isPlaying ? (
-					<ControlIcon
-						title="Pause"
-						onClick={handlePause}
-						Icon={FaCirclePause}
-						isPrimary={true}
-					/>
-				) : (
-					<ControlIcon
-						title="Play"
-						onClick={handleResume}
-						Icon={FaCirclePlay}
-						isPrimary={true}
-					/>
-				)}
+				<ControlIcon
+					title={isPlaying ? 'Pause' : 'Play'}
+					onClick={isPlaying ? handlePause : handleResume}
+					Icon={isPlaying ? FaCirclePause : FaCirclePlay}
+					isPrimary={true}
+				/>
 				<ControlIcon
 					title="Next"
 					onClick={handleSkipToNext}

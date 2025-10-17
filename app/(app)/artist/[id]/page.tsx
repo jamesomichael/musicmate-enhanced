@@ -24,6 +24,7 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 			name={artistData.name}
 			followers={artistData.followers.total}
 			genres={artistData.genres}
+			contextUri={artistData.uri}
 		/>
 	);
 };

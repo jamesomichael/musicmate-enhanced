@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import CollectionHeader from '@/components/collection/CollectionHeader';
+import PlaylistHeader from '@/components/playlist/PlaylistHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
 
 import { useAppSelector } from '@/redux/hooks';
@@ -14,24 +14,15 @@ const LikedSongs = () => {
 		return null;
 	}
 
-	const owner = {
-		id: user.id!,
-		name: user.displayName || user.id!,
-	};
-
 	return (
 		<>
-			<CollectionHeader
-				type="playlist"
-				contextUri={`${user.uri}:collection`}
+			<PlaylistHeader
+				isLikedSongs={true}
 				imageUrl="/liked-songs-300.jpg"
-				title="Liked Songs"
-				creators={[owner]}
-				gradientFrom="from-blue-800"
-				gradientTo="to-blue-950"
+				contextUri={`${user.uri}:collection`}
+				name="Liked Songs"
+				owner={{ id: user.id!, displayName: user.displayName }}
 				totalTracks={likedSongs.pagination.total}
-				showControls={true}
-				showBlurredBackground={false}
 			/>
 			<CollectionTracklist
 				type="playlist"

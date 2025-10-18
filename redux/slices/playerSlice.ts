@@ -33,7 +33,7 @@ export const play = createAsyncThunk(
 	}: {
 		deviceId: string;
 		contextUri: string;
-		offset?: { position: number };
+		offset?: { position?: number; uri?: string };
 	}) => {
 		await axios.put(`/api/player/play?device_id=${deviceId}`, {
 			contextUri,

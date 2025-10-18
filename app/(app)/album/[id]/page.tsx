@@ -25,6 +25,7 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 				name={albumData.name}
 				artists={albumData.artists}
 				contextUri={albumData.uri}
+				releaseDate={albumData.release_date}
 				totalTracks={albumData.total_tracks}
 			/>
 			<CollectionTracklist

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import dayjs from 'dayjs';
 
 import MediaHeader from '@/components/shared/MediaHeader';
 
@@ -11,6 +12,7 @@ const AlbumHeader = ({
 	name,
 	artists,
 	contextUri,
+	releaseDate,
 	totalTracks,
 }: {
 	imageUrl?: string;
@@ -18,6 +20,7 @@ const AlbumHeader = ({
 	name: string;
 	artists: SpotifyArtist[];
 	contextUri: string;
+	releaseDate: string;
 	totalTracks: number;
 }) => {
 	return (
@@ -43,6 +46,9 @@ const AlbumHeader = ({
 						</Link>
 					</div>
 				))}
+				<div className="before:content-['•'] before:mx-1 text-neutral-300">
+					<span>{dayjs(releaseDate).year()}</span>
+				</div>
 				<div className="before:content-['•'] before:mx-1 text-neutral-300">
 					<span>
 						{totalTracks.toLocaleString()}{' '}

@@ -8,7 +8,7 @@ export interface SpotifyImage {
 	width: number | null;
 }
 
-interface SpotifyCopyright {
+export interface SpotifyCopyright {
 	text: string;
 	type: string;
 }
@@ -61,7 +61,7 @@ export interface SpotifyAlbum {
 	images: SpotifyImage[];
 	name: string;
 	release_date: string;
-	release_date_precision: string;
+	release_date_precision: 'year' | 'month' | 'day';
 	type: 'album';
 	uri: string;
 	artists: SpotifyArtist[];

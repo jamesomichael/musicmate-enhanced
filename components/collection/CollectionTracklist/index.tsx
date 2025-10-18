@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FaRegClock } from 'react-icons/fa6';
 
-import CollectionTracklistItem from './CollectionTracklistItem';
+import TracklistItem from '@/components/tracklist/TracklistItem';
 
 import type {
 	SpotifyAlbum,
@@ -62,25 +62,35 @@ const CollectionTracklist = ({
 			<div className="mt-4 flex flex-col">
 				{type === 'playlist'
 					? tracks.map(({ track, added_at }, idx) => (
-							<CollectionTracklistItem
+							<TracklistItem
 								key={`${idx}_${track.id}_${added_at}`}
+								number={idx + 1}
+								id={track.id}
+								name={track.name}
+								artists={track.artists}
+								duration={track.duration_ms}
+								isExplicit={track.explicit}
+								contextUri={contextUri}
+								position={idx}
+								showAlbumArt={true}
+								album={track.album}
 								addedAt={added_at}
 								gridConfig={gridConfig}
-								number={idx + 1}
-								track={track}
-								type={type}
-								contextUri={contextUri}
 							/>
 					  ))
-					: tracks.map((track) => (
-							<CollectionTracklistItem
-								key={track.id}
-								gridConfig={gridConfig}
+					: tracks.map((track, idx) => (
+							<TracklistItem
+								key={`${idx}_${track.id}`}
+								id={track.id}
 								number={track.track_number}
-								track={track}
-								type={type}
+								name={track.name}
+								artists={track.artists}
+								duration={track.duration_ms}
+								isExplicit={track.explicit}
 								contextUri={contextUri}
-								album={album}
+								uri={track.uri}
+								showAlbumArt={false}
+								gridConfig={gridConfig}
 							/>
 					  ))}
 			</div>

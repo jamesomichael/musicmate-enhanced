@@ -30,8 +30,8 @@ const LibraryPanel = () => {
 	return (
 		<div className="h-full flex flex-col gap-2 p-2">
 			<div className="flex flex-col gap-4 p-2">
-				<div className="flex items-center py-1 gap-2 text-neutral-300">
-					<LuSquareLibrary size={25} />
+				<div className="flex items-center py-1 gap-2 text-white">
+					<LuSquareLibrary className="w-6 h-6" />
 					<span className="font-funnel text-lg font-bold">
 						Your Library
 					</span>

@@ -23,6 +23,27 @@ export const fetchCurrentUser = async (accessToken: string) => {
 	}
 };
 
+export const fetchUser = async (id: string, accessToken: string) => {
+	console.log('[fetchUser] Fetching user...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/users/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchUser] User retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[fetchUser] Unable to fetch user:', error.message);
+		}
+		throw error;
+	}
+};
+
 export const fetchCategories = async (
 	{ limit = 50, offset = 0 },
 	accessToken: string

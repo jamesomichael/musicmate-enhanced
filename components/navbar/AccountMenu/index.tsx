@@ -6,11 +6,15 @@ import MenuItem from './MenuItem';
 
 import useLogOut from '@/hooks/useLogOut';
 
+import { useAppSelector } from '@/redux/hooks';
+
 interface Props {
 	onClose: () => void;
 }
 
 const AccountMenu = ({ onClose }: Props) => {
+	const user = useAppSelector((state) => state.user);
+
 	const logOut = useLogOut();
 
 	return (
@@ -23,7 +27,11 @@ const AccountMenu = ({ onClose }: Props) => {
 					openInNewTab={true}
 					label="Account"
 				/>
-				<MenuItem onClick={onClose} href="/profile" label="Profile" />
+				<MenuItem
+					onClick={onClose}
+					href={`/user/${user.id}`}
+					label="Profile"
+				/>
 				<div className="w-full border-t border-neutral-500"></div>
 				<MenuItem onClick={logOut} label="Log out" />
 			</div>

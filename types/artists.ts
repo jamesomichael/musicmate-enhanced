@@ -5,3 +5,5 @@ export interface ArtistDiscography {
 	singles: SpotifyPaginatedResponse<SpotifyAlbum>;
 	compilations: SpotifyPaginatedResponse<SpotifyAlbum>;
 }
+
+export type DiscographyTabType = 'albums' | 'singles' | 'compilations';

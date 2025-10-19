@@ -19,7 +19,7 @@ const ArtistTopTracks = ({
 	const { value: shouldShowMore, toggle: toggleShowMore } = useToggle(false);
 
 	return (
-		<div className="flex flex-col px-8 py-4">
+		<div className="flex flex-col">
 			<div className="flex items-center gap-2 text-white pb-4">
 				<FaFire className="w-6 h-6" />
 				<span className="font-funnel text-2xl font-bold">Popular</span>

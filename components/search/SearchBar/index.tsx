@@ -1,15 +1,23 @@
 'use client';
 import React, { useState } from 'react';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { HiMiniMagnifyingGlass } from 'react-icons/hi2';
 
-const Search = () => {
+const SearchBar = () => {
 	const [query, setQuery] = useState('');
-	// const router = useRouter();
+	const router = useRouter();
+
+	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (!query.trim()) {
+			return;
+		}
+		router.push(`/search/${query}`);
+	};
 
 	return (
-		<form onSubmit={() => {}} className="h-full relative group">
+		<form onSubmit={handleSearch} className="h-full relative group">
 			<label
 				htmlFor="search"
 				className="absolute inset-y-0 left-0 flex items-center pl-2.5 md:pl-3 text-neutral-400 group-focus-within:text-white group-hover:text-white group-hover:cursor-pointer"
@@ -27,4 +35,4 @@ const Search = () => {
 	);
 };
 
-export default Search;
+export default SearchBar;

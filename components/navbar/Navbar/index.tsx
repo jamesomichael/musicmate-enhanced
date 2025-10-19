@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Navigation from '../Navigation';
-import Search from '../Search';
+import SearchBar from '../../search/SearchBar';
 import NavButton from '../NavButton';
 import AccountIcon from '../AccountIcon';
 
@@ -23,9 +23,9 @@ const Navbar = () => {
 					InactiveIcon={GoHome}
 					iconSize={22}
 				/>
-				<Search />
+				<SearchBar />
 				<NavButton
-					href="/browse"
+					href="/search"
 					title="Browse"
 					ActiveIcon={BiSolidCategory}
 					InactiveIcon={BiCategory}

@@ -285,6 +285,38 @@ export const fetchArtistTopTracks = async (id: string, accessToken: string) => {
 	}
 };
 
+export const fetchArtistAlbums = async (
+	artistId: string,
+	{
+		limit = 50,
+		offset = 0,
+		groups = 'album,single',
+	}: { limit?: number; offset?: number; groups?: string },
+	accessToken: string
+) => {
+	console.log('[fetchArtistAlbums] Fetching artist albums...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/artists/${artistId}/albums?limit=${limit}&offset=${offset}&include_groups=${groups}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchArtistAlbums] Artist albums retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchArtistAlbums] Unable to fetch artist albums:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
 export const play = async (
 	deviceId: string,
 	{

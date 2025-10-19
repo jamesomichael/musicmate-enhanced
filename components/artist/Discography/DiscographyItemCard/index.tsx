@@ -37,7 +37,7 @@ const DiscographyItemCard = ({
 					<IoIosMusicalNotes className="w-20 h-20 text-neutral-400" />
 				</div>
 			)}
-			<div className="h-16 flex flex-col gap-0.5 xl:gap-1 font-funnel">
+			<div className="h-16 xl:h-20 flex flex-col gap-0.5 xl:gap-1 font-funnel">
 				<span className="line-clamp-2 leading-5 font-medium text-white hover:underline">
 					{name}
 				</span>

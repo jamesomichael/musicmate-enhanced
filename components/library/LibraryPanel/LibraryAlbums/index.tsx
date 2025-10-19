@@ -38,6 +38,7 @@ const LibraryAlbums = () => {
 							: artistNames.join(', ');
 					return (
 						<ListItem
+							type="album"
 							key={album.id}
 							href={`/album/${album.id}`}
 							imageUrl={album.images[0]?.url}

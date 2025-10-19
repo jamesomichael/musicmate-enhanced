@@ -43,6 +43,7 @@ const LibraryPlaylists = () => {
 								: undefined;
 						return (
 							<ListItem
+								type="playlist"
 								key={playlist.id}
 								href={
 									playlist.id === 'liked-songs'

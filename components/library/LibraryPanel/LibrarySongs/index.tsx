@@ -38,6 +38,7 @@ const LibrarySongs = () => {
 					)} • ${albumName}`;
 					return (
 						<ListItem
+							type="track"
 							key={track.id}
 							href={`/album/${track.album.id}`}
 							imageUrl={track.album.images[0]?.url}

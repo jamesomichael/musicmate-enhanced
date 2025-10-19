@@ -39,6 +39,7 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 	return (
 		<>
 			<ArtistHeader
+				id={artistData.id}
 				imageUrl={artistData.images?.[0]?.url}
 				name={artistData.name}
 				followers={artistData.followers.total}

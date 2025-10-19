@@ -156,6 +156,87 @@ export const fetchLikedSongs = async (
 	}
 };
 
+export const fetchFollowedArtists = async (
+	{ limit = 50 }: { limit?: number },
+	accessToken: string
+) => {
+	console.log(
+		"[fetchFollowedArtists] Fetching the user's followed artists..."
+	);
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/me/following?type=artist&limit=${limit}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchFollowedArtists] Artists retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchFollowedArtists] Unable to fetch followed artists:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
+export const followArtist = async (id: string, accessToken: string) => {
+	console.log('[followArtist] Following artist...');
+	console.error(
+		`https://api.spotify.com/v1/me/following?type=artist&ids=${id}`
+	);
+	try {
+		const response = await axios.put(
+			`https://api.spotify.com/v1/me/following?type=artist&ids=${id}`,
+			null,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[followArtist] Artist followed.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[followArtist] Unable to follow artist:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
+export const unfollowArtist = async (id: string, accessToken: string) => {
+	console.log('[unfollowArtist] Unfollowing artist...');
+	try {
+		const response = await axios.delete(
+			`https://api.spotify.com/v1/me/following?type=artist&ids=${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[unfollowArtist] Artist unfollowed.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[unfollowArtist] Unable to unfollow artist:',
+				error.message
+			);
+		}
+		throw error;
+	}
+};
+
 export const fetchPlaylistById = async (
 	playlistId: string,
 	accessToken: string

@@ -6,12 +6,14 @@ import { IoIosMusicalNotes } from 'react-icons/io';
 import { BsFillPinAngleFill } from 'react-icons/bs';
 
 const ListItem = ({
+	type,
 	href,
 	imageUrl,
 	name,
 	isPinned,
 	secondaryText,
 }: {
+	type: 'artist' | 'album' | 'playlist' | 'track';
 	href: string;
 	imageUrl?: string;
 	name: string;
@@ -30,13 +32,19 @@ const ListItem = ({
 		>
 			{imageUrl ? (
 				<div
-					className="h-full aspect-square rounded-md bg-cover bg-center"
+					className={`h-full aspect-square bg-cover bg-center ${
+						type === 'artist' ? 'rounded-full' : 'rounded-md'
+					}`}
 					style={{
 						backgroundImage: `url(${imageUrl})`,
 					}}
 				></div>
 			) : (
-				<div className="h-full flex justify-center items-center aspect-square rounded-md bg-neutral-800">
+				<div
+					className={`h-full flex justify-center items-center aspect-square bg-neutral-800 ${
+						type === 'artist' ? 'rounded-full' : 'rounded-md'
+					}`}
+				>
 					<IoIosMusicalNotes size={27} className="text-neutral-400" />
 				</div>
 			)}

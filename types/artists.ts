@@ -1,5 +1,8 @@
-import { SpotifyPaginatedResponse, SpotifyAlbum } from './spotify';
-
+import type {
+	SpotifyPaginatedResponse,
+	SpotifyAlbum,
+	SpotifyArtist,
+} from './spotify';
 export interface ArtistDiscography {
 	albums: SpotifyPaginatedResponse<SpotifyAlbum>;
 	singles: SpotifyPaginatedResponse<SpotifyAlbum>;
@@ -7,3 +10,8 @@ export interface ArtistDiscography {
 }
 
 export type DiscographyTabType = 'albums' | 'singles' | 'compilations';
+
+export interface ArtistsState {
+	isLoading: boolean;
+	items: SpotifyArtist[];
+}

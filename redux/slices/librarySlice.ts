@@ -19,6 +19,10 @@ const initialState: LibraryState = {
 				type: 'tracks',
 				label: 'Songs',
 			},
+			{
+				type: 'artists',
+				label: 'Artists',
+			},
 		],
 	},
 	playlists: {
@@ -40,6 +44,10 @@ const initialState: LibraryState = {
 	albums: {
 		isLoading: true,
 		pagination: null,
+		items: [],
+	},
+	artists: {
+		isLoading: true,
 		items: [],
 	},
 	likedSongs: {
@@ -79,6 +87,30 @@ export const fetchUserLikedSongs = createAsyncThunk(
 		);
 		const data = response.data;
 		return data;
+	}
+);
+
+export const fetchFollowedArtists = createAsyncThunk(
+	'library/fetchFollowedArtists',
+	async ({ limit = 50 }: { limit?: number }) => {
+		const response = await axios.get(`/api/library/artists?limit=${limit}`);
+		const data = response.data;
+		return data;
+	}
+);
+
+export const followArtist = createAsyncThunk(
+	'library/followArtist',
+	async (id: string) => {
+		await axios.put(`/api/library/artists/${id}`);
+	}
+);
+
+export const unfollowArtist = createAsyncThunk(
+	'library/unfollowArtist',
+	async (id: string) => {
+		await axios.delete(`/api/library/artists/${id}`);
+		return id;
 	}
 );
 
@@ -144,6 +176,18 @@ const librarySlice = createSlice({
 				...state.likedSongs.items,
 				...action.payload.items,
 			];
+		});
+		builder.addCase(fetchFollowedArtists.rejected, (state) => {
+			state.artists.isLoading = false;
+		});
+		builder.addCase(fetchFollowedArtists.fulfilled, (state, action) => {
+			state.artists.isLoading = false;
+			state.artists.items = action.payload.artists.items;
+		});
+		builder.addCase(unfollowArtist.fulfilled, (state, action) => {
+			state.artists.items = state.artists.items.filter(
+				(artist) => artist.id !== action.payload
+			);
 		});
 	},
 });

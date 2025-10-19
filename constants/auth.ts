@@ -9,4 +9,6 @@ export const SPOTIFY_SCOPES: string[] = [
 	'user-read-currently-playing',
 	'user-library-read',
 	'user-read-recently-played',
+	'user-follow-read',
+	'user-follow-modify',
 ];

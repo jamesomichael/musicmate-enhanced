@@ -8,13 +8,14 @@ import LibraryTabs from './LibraryTabs';
 import LibraryPlaylists from './LibraryPlaylists';
 import LibraryAlbums from './LibraryAlbums';
 import LibrarySongs from './LibrarySongs';
+import LibraryArtists from './LibraryArtists';
 
-import { useAppSelector } from '@/redux/hooks';
-import { useAppDispatch } from '@/redux/hooks';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import {
 	fetchUserPlaylists,
 	fetchUserAlbums,
 	fetchUserLikedSongs,
+	fetchFollowedArtists,
 } from '@/redux/slices/librarySlice';
 
 const LibraryPanel = () => {
@@ -25,6 +26,7 @@ const LibraryPanel = () => {
 		dispatch(fetchUserPlaylists({}));
 		dispatch(fetchUserAlbums({}));
 		dispatch(fetchUserLikedSongs({}));
+		dispatch(fetchFollowedArtists({}));
 	}, []);
 
 	return (
@@ -45,6 +47,8 @@ const LibraryPanel = () => {
 					<LibraryAlbums />
 				) : activeTab === 'tracks' ? (
 					<LibrarySongs />
+				) : activeTab === 'artists' ? (
+					<LibraryArtists />
 				) : (
 					<Loader />
 				)}

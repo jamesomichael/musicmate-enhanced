@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaRecordVinyl } from 'react-icons/fa6';
 
 import Tab from '@/components/shared/Tab';
+import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import DiscographyCard from './DiscographyCard';
 
 import useDiscographyTabs from '@/hooks/useDiscographyTabs';
@@ -77,11 +78,10 @@ const Discography = ({
 						/>
 					))}
 				</div>
-				<div className="-mx-3 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7">
-					{(maxItems
-						? currentTab.data.items.slice(0, maxItems)
-						: currentTab.data.items
-					).map((item) => (
+				<ShowcaseGrid
+					items={currentTab.data.items}
+					maxItems={maxItems}
+					renderItem={(item) => (
 						<DiscographyCard
 							key={item.id}
 							id={item.id}
@@ -90,8 +90,8 @@ const Discography = ({
 							releaseDate={item.release_date}
 							type={item.album_type}
 						/>
-					))}
-				</div>
+					)}
+				/>
 			</div>
 		</div>
 	);

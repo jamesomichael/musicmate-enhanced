@@ -48,12 +48,16 @@ const TopResult = ({
 						<span className="capitalize after:content-['•'] after:mx-1">
 							{type}
 						</span>
-						<Link
-							href={`/artist/${artist.id}`}
+						<div
+							onClick={(e) => {
+								e.preventDefault();
+								e.stopPropagation();
+								router.push(`/artist/${artist.id}`);
+							}}
 							className="hover:underline text-white"
 						>
 							{artist.name}
-						</Link>
+						</div>
 					</div>
 				</div>
 			</div>

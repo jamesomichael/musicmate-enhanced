@@ -1,25 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+import type { SpotifyArtist } from '@/types/spotify';
 
 const TopResult = ({
 	id,
 	imageUrl,
 	name,
 	type,
+	artist,
 }: {
 	id: string;
 	imageUrl: string;
 	name: string;
 	type: string;
+	artist: SpotifyArtist;
 }) => {
+	const router = useRouter();
 	return (
 		<div className="flex flex-col gap-2">
 			<span className="font-funnel font-bold text-2xl text-white">
 				Top result
 			</span>
-			<Link
-				href={`/album/${id}`}
-				className="h-64 grid grid-rows-2 gap-2 bg-neutral-900 hover:bg-neutral-800 rounded p-6"
+			<div
+				// Using router.push here to prevent link within link errors.
+				onClick={(e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					router.push(`/album/${id}`);
+				}}
+				className="transition-all duration-200 h-64 grid grid-rows-2 gap-2 bg-neutral-900 hover:bg-neutral-800 hover:cursor-pointer rounded p-6"
 			>
 				{imageUrl && (
 					<div
@@ -37,15 +48,15 @@ const TopResult = ({
 						<span className="capitalize after:content-['•'] after:mx-1">
 							{type}
 						</span>
-						{/* <Link
-									href={`/artist/${topResult.artists[0].id}`}
-									className="hover:underline text-white"
-								>
-									{topResult.artists[0].name}
-								</Link> */}
+						<Link
+							href={`/artist/${artist.id}`}
+							className="hover:underline text-white"
+						>
+							{artist.name}
+						</Link>
 					</div>
 				</div>
-			</Link>
+			</div>
 		</div>
 	);
 };

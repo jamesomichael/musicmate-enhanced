@@ -22,6 +22,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 					imageUrl={topResult.images?.[0]?.url}
 					name={topResult.name}
 					type={topResult.album_type}
+					artist={topResult.artists[0]}
 				/>
 				<TopTracks tracks={tracks.items} />
 			</div>

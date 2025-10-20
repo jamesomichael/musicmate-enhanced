@@ -15,7 +15,6 @@ import type {
 import type { Pagination } from '@/types/library';
 
 interface BaseProps {
-	contextUri: string;
 	paginationData: Pagination;
 }
 
@@ -24,11 +23,19 @@ type Props =
 			type: 'playlist';
 			tracks: SpotifyPlaylistItem[] | SpotifyLibraryLikedSong[];
 			album?: never;
+			contextUri: string;
+	  })
+	| (BaseProps & {
+			type: 'results';
+			tracks: SpotifyTrack[];
+			album?: never;
+			contextUri?: never;
 	  })
 	| (BaseProps & {
 			type: SpotifyAlbumType;
 			tracks: SpotifyTrack[];
 			album: SpotifyAlbum;
+			contextUri: string;
 	  });
 
 const CollectionTracklist = ({
@@ -38,9 +45,12 @@ const CollectionTracklist = ({
 	album,
 	tracks,
 }: Props) => {
+	console.error(tracks);
 	const gridConfig = useMemo(
 		() =>
-			type === 'playlist'
+			type === 'results'
+				? 'grid grid-cols-[1.75rem_1.5fr_1fr_5rem] gap-5'
+				: type === 'playlist'
 				? 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5'
 				: 'grid grid-cols-[1.75rem_1.5fr_5rem] gap-5',
 		[type]
@@ -54,19 +64,33 @@ const CollectionTracklist = ({
 				>
 					<span className="text-right mr-1">#</span>
 					<span>Title</span>
-					{type === 'playlist' && (
-						<>
-							<span>Album</span>
-							<span>Date added</span>
-						</>
-					)}
+					{type === 'playlist' ||
+						(type === 'results' && <span>Album</span>)}
+					{type === 'playlist' && <span>Date added</span>}
 					<div className="flex justify-end items-center mr-2">
 						<FaRegClock className="w-4 h-4" />
 					</div>
 				</div>
 
 				<div className="mt-4 flex flex-col">
-					{type === 'playlist'
+					{type === 'results'
+						? tracks.map((track, idx) => (
+								<TracklistItem
+									key={`${idx}_${track.id}`}
+									number={idx + 1}
+									id={track.id}
+									name={track.name}
+									artists={track.artists}
+									duration={track.duration_ms}
+									isExplicit={track.explicit}
+									contextUri={track.album.uri}
+									uri={track.uri}
+									showAlbumArt={true}
+									album={track.album}
+									gridConfig={gridConfig}
+								/>
+						  ))
+						: type === 'playlist'
 						? tracks.map(({ track, added_at }, idx) => (
 								<TracklistItem
 									key={`${idx}_${track.id}_${added_at}`}
@@ -101,7 +125,7 @@ const CollectionTracklist = ({
 						  ))}
 				</div>
 			</div>
-			{type !== 'playlist' && (
+			{type !== 'playlist' && type !== 'results' && (
 				<AlbumMetadata
 					releaseDate={album?.release_date}
 					releaseDatePrecision={album?.release_date_precision}

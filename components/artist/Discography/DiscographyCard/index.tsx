@@ -20,11 +20,6 @@ const DiscographyCard = ({
 	name: string;
 	releaseDate: string;
 }) => {
-	const secondaryText = `${dayjs(releaseDate).year()} • ${
-		artists && artists?.length > 0
-			? artists.map((artist) => artist.name).join(', ')
-			: `${type.charAt(0).toUpperCase()}${type.slice(1)}`
-	}`;
 	return (
 		<ItemCard
 			type={type}

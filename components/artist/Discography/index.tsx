@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FaRecordVinyl } from 'react-icons/fa6';
 
 import Tab from '@/components/shared/Tab';
-import DiscographyItemCard from './DiscographyItemCard';
+import DiscographyCard from './DiscographyCard';
 
 import useDiscographyTabs from '@/hooks/useDiscographyTabs';
 
@@ -82,7 +82,7 @@ const Discography = ({
 						? currentTab.data.items.slice(0, maxItems)
 						: currentTab.data.items
 					).map((item) => (
-						<DiscographyItemCard
+						<DiscographyCard
 							key={item.id}
 							id={item.id}
 							imageUrl={item.images?.[0]?.url}

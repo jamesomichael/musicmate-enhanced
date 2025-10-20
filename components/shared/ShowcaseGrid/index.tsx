@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 const ShowcaseGrid = <T,>({
 	title,
-	maxItems = 7,
+	maxItems,
 	items,
 	renderItem,
 }: {

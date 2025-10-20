@@ -620,3 +620,28 @@ export const setVolume = async (volume: number, accessToken: string) => {
 		throw Error;
 	}
 };
+
+export const search = async (
+	query: string,
+	{ limit = 50, offset = 0 }: { limit?: number; offset?: number },
+	accessToken: string
+) => {
+	console.log(`[search] Searching with query ${query}...`);
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/search?q=${query}&type=album,track,artist,playlist`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[search] Search results retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('[search] Unable to search:', error.message);
+		}
+		throw error;
+	}
+};

@@ -30,6 +30,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 				<ShowcaseGrid
 					title="Artists"
 					items={artists.items}
+					maxItems={7}
 					renderItem={(item) => (
 						<ArtistCard
 							id={item.id}
@@ -41,6 +42,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 				<ShowcaseGrid
 					title="Albums"
 					items={albums.items}
+					maxItems={7}
 					renderItem={(item) => (
 						<DiscographyCard
 							id={item.id}
@@ -55,6 +57,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 				<ShowcaseGrid
 					title="Playlists"
 					items={playlists.items}
+					maxItems={7}
 					renderItem={(item) =>
 						item ? (
 							<PlaylistCard

@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 
 import Loader from '@/components/shared/Loader';
 import Tab from '@/components/shared/Tab';
-import TrackResults from './TrackResults';
 import AllResults from './AllResults';
+import PlaylistResults from './PlaylistResults';
+import AlbumResults from './AlbumResults';
+import ArtistResults from './ArtistResults';
+import TrackResults from './TrackResults';
 
 import useSearchTabs from '@/hooks/useSearchTabs';
 
@@ -42,6 +45,12 @@ const SearchResults = ({ data }: { data: SearchResultsData }) => {
 				<AllResults data={data} />
 			) : activeTab === 'tracks' ? (
 				<TrackResults tracks={tracks} />
+			) : activeTab === 'artists' ? (
+				<ArtistResults artists={artists} />
+			) : activeTab === 'albums' ? (
+				<AlbumResults albums={albums} />
+			) : activeTab === 'playlists' ? (
+				<PlaylistResults playlists={playlists} />
 			) : (
 				<Loader />
 			)}

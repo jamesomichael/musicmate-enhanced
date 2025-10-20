@@ -45,7 +45,6 @@ const CollectionTracklist = ({
 	album,
 	tracks,
 }: Props) => {
-	console.error(tracks);
 	const gridConfig = useMemo(
 		() =>
 			type === 'results'

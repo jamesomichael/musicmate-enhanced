@@ -25,7 +25,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 				/>
 				<TopTracks tracks={tracks.items} />
 			</div>
-			<div>
+			<div className="flex flex-col gap-4">
 				<ShowcaseGrid
 					title="Artists"
 					items={artists.items}

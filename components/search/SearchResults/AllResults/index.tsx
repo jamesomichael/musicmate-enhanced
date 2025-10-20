@@ -2,6 +2,10 @@ import React from 'react';
 
 import TopResult from '../TopResult';
 import TopTracks from '../TopTracks';
+import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
+import DiscographyCard from '@/components/artist/Discography/DiscographyCard';
+import ArtistCard from '@/components/artist/ArtistCard';
+import PlaylistCard from '@/components/playlist/PlaylistCard';
 
 import type { SearchResultsData } from '@/types/search';
 
@@ -11,7 +15,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 		albums?.items?.[0] || artists?.items?.[0] || tracks?.items?.[0];
 
 	return (
-		<div className="flex flex-col gap-8">
+		<div className="flex flex-col gap-10">
 			<div className="grid grid-cols-[1.3fr_2fr] gap-4">
 				<TopResult
 					id={topResult.id}
@@ -20,6 +24,47 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 					type={topResult.album_type}
 				/>
 				<TopTracks tracks={tracks.items} />
+			</div>
+			<div>
+				<ShowcaseGrid
+					title="Artists"
+					items={artists.items}
+					renderItem={(item) => (
+						<ArtistCard
+							id={item.id}
+							imageUrl={item.images?.[0]?.url}
+							name={item.name}
+						/>
+					)}
+				/>
+				<ShowcaseGrid
+					title="Albums"
+					items={albums.items}
+					renderItem={(item) => (
+						<DiscographyCard
+							id={item.id}
+							type={item.album_type}
+							imageUrl={item.images?.[0]?.url}
+							artists={item.artists}
+							name={item.name}
+							releaseDate={item.release_date}
+						/>
+					)}
+				/>
+				<ShowcaseGrid
+					title="Playlists"
+					items={playlists.items}
+					renderItem={(item) =>
+						item ? (
+							<PlaylistCard
+								id={item.id}
+								imageUrl={item.images?.[0]?.url}
+								name={item.name}
+								owner={item.owner.display_name ?? item.owner.id}
+							/>
+						) : null
+					}
+				/>
 			</div>
 		</div>
 	);

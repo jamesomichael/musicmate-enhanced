@@ -30,7 +30,7 @@ const TopResult = ({
 					e.stopPropagation();
 					router.push(`/album/${id}`);
 				}}
-				className="transition-all duration-200 h-64 grid grid-rows-2 gap-2 bg-neutral-900 hover:bg-neutral-800 hover:cursor-pointer rounded p-6"
+				className="transition-all duration-200 h-64 grid grid-rows-2 gap-2 bg-neutral-900 hover:bg-neutral-800 hover:cursor-pointer rounded-md p-6"
 			>
 				{imageUrl && (
 					<div

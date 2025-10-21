@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FaHeadphones } from 'react-icons/fa6';
 import { HiOutlineQueueList } from 'react-icons/hi2';
+import { PiDevicesBold } from 'react-icons/pi';
 
 import VolumeControl from '../VolumeControl';
 
@@ -15,9 +15,9 @@ const PlayerExtras = () => {
 				/>
 			</div>
 			<div title="Connect to a device">
-				<FaHeadphones
+				<PiDevicesBold
 					className="transition-all duration-200 cursor-pointer text-neutral-300 hover:scale-105 hover:text-white"
-					size={17}
+					size={20}
 				/>
 			</div>
 			<VolumeControl />

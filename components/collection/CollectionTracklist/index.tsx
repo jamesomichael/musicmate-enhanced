@@ -63,8 +63,9 @@ const CollectionTracklist = ({
 				>
 					<span className="text-right mr-1">#</span>
 					<span>Title</span>
-					{type === 'playlist' ||
-						(type === 'results' && <span>Album</span>)}
+					{(type === 'playlist' || type === 'results') && (
+						<span>Album</span>
+					)}
 					{type === 'playlist' && <span>Date added</span>}
 					<div className="flex justify-end items-center mr-2">
 						<FaRegClock className="w-4 h-4" />

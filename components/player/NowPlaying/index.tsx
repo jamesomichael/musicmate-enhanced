@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { FaPodcast } from 'react-icons/fa6';
 import { FiLock } from 'react-icons/fi';
 
+import FadeInSlide from '@/components/shared/FadeInSlide';
+
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
@@ -45,13 +47,14 @@ const NowPlaying = () => {
 							backgroundImage: `url(${item.album?.images?.[0].url})`,
 						}}
 					></Link>
-					<div className="flex flex-col overflow-hidden">
-						<Link
+					<div className="flex flex-col w-full overflow-hidden">
+						<FadeInSlide
+							key={item.id}
 							href={`/album/${item.album.id}`}
 							className="leading-5 truncate hover:underline font-funnel font-medium text-white text-base"
 						>
 							{item.name}
-						</Link>
+						</FadeInSlide>
 
 						<div className="truncate overflow-hidden w-full">
 							{item.artists.map(

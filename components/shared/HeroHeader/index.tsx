@@ -3,6 +3,8 @@ import React from 'react';
 import { IoIosMusicalNotes } from 'react-icons/io';
 import { FaRegUser } from 'react-icons/fa6';
 
+import FadeInSlide from '../FadeInSlide';
+
 import type { SpotifyAlbumType } from '@/types/spotify';
 
 const HeroHeader = ({
@@ -72,9 +74,12 @@ const HeroHeader = ({
 					<span className="capitalize leading-none font-funnel text-xs text-white">
 						{type}
 					</span>
-					<span className="font-unbounded font-black text-white text-4xl xl:leading-16 xl:text-[3.25rem] line-clamp-2">
+					<FadeInSlide
+						key={title}
+						className="font-unbounded font-black text-white text-4xl xl:leading-16 xl:text-[3.25rem] line-clamp-2"
+					>
 						{title}
-					</span>
+					</FadeInSlide>
 					<div>{children}</div>
 				</div>
 			</div>

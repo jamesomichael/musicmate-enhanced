@@ -1,5 +1,8 @@
 import '../app/globals.css';
 
+import { usePathname } from '@storybook/nextjs/navigation.mock';
+import mockRouter from 'next-router-mock';
+
 import type { Preview } from '@storybook/nextjs';
 
 export const parameters = {
@@ -20,6 +23,9 @@ const preview: Preview = {
 				date: /Date$/i,
 			},
 		},
+	},
+	beforeEach: () => {
+		usePathname.mockImplementation(() => mockRouter.pathname);
 	},
 	initialGlobals: {
 		backgrounds: { value: 'dark' },

@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![musicmate](https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-pub//musicmate.png)](https://musicmate.jamesmichael.dev)
 
-## Getting Started
+[![Netlify Status](https://api.netlify.com/api/v1/badges/79adfa93-df1d-4af5-b139-664f90d05941/deploy-status)](https://musicmate.jamesmichael.dev)
+[![Storybook](https://img.shields.io/badge/Storybook-View-ff4785?logo=storybook&logoColor=white)](https://jamesomichael.github.io/musicmate-enhanced)
 
-First, run the development server:
+musicmate is a web-based Spotify clone built with Next.js, Tailwind CSS, Redux Toolkit, and TypeScript. It leverages Spotify's [Web API](https://developer.spotify.com/documentation/web-api) and [Web Playback SDK](https://developer.spotify.com/documentation/web-playback-sdk) to deliver a faithful, Spotify-like experience, with seamless playback for Spotify Premium users.
+
+> **Please note**: Access to musicmate is currently by invitation only. Please [get in touch](mailto:musicmate@jamesmichael.dev?subject=Access%20Request) to request access.
+
+![Artist](https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/artist-fontaines-dc.png)
+
+## **Features**
+
+-   View your Spotify library (with infinite scroll for pagination)
+-   Search for playlists, artists, albums, and tracks
+-   Enjoy full local playback **(requires Spotify Premium)**
+-   Control active external devices **(requires Spotify Premium)**
+
+### **Playback Controls**
+
+-   Play/pause
+-   Seek
+-   Skip forward/back
+-   Toggle shuffle/repeat
+-   Volume control
+
+## **Tech Stack**
+
+-   **TypeScript**
+-   **Next.js (App Router)**
+-   **Tailwind CSS**
+-   **Redux Toolkit**
+-   **Motion**
+-   **Storybook**
+
+## **Local Development**
+
+### **Prerequisites**
+
+-   Node.js (v20+ recommended)
+-   npm
+-   [A Spotify developer account](https://developer.spotify.com/)
+
+### **Getting Started**
+
+1. Install the required dependencies:
+
+```bash
+npm install
+```
+
+2. Create a `.env.local` file:
+
+```bash
+touch .env.local
+```
+
+3. Add the following environment variables to `.env.local`:
+
+> Ensure you add your own _client ID_ and _secret_. These can be found in your app in the [developer dashboard](https://developer.spotify.com/dashboard).
+
+```bash
+NEXT_PUBLIC_CLIENT_ID="YOUR_SPOTIFY_CLIENT_ID"
+NEXT_PUBLIC_CLIENT_SECRET="YOUR_SPOTIFY_CLIENT_SECRET"
+NEXT_PUBLIC_REDIRECT_URI=http://localhost:3000/api/callback
+NEXT_PUBLIC_SPOTIFY_AUTH_URL=https://accounts.spotify.com/authorize
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -1,30 +1,17 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
+import useNavigation from '@/hooks/useNavigation';
+
 const Navigation = () => {
-	const router = useRouter();
-	const [canNavigateBack, setCanNavigateBack] = useState(false);
-	const [canNavigateForward, setCanNavigateForward] = useState(false);
-
-	const navigateBack = () => router.back();
-	const navigateForward = () => router.forward();
-
-	useEffect(() => {
-		const checkHistory = () => {
-			setCanNavigateBack(window.history.length > 1);
-			setCanNavigateForward(window.history.length > 1);
-		};
-
-		checkHistory();
-		window.addEventListener('popstate', checkHistory);
-
-		return () => {
-			window.removeEventListener('popstate', checkHistory);
-		};
-	}, []);
+	const {
+		canNavigateBack,
+		canNavigateForward,
+		navigateBack,
+		navigateForward,
+	} = useNavigation();
 
 	return (
 		<div className="flex items-center gap-3">

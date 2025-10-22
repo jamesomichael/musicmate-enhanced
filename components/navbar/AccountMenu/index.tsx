@@ -14,7 +14,6 @@ interface Props {
 
 const AccountMenu = ({ onClose }: Props) => {
 	const user = useAppSelector((state) => state.user);
-
 	const logOut = useLogOut();
 
 	return (

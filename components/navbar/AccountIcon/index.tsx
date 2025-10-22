@@ -1,44 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 import AccountMenu from '../AccountMenu';
 
-import useToggle from '@/hooks/useToggle';
+import useDropdown from '@/hooks/useDropdown';
 
 import { useAppSelector } from '@/redux/hooks';
 
 const AccountIcon = () => {
 	const user = useAppSelector((state) => state.user);
-
-	const {
-		value: isMenuOpen,
-		toggle: toggleMenu,
-		setOff: closeMenu,
-	} = useToggle(false);
-
-	const dropdownRef = useRef<HTMLDivElement>(null);
-
-	const handleClickOutside = (event: MouseEvent) => {
-		if (
-			dropdownRef.current &&
-			!dropdownRef.current.contains(event.target as Node)
-		) {
-			closeMenu();
-		}
-	};
-
-	useEffect(() => {
-		document.addEventListener('mousedown', handleClickOutside);
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
-	}, []);
+	const { dropdownRef, isOpen, toggleOpen } = useDropdown();
 
 	return (
 		<div className="h-full relative" ref={dropdownRef}>
 			<div className="h-full p-1">
 				{user.images && user.images.length > 0 ? (
 					<div
-						onClick={toggleMenu}
+						onClick={toggleOpen}
 						className="transition-all duration-200 hover:cursor-pointer hover:scale-110 bg-cover bg-center aspect-square h-full rounded-full"
 						style={{
 							backgroundImage: `url(${user.images[0].url})`,
@@ -46,7 +23,7 @@ const AccountIcon = () => {
 					></div>
 				) : (
 					<div
-						onClick={toggleMenu}
+						onClick={toggleOpen}
 						className="transition-all duration-200 hover:cursor-pointer hover:scale-110 bg-[#f573a0] aspect-square h-full rounded-full flex justify-center items-center"
 					>
 						<span className="uppercase font-funnel font-bold text-lg">
@@ -57,7 +34,7 @@ const AccountIcon = () => {
 					</div>
 				)}
 			</div>
-			{isMenuOpen && <AccountMenu onClose={toggleMenu} />}
+			{isOpen && <AccountMenu onClose={toggleOpen} />}
 		</div>
 	);
 };

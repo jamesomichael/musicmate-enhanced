@@ -51,6 +51,8 @@ export interface SpotifyCategory {
 
 export type SpotifyAlbumType = 'album' | 'single' | 'compilation';
 
+export type SpotifyReleaseDatePrecision = 'year' | 'month' | 'day';
+
 export interface SpotifyAlbum {
 	album_type: SpotifyAlbumType;
 	total_tracks: number;
@@ -61,7 +63,7 @@ export interface SpotifyAlbum {
 	images: SpotifyImage[];
 	name: string;
 	release_date: string;
-	release_date_precision: 'year' | 'month' | 'day';
+	release_date_precision: SpotifyReleaseDatePrecision;
 	type: 'album';
 	uri: string;
 	artists: SpotifyArtist[];

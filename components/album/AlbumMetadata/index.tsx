@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
-import dayjs from 'dayjs';
+import React from 'react';
+
+import useFormattedDate from '@/hooks/useFormattedDate';
 
 import type { SpotifyCopyright } from '@/types/spotify';
 
@@ -12,14 +13,10 @@ const AlbumMetadata = ({
 	releaseDatePrecision?: 'year' | 'month' | 'day';
 	copyrightNotices: SpotifyCopyright[];
 }) => {
-	const formattedReleaseDate = useMemo(() => {
-		if (!releaseDate || !releaseDatePrecision) {
-			return;
-		}
-		return releaseDatePrecision === 'day'
-			? dayjs(releaseDate).format('D MMMM YYYY')
-			: dayjs(releaseDate).year();
-	}, [releaseDate, releaseDatePrecision]);
+	const formattedReleaseDate = useFormattedDate(
+		releaseDate,
+		releaseDatePrecision
+	);
 
 	const formatCopyright = (type: string, text: string) =>
 		type === 'C' && !text.includes('©')

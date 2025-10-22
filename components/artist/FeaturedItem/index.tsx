@@ -1,9 +1,10 @@
 'use client';
-import React, { useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import dayjs from 'dayjs';
 
 import { FaRegStar } from 'react-icons/fa6';
+
+import useFormattedDate from '@/hooks/useFormattedDate';
 
 import type { SpotifyAlbum } from '@/types/spotify';
 
@@ -11,14 +12,10 @@ const FeaturedItem = ({ item }: { item: SpotifyAlbum }) => {
 	const releaseDate = item.release_date;
 	const releaseDatePrecision = item.release_date_precision;
 
-	const formattedReleaseDate = useMemo(() => {
-		if (!releaseDate || !releaseDatePrecision) {
-			return;
-		}
-		return releaseDatePrecision === 'day'
-			? dayjs(releaseDate).format('D MMMM YYYY')
-			: dayjs(releaseDate).year();
-	}, [releaseDate, releaseDatePrecision]);
+	const formattedReleaseDate = useFormattedDate(
+		releaseDate,
+		releaseDatePrecision
+	);
 
 	return (
 		<div className="flex flex-col">

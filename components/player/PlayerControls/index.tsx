@@ -11,74 +11,21 @@ import { PiRepeatOnceBold, PiRepeatBold, PiShuffleBold } from 'react-icons/pi';
 import ProgressBar from '../ProgressBar';
 import ControlIcon from '../../shared/ControlIcon';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import {
-	fetchPlaybackState,
-	getNowPlaying,
-	pause,
-	resume,
-	seek,
-	setShuffleState,
-	setRepeatState,
-	skipToNext,
-	skipToPrevious,
-} from '@/redux/slices/playerSlice';
-
-import type { SpotifyRepeatState } from '@/types/spotify';
+import usePlayerControls from '@/hooks/usePlayerControls';
 
 const PlayerControls = () => {
-	const { isPlaying, isExternal, device, repeatState, shuffleState } =
-		useAppSelector(getNowPlaying);
-	const dispatch = useAppDispatch();
-
-	const handlePause = () => {
-		dispatch(pause(device.id));
-	};
-
-	const handleResume = () => {
-		dispatch(resume(device.id));
-	};
-
-	const handleSeek = (position: number) => {
-		dispatch(seek(position));
-	};
-
-	const handleSkipToNext = async () => {
-		await dispatch(skipToNext());
-		if (isExternal) {
-			setTimeout(() => dispatch(fetchPlaybackState()), 500);
-		}
-	};
-
-	const handleSkipToPrevious = async () => {
-		await dispatch(skipToPrevious());
-		if (isExternal) {
-			setTimeout(() => dispatch(fetchPlaybackState()), 500);
-		}
-	};
-
-	const toggleShuffle = () => dispatch(setShuffleState(!shuffleState));
-
-	const toggleRepeat = () => {
-		let nextState: SpotifyRepeatState;
-
-		switch (repeatState) {
-			case 'off':
-				nextState = 'context';
-				break;
-			case 'context':
-				nextState = 'track';
-				break;
-			case 'track':
-				nextState = 'off';
-				break;
-			default:
-				nextState = 'off';
-				break;
-		}
-
-		dispatch(setRepeatState(nextState));
-	};
+	const {
+		isPlaying,
+		repeatState,
+		shuffleState,
+		pause,
+		resume,
+		seek,
+		skipToNext,
+		skipToPrevious,
+		toggleShuffle,
+		toggleRepeat,
+	} = usePlayerControls();
 
 	return (
 		<div className="flex flex-col gap-2 justify-center items-center">
@@ -91,18 +38,18 @@ const PlayerControls = () => {
 				/>
 				<ControlIcon
 					title="Previous"
-					onClick={handleSkipToPrevious}
+					onClick={skipToPrevious}
 					Icon={FaBackwardStep}
 				/>
 				<ControlIcon
 					title={isPlaying ? 'Pause' : 'Play'}
-					onClick={isPlaying ? handlePause : handleResume}
+					onClick={isPlaying ? pause : resume}
 					Icon={isPlaying ? FaCirclePause : FaCirclePlay}
 					isPrimary={true}
 				/>
 				<ControlIcon
 					title="Next"
-					onClick={handleSkipToNext}
+					onClick={skipToNext}
 					Icon={FaForwardStep}
 				/>
 				<ControlIcon
@@ -118,7 +65,7 @@ const PlayerControls = () => {
 					}
 				/>
 			</div>
-			<ProgressBar onSeek={handleSeek} />
+			<ProgressBar onSeek={seek} />
 		</div>
 	);
 };

@@ -1,64 +1,28 @@
 'use client';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { FaCirclePause, FaCirclePlay } from 'react-icons/fa6';
 import { PiShuffleBold } from 'react-icons/pi';
 
 import ControlIcon from '@/components/shared/ControlIcon';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import {
-	fetchPlaybackState,
-	getNowPlaying,
-	play,
-	pause,
-	resume,
-	setShuffleState,
-} from '@/redux/slices/playerSlice';
+import useCollectionPlayback from '@/hooks/useCollectionPlayback';
 
 const CollectionControls = ({ contextUri }: { contextUri: string }) => {
-	const { isPlaying, isActive, isExternal, shuffleState, context, device } =
-		useAppSelector(getNowPlaying);
-	const { deviceId: localDeviceId } = useAppSelector((state) => state.player);
-	const dispatch = useAppDispatch();
-
-	const deviceId = device?.id ?? localDeviceId;
-
-	const isCurrentContext = context?.uri === contextUri;
-	const isPlayingCollection = isPlaying && isCurrentContext;
-	const isActiveCollection = isActive && isCurrentContext;
-
-	const handlePlay = useCallback(async () => {
-		if (isActiveCollection) {
-			await dispatch(resume(deviceId));
-		} else {
-			await dispatch(
-				play({
-					deviceId,
-					contextUri,
-				})
-			);
-		}
-		if (isExternal) {
-			setTimeout(() => dispatch(fetchPlaybackState()), 500);
-		}
-	}, [isActiveCollection, deviceId, contextUri, isExternal, dispatch]);
-
-	const handlePause = useCallback(
-		() => dispatch(pause(deviceId)),
-		[deviceId, dispatch]
-	);
-
-	const toggleShuffle = useCallback(
-		() => dispatch(setShuffleState(!shuffleState)),
-		[shuffleState, dispatch]
-	);
+	const {
+		isPlayingCollection,
+		isActiveCollection,
+		shuffleState,
+		play,
+		pause,
+		toggleShuffle,
+	} = useCollectionPlayback(contextUri);
 
 	return (
 		<div className={'flex items-center gap-6'}>
 			<ControlIcon
 				title={isPlayingCollection ? 'Pause' : 'Play'}
-				onClick={isPlayingCollection ? handlePause : handlePlay}
+				onClick={isPlayingCollection ? pause : play}
 				Icon={isPlayingCollection ? FaCirclePause : FaCirclePlay}
 				inactiveClassName="text-spotify-green"
 				size="w-16 h-16"

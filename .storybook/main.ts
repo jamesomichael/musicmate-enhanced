@@ -8,5 +8,11 @@ const config: StorybookConfig = {
 		options: {},
 	},
 	staticDirs: ['../public'],
+	webpackFinal: async (config) => {
+		if (config.output) {
+			config.output.publicPath = '/musicmate-enhanced/';
+		}
+		return config;
+	},
 };
 export default config;

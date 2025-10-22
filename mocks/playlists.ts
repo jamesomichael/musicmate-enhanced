@@ -1,3 +1,2474 @@
+export const playlistMock = {
+	collaborative: false,
+	description: '',
+	external_urls: {
+		spotify: 'https://open.spotify.com/playlist/3EXX8K4FyrtaMAZj0LyjGb',
+	},
+	followers: {
+		href: null,
+		total: 101614,
+	},
+	href: 'https://api.spotify.com/v1/playlists/3EXX8K4FyrtaMAZj0LyjGb?market=GB&locale=en-GB%2Cen%3Bq%3D0.6',
+	id: '3EXX8K4FyrtaMAZj0LyjGb',
+	images: [
+		{
+			height: null,
+			url: 'https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cd58a552e92be276f9c8169c',
+			width: null,
+		},
+	],
+	name: "Oasis - Live '25 Tour Setlist",
+	owner: {
+		display_name: 'Lewis',
+		external_urls: {
+			spotify: 'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+		},
+		href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+		id: '0kgxkgrx60zxmsgfuw76c79e5',
+		type: 'user',
+		uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+	},
+	primary_color: null,
+	public: true,
+	snapshot_id: 'AAAAZTfAdCHe9+trbG7jboBkiKEdGpom',
+	tracks: {
+		href: 'https://api.spotify.com/v1/playlists/3EXX8K4FyrtaMAZj0LyjGb/tracks?offset=0&limit=100&market=GB&locale=en-GB,en;q%3D0.6',
+		items: [
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: true,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/6aBxuQpJ9D20cZQpF3wLL3',
+						id: '6aBxuQpJ9D20cZQpF3wLL3',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273946fa26d067b95468b686495',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02946fa26d067b95468b686495',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851946fa26d067b95468b686495',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Standing On The Shoulder Of Giants',
+						release_date: '2000-02-28',
+						release_date_precision: 'day',
+						uri: 'spotify:album:6aBxuQpJ9D20cZQpF3wLL3',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/6aBxuQpJ9D20cZQpF3wLL3',
+						},
+						total_tracks: 10,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 198533,
+					external_ids: {
+						isrc: 'GBBQY9902005',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/1EB8LB1Hu5T4C8Zk9z1Ckh',
+					},
+					href: 'https://api.spotify.com/v1/tracks/1EB8LB1Hu5T4C8Zk9z1Ckh',
+					id: '1EB8LB1Hu5T4C8Zk9z1Ckh',
+					name: "Fuckin' in the Bushes",
+					popularity: 58,
+					uri: 'spotify:track:1EB8LB1Hu5T4C8Zk9z1Ckh',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 203186,
+					external_ids: {
+						isrc: 'GBAAW9500545',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/4qYlBtzkmby4r1N7etPnUv',
+					},
+					href: 'https://api.spotify.com/v1/tracks/4qYlBtzkmby4r1N7etPnUv',
+					id: '4qYlBtzkmby4r1N7etPnUv',
+					name: 'Hello',
+					popularity: 61,
+					uri: 'spotify:track:4qYlBtzkmby4r1N7etPnUv',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'compilation',
+						href: 'https://api.spotify.com/v1/albums/15D0D1mafSX8Vx5a7w2ZR4',
+						id: '15D0D1mafSX8Vx5a7w2ZR4',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273b54b7ab11f1779ca09769e7a',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02b54b7ab11f1779ca09769e7a',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851b54b7ab11f1779ca09769e7a',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'The Masterplan',
+						release_date: '1998-11-03',
+						release_date_precision: 'day',
+						uri: 'spotify:album:15D0D1mafSX8Vx5a7w2ZR4',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/15D0D1mafSX8Vx5a7w2ZR4',
+						},
+						total_tracks: 14,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 264960,
+					external_ids: {
+						isrc: 'GBAAW9500103',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/6cDhI73JDLb1jv9RlaUdUA',
+					},
+					href: 'https://api.spotify.com/v1/tracks/6cDhI73JDLb1jv9RlaUdUA',
+					id: '6cDhI73JDLb1jv9RlaUdUA',
+					name: 'Acquiesce',
+					popularity: 59,
+					uri: 'spotify:track:6cDhI73JDLb1jv9RlaUdUA',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 10,
+					duration_ms: 303533,
+					external_ids: {
+						isrc: 'GBAAW9500196',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/3MT6rJBU7VUAPWtQsowIQv',
+					},
+					href: 'https://api.spotify.com/v1/tracks/3MT6rJBU7VUAPWtQsowIQv',
+					id: '3MT6rJBU7VUAPWtQsowIQv',
+					name: 'Morning Glory',
+					popularity: 62,
+					uri: 'spotify:track:3MT6rJBU7VUAPWtQsowIQv',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 7,
+					duration_ms: 327920,
+					external_ids: {
+						isrc: 'GBAAW9500100',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/6CpEUxOlhcynZpIvPY08iv',
+					},
+					href: 'https://api.spotify.com/v1/tracks/6CpEUxOlhcynZpIvPY08iv',
+					id: '6CpEUxOlhcynZpIvPY08iv',
+					name: 'Some Might Say',
+					popularity: 63,
+					uri: 'spotify:track:6CpEUxOlhcynZpIvPY08iv',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2025-07-04T23:19:58Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 7,
+					duration_ms: 257853,
+					external_ids: {
+						isrc: 'GBAAW9402020',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/7tRRdL530t77jJEUI24Off',
+					},
+					href: 'https://api.spotify.com/v1/tracks/7tRRdL530t77jJEUI24Off',
+					id: '7tRRdL530t77jJEUI24Off',
+					name: 'Bring It On Down',
+					popularity: 55,
+					uri: 'spotify:track:7tRRdL530t77jJEUI24Off',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: true,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 8,
+					duration_ms: 289373,
+					external_ids: {
+						isrc: 'GBAAW9402021',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/3nK2qGHdVAEOuVAmMSWQPW',
+					},
+					href: 'https://api.spotify.com/v1/tracks/3nK2qGHdVAEOuVAmMSWQPW',
+					id: '3nK2qGHdVAEOuVAmMSWQPW',
+					name: 'Cigarettes & Alcohol',
+					popularity: 61,
+					uri: 'spotify:track:3nK2qGHdVAEOuVAmMSWQPW',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2025-07-04T23:19:50Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'compilation',
+						href: 'https://api.spotify.com/v1/albums/15D0D1mafSX8Vx5a7w2ZR4',
+						id: '15D0D1mafSX8Vx5a7w2ZR4',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273b54b7ab11f1779ca09769e7a',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02b54b7ab11f1779ca09769e7a',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851b54b7ab11f1779ca09769e7a',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'The Masterplan',
+						release_date: '1998-11-03',
+						release_date_precision: 'day',
+						uri: 'spotify:album:15D0D1mafSX8Vx5a7w2ZR4',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/15D0D1mafSX8Vx5a7w2ZR4',
+						},
+						total_tracks: 14,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 5,
+					duration_ms: 253040,
+					external_ids: {
+						isrc: 'GBAAW9400220',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/4HkmU5gk8NbidAAYLfc44k',
+					},
+					href: 'https://api.spotify.com/v1/tracks/4HkmU5gk8NbidAAYLfc44k',
+					id: '4HkmU5gk8NbidAAYLfc44k',
+					name: 'Fade Away',
+					popularity: 55,
+					uri: 'spotify:track:4HkmU5gk8NbidAAYLfc44k',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 6,
+					duration_ms: 283744,
+					external_ids: {
+						isrc: 'GBAAW9400021',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/01Ox3uPKBqENtiWNlVaRdD',
+					},
+					href: 'https://api.spotify.com/v1/tracks/01Ox3uPKBqENtiWNlVaRdD',
+					id: '01Ox3uPKBqENtiWNlVaRdD',
+					name: 'Supersonic',
+					popularity: 63,
+					uri: 'spotify:track:01Ox3uPKBqENtiWNlVaRdD',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 2,
+					duration_ms: 239826,
+					external_ids: {
+						isrc: 'GBAAW9500184',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/1Xip3AM9yC2aeUIuhKftP5',
+					},
+					href: 'https://api.spotify.com/v1/tracks/1Xip3AM9yC2aeUIuhKftP5',
+					id: '1Xip3AM9yC2aeUIuhKftP5',
+					name: 'Roll With It',
+					popularity: 60,
+					uri: 'spotify:track:1Xip3AM9yC2aeUIuhKftP5',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2025-07-04T23:19:46Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'compilation',
+						href: 'https://api.spotify.com/v1/albums/15D0D1mafSX8Vx5a7w2ZR4',
+						id: '15D0D1mafSX8Vx5a7w2ZR4',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273b54b7ab11f1779ca09769e7a',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02b54b7ab11f1779ca09769e7a',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851b54b7ab11f1779ca09769e7a',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'The Masterplan',
+						release_date: '1998-11-03',
+						release_date_precision: 'day',
+						uri: 'spotify:album:15D0D1mafSX8Vx5a7w2ZR4',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/15D0D1mafSX8Vx5a7w2ZR4',
+						},
+						total_tracks: 14,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 3,
+					duration_ms: 261106,
+					external_ids: {
+						isrc: 'GBAAW9500102',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/3WJGK9qI2giMx6GrF36Slq',
+					},
+					href: 'https://api.spotify.com/v1/tracks/3WJGK9qI2giMx6GrF36Slq',
+					id: '3WJGK9qI2giMx6GrF36Slq',
+					name: 'Talk Tonight',
+					popularity: 57,
+					uri: 'spotify:track:3WJGK9qI2giMx6GrF36Slq',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'compilation',
+						href: 'https://api.spotify.com/v1/albums/15D0D1mafSX8Vx5a7w2ZR4',
+						id: '15D0D1mafSX8Vx5a7w2ZR4',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273b54b7ab11f1779ca09769e7a',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02b54b7ab11f1779ca09769e7a',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851b54b7ab11f1779ca09769e7a',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'The Masterplan',
+						release_date: '1998-11-03',
+						release_date_precision: 'day',
+						uri: 'spotify:album:15D0D1mafSX8Vx5a7w2ZR4',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/15D0D1mafSX8Vx5a7w2ZR4',
+						},
+						total_tracks: 14,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 10,
+					duration_ms: 261853,
+					external_ids: {
+						isrc: 'GBAAW9400253',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/14jz7rVR3zpczqFhpXe08T',
+					},
+					href: 'https://api.spotify.com/v1/tracks/14jz7rVR3zpczqFhpXe08T',
+					id: '14jz7rVR3zpczqFhpXe08T',
+					name: 'Half The World Away',
+					popularity: 59,
+					uri: 'spotify:track:14jz7rVR3zpczqFhpXe08T',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2EVWJRhbXWsSm7a6jdKv8O',
+						id: '2EVWJRhbXWsSm7a6jdKv8O',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273bd14866d69108524bc32fb37',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02bd14866d69108524bc32fb37',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851bd14866d69108524bc32fb37',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Heathen Chemistry',
+						release_date: '2002-07-01',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2EVWJRhbXWsSm7a6jdKv8O',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2EVWJRhbXWsSm7a6jdKv8O',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 6,
+					duration_ms: 292853,
+					external_ids: {
+						isrc: 'GBBQY0202064',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/45AQ5zbSJ0j1nM9daSWeq8',
+					},
+					href: 'https://api.spotify.com/v1/tracks/45AQ5zbSJ0j1nM9daSWeq8',
+					id: '45AQ5zbSJ0j1nM9daSWeq8',
+					name: 'Little By Little',
+					popularity: 66,
+					uri: 'spotify:track:45AQ5zbSJ0j1nM9daSWeq8',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/021D07OEcg0c4tUCilc7ah',
+						id: '021D07OEcg0c4tUCilc7ah',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b27365b227c58f4d337f5d41a963',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e0265b227c58f4d337f5d41a963',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000485165b227c58f4d337f5d41a963',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Be Here Now',
+						release_date: '1997-08-21',
+						release_date_precision: 'day',
+						uri: 'spotify:album:021D07OEcg0c4tUCilc7ah',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/021D07OEcg0c4tUCilc7ah',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 462493,
+					external_ids: {
+						isrc: 'GBAAW9700268',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/0zi2KtA58cFVruffc35lHT',
+					},
+					href: 'https://api.spotify.com/v1/tracks/0zi2KtA58cFVruffc35lHT',
+					id: '0zi2KtA58cFVruffc35lHT',
+					name: "D'You Know What I Mean?",
+					popularity: 55,
+					uri: 'spotify:track:0zi2KtA58cFVruffc35lHT',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/021D07OEcg0c4tUCilc7ah',
+						id: '021D07OEcg0c4tUCilc7ah',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b27365b227c58f4d337f5d41a963',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e0265b227c58f4d337f5d41a963',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000485165b227c58f4d337f5d41a963',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Be Here Now',
+						release_date: '1997-08-21',
+						release_date_precision: 'day',
+						uri: 'spotify:album:021D07OEcg0c4tUCilc7ah',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/021D07OEcg0c4tUCilc7ah',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 4,
+					duration_ms: 356626,
+					external_ids: {
+						isrc: 'GBBQY9700008',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/0zxHSBTEKdH8CI3auJ7Jyc',
+					},
+					href: 'https://api.spotify.com/v1/tracks/0zxHSBTEKdH8CI3auJ7Jyc',
+					id: '0zxHSBTEKdH8CI3auJ7Jyc',
+					name: 'Stand By Me',
+					popularity: 60,
+					uri: 'spotify:track:0zxHSBTEKdH8CI3auJ7Jyc',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2025-07-04T23:19:54Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 8,
+					duration_ms: 294813,
+					external_ids: {
+						isrc: 'GBAAW9500194',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/5TIvGpN4qPVBrJX8KGOP9D',
+					},
+					href: 'https://api.spotify.com/v1/tracks/5TIvGpN4qPVBrJX8KGOP9D',
+					id: '5TIvGpN4qPVBrJX8KGOP9D',
+					name: 'Cast No Shadow',
+					popularity: 57,
+					uri: 'spotify:track:5TIvGpN4qPVBrJX8KGOP9D',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 10,
+					duration_ms: 392773,
+					external_ids: {
+						isrc: 'GBAAW9400146',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/1CZpWzCvN6fl2WslWTyPn2',
+					},
+					href: 'https://api.spotify.com/v1/tracks/1CZpWzCvN6fl2WslWTyPn2',
+					id: '1CZpWzCvN6fl2WslWTyPn2',
+					name: 'Slide Away',
+					popularity: 64,
+					uri: 'spotify:track:1CZpWzCvN6fl2WslWTyPn2',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'single',
+						href: 'https://api.spotify.com/v1/albums/5mSTyohEoHaIklKWtm8EVW',
+						id: '5mSTyohEoHaIklKWtm8EVW',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273ec884658ecdc556c9f7104e8',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02ec884658ecdc556c9f7104e8',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851ec884658ecdc556c9f7104e8',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Whatever',
+						release_date: '1994-12-18',
+						release_date_precision: 'day',
+						uri: 'spotify:album:5mSTyohEoHaIklKWtm8EVW',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/5mSTyohEoHaIklKWtm8EVW',
+						},
+						total_tracks: 4,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 381266,
+					external_ids: {
+						isrc: 'GBAAW9400251',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/425UymJA8FJCGz7JZEkEFA',
+					},
+					href: 'https://api.spotify.com/v1/tracks/425UymJA8FJCGz7JZEkEFA',
+					id: '425UymJA8FJCGz7JZEkEFA',
+					name: 'Whatever',
+					popularity: 55,
+					uri: 'spotify:track:425UymJA8FJCGz7JZEkEFA',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 3,
+					duration_ms: 276866,
+					external_ids: {
+						isrc: 'GBAAW9400140',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/5IfBLN9VPPJOwcKmAZhdXe',
+					},
+					href: 'https://api.spotify.com/v1/tracks/5IfBLN9VPPJOwcKmAZhdXe',
+					id: '5IfBLN9VPPJOwcKmAZhdXe',
+					name: 'Live Forever',
+					popularity: 64,
+					uri: 'spotify:track:5IfBLN9VPPJOwcKmAZhdXe',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/3LzKUdUTdJb6P7xGN6SotC',
+						id: '3LzKUdUTdJb6P7xGN6SotC',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2737c8f18614002cc5542f6c7aa',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e027c8f18614002cc5542f6c7aa',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048517c8f18614002cc5542f6c7aa',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'Definitely Maybe',
+						release_date: '1994-08-29',
+						release_date_precision: 'day',
+						uri: 'spotify:album:3LzKUdUTdJb6P7xGN6SotC',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/3LzKUdUTdJb6P7xGN6SotC',
+						},
+						total_tracks: 11,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 1,
+					duration_ms: 323240,
+					external_ids: {
+						isrc: 'GBAAW9400138',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/17z8eLCkciVamEqXJS6Ri8',
+					},
+					href: 'https://api.spotify.com/v1/tracks/17z8eLCkciVamEqXJS6Ri8',
+					id: '17z8eLCkciVamEqXJS6Ri8',
+					name: "Rock 'n' Roll Star",
+					popularity: 57,
+					uri: 'spotify:track:17z8eLCkciVamEqXJS6Ri8',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'compilation',
+						href: 'https://api.spotify.com/v1/albums/15D0D1mafSX8Vx5a7w2ZR4',
+						id: '15D0D1mafSX8Vx5a7w2ZR4',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b273b54b7ab11f1779ca09769e7a',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e02b54b7ab11f1779ca09769e7a',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00004851b54b7ab11f1779ca09769e7a',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: 'The Masterplan',
+						release_date: '1998-11-03',
+						release_date_precision: 'day',
+						uri: 'spotify:album:15D0D1mafSX8Vx5a7w2ZR4',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/15D0D1mafSX8Vx5a7w2ZR4',
+						},
+						total_tracks: 14,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 14,
+					duration_ms: 322640,
+					external_ids: {
+						isrc: 'GBAAW9500350',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/0g1Y10aIIdJDkcSEuAq51k',
+					},
+					href: 'https://api.spotify.com/v1/tracks/0g1Y10aIIdJDkcSEuAq51k',
+					id: '0g1Y10aIIdJDkcSEuAq51k',
+					name: 'The Masterplan',
+					popularity: 61,
+					uri: 'spotify:track:0g1Y10aIIdJDkcSEuAq51k',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 4,
+					duration_ms: 287826,
+					external_ids: {
+						isrc: 'GBAAW9500190',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/7ppPZa3TRUSGKaks9wH7VT',
+					},
+					href: 'https://api.spotify.com/v1/tracks/7ppPZa3TRUSGKaks9wH7VT',
+					id: '7ppPZa3TRUSGKaks9wH7VT',
+					name: "Don't Look Back In Anger",
+					popularity: 71,
+					uri: 'spotify:track:7ppPZa3TRUSGKaks9wH7VT',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 3,
+					duration_ms: 258906,
+					external_ids: {
+						isrc: 'GBAAW9500189',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/1qPbGZqppFwLwcBC1JQ6Vr',
+					},
+					href: 'https://api.spotify.com/v1/tracks/1qPbGZqppFwLwcBC1JQ6Vr',
+					id: '1qPbGZqppFwLwcBC1JQ6Vr',
+					name: 'Wonderwall',
+					popularity: 74,
+					uri: 'spotify:track:1qPbGZqppFwLwcBC1JQ6Vr',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+			{
+				added_at: '2024-10-08T18:37:25Z',
+				added_by: {
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/user/0kgxkgrx60zxmsgfuw76c79e5',
+					},
+					href: 'https://api.spotify.com/v1/users/0kgxkgrx60zxmsgfuw76c79e5',
+					id: '0kgxkgrx60zxmsgfuw76c79e5',
+					type: 'user',
+					uri: 'spotify:user:0kgxkgrx60zxmsgfuw76c79e5',
+				},
+				is_local: false,
+				primary_color: null,
+				track: {
+					preview_url: null,
+					is_playable: true,
+					explicit: false,
+					type: 'track',
+					episode: false,
+					track: true,
+					album: {
+						is_playable: true,
+						type: 'album',
+						album_type: 'album',
+						href: 'https://api.spotify.com/v1/albums/2u30gztZTylY4RG7IvfXs8',
+						id: '2u30gztZTylY4RG7IvfXs8',
+						images: [
+							{
+								url: 'https://i.scdn.co/image/ab67616d0000b2732f2eeee9b405f4d00428d84c',
+								width: 640,
+								height: 640,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c',
+								width: 300,
+								height: 300,
+							},
+							{
+								url: 'https://i.scdn.co/image/ab67616d000048512f2eeee9b405f4d00428d84c',
+								width: 64,
+								height: 64,
+							},
+						],
+						name: "(What's The Story) Morning Glory?",
+						release_date: '1995-10-02',
+						release_date_precision: 'day',
+						uri: 'spotify:album:2u30gztZTylY4RG7IvfXs8',
+						artists: [
+							{
+								external_urls: {
+									spotify:
+										'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+								},
+								href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+								id: '2DaxqgrOhkeH0fpeiQq2f4',
+								name: 'Oasis',
+								type: 'artist',
+								uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+							},
+						],
+						external_urls: {
+							spotify:
+								'https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8',
+						},
+						total_tracks: 12,
+					},
+					artists: [
+						{
+							external_urls: {
+								spotify:
+									'https://open.spotify.com/artist/2DaxqgrOhkeH0fpeiQq2f4',
+							},
+							href: 'https://api.spotify.com/v1/artists/2DaxqgrOhkeH0fpeiQq2f4',
+							id: '2DaxqgrOhkeH0fpeiQq2f4',
+							name: 'Oasis',
+							type: 'artist',
+							uri: 'spotify:artist:2DaxqgrOhkeH0fpeiQq2f4',
+						},
+					],
+					disc_number: 1,
+					track_number: 12,
+					duration_ms: 450506,
+					external_ids: {
+						isrc: 'GBAAW9500197',
+					},
+					external_urls: {
+						spotify:
+							'https://open.spotify.com/track/6EMynpZ10GVcwVqiLZj6Ye',
+					},
+					href: 'https://api.spotify.com/v1/tracks/6EMynpZ10GVcwVqiLZj6Ye',
+					id: '6EMynpZ10GVcwVqiLZj6Ye',
+					name: 'Champagne Supernova',
+					popularity: 66,
+					uri: 'spotify:track:6EMynpZ10GVcwVqiLZj6Ye',
+					is_local: false,
+				},
+				video_thumbnail: {
+					url: null,
+				},
+			},
+		],
+		limit: 100,
+		next: null,
+		offset: 0,
+		previous: null,
+		total: 24,
+	},
+	type: 'playlist',
+	uri: 'spotify:playlist:3EXX8K4FyrtaMAZj0LyjGb',
+};
+
 export const playlistTracksMock = {
 	href: 'https://api.spotify.com/v1/playlists/6o40qox8g3uhmfhKGCMu6t/tracks?offset=0&limit=10&market=GB&locale=en-GB,en;q%3D0.6',
 	items: [

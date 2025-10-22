@@ -4,12 +4,7 @@ import React from 'react';
 import MediaHeader from '@/components/shared/MediaHeader';
 import GenreTag from './GenreTag';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import {
-	followArtist,
-	unfollowArtist,
-	fetchFollowedArtists,
-} from '@/redux/slices/librarySlice';
+import useFollowArtist from '@/hooks/useFollowArtist';
 
 const ArtistHeader = ({
 	id,
@@ -26,22 +21,7 @@ const ArtistHeader = ({
 	contextUri: string;
 	genres?: string[];
 }) => {
-	const dispatch = useAppDispatch();
-
-	const { artists: followedArtists } = useAppSelector(
-		(state) => state.library
-	);
-
-	const isFollowed = followedArtists.items.some(
-		(artist) => artist.uri === contextUri
-	);
-
-	const handleFollow = async () => {
-		await dispatch(followArtist(id));
-		dispatch(fetchFollowedArtists({}));
-	};
-
-	const handleUnfollow = () => dispatch(unfollowArtist(id));
+	const { isFollowed, follow, unfollow } = useFollowArtist(id, contextUri);
 
 	return (
 		<MediaHeader
@@ -51,7 +31,7 @@ const ArtistHeader = ({
 			contextUri={contextUri}
 			actions={
 				<div
-					onClick={isFollowed ? handleUnfollow : handleFollow}
+					onClick={isFollowed ? unfollow : follow}
 					className="hover:scale-105 hover:cursor-pointer hover:outline-white transition-all duration-150 font-funnel font-bold text-white text-sm outline-1 outline-neutral-400 px-4 py-1.5 rounded-full"
 				>
 					<span>{isFollowed ? 'Following' : 'Follow'}</span>

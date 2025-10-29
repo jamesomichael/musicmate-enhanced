@@ -36,7 +36,7 @@ const ItemCard = ({
 				></div>
 			) : (
 				<div
-					className={`flex justify-center items-center aspect-square bg-neutral-800 ${
+					className={`flex justify-center items-center aspect-square bg-neutral-700 ${
 						userTypes.includes(type) ? 'rounded-full' : 'rounded-md'
 					}`}
 				>

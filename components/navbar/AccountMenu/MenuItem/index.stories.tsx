@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 type Story = StoryObj<typeof MenuItem>;
 
 const meta: Meta<typeof MenuItem> = {
-	title: 'Navbar/AccountMenu/MenuItem',
+	title: 'Navbar/MenuItem',
 	component: MenuItem,
 	args: {
 		label: 'Account',

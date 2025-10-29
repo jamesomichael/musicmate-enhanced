@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 type Story = StoryObj<typeof GenreTag>;
 
 const meta: Meta<typeof GenreTag> = {
-	title: 'Artist/ArtistHeader/GenreTag',
+	title: 'Artist/GenreTag',
 	component: GenreTag,
 	args: {
 		genre: 'pop punk',

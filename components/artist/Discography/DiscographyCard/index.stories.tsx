@@ -8,7 +8,7 @@ import type { SpotifyArtist } from '@/types/spotify';
 type Story = StoryObj<typeof DiscographyCard>;
 
 const meta: Meta<typeof DiscographyCard> = {
-	title: 'Artist/Discography/DiscographyCard',
+	title: 'Artist/DiscographyCard',
 	component: DiscographyCard,
 	args: {
 		id: 'test-id',

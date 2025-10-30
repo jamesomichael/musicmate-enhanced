@@ -31,3 +31,5 @@ const meta: Meta<typeof ArtistCard> = {
 export default meta;
 
 export const Default: Story = {};
+
+export const NoImage: Story = { args: { imageUrl: undefined } };

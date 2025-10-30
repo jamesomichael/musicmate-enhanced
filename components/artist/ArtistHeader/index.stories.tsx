@@ -32,3 +32,5 @@ const meta: Meta<typeof ArtistHeader> = {
 export default meta;
 
 export const Default: Story = {};
+
+export const NoImage: Story = { args: { imageUrl: undefined } };

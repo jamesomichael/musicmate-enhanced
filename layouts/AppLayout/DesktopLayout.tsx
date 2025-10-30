@@ -1,13 +1,10 @@
 import React from 'react';
-import { cookies } from 'next/headers';
 
 import Navbar from '@/components/navbar/Navbar';
 import PlayerContainer from '@/components/player/PlayerContainer';
 import LibraryPanel from '@/components/library/LibraryPanel';
 
-const DesktopLayout = async ({ children }: { children: React.ReactNode }) => {
-	const cookieStore = await cookies();
-	const accessToken = cookieStore.get('access_token')?.value;
+const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className="flex flex-col h-full">
 			<div className="h-14">
@@ -23,7 +20,7 @@ const DesktopLayout = async ({ children }: { children: React.ReactNode }) => {
 					</div>
 				</div>
 			</div>
-			{accessToken && <PlayerContainer accessToken={accessToken} />}
+			<PlayerContainer />
 		</div>
 	);
 };

@@ -11,8 +11,8 @@ import usePlayer from '@/hooks/usePlayer';
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 
-const PlayerContainer = ({ accessToken }: { accessToken: string }) => {
-	usePlayer(accessToken);
+const PlayerContainer = () => {
+	usePlayer();
 
 	const {
 		isPlaying = false,

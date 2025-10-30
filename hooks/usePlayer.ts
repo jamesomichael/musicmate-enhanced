@@ -13,7 +13,9 @@ import {
 	setPlaybackState,
 } from '@/redux/slices/playerSlice';
 
-const usePlayer = (accessToken: string) => {
+import { getAccessToken } from '@/utils/token';
+
+const usePlayer = () => {
 	const dispatch = useAppDispatch();
 	const [player, setPlayer] = useState(null);
 
@@ -26,7 +28,10 @@ const usePlayer = (accessToken: string) => {
 		window.onSpotifyWebPlaybackSDKReady = () => {
 			const spotifyPlayer = new window.Spotify.Player({
 				name: 'musicmate',
-				getOAuthToken: (cb) => cb(accessToken),
+				getOAuthToken: async (cb) => {
+					const accessToken = await getAccessToken();
+					cb(accessToken);
+				},
 				volume: 0.5,
 			});
 
@@ -107,7 +112,7 @@ const usePlayer = (accessToken: string) => {
 			}
 			document.body.removeChild(script);
 		};
-	}, [accessToken]);
+	}, []);
 };
 
 export default usePlayer;

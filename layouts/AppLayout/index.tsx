@@ -6,10 +6,10 @@ import MobileLayout from './MobileLayout';
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className="overflow-auto h-screen">
-			<div className="h-full hidden md:block">
+			<div className="h-full hidden lg:block">
 				<DesktopLayout>{children}</DesktopLayout>
 			</div>
-			<div className="h-full block md:hidden">
+			<div className="h-full block lg:hidden">
 				<MobileLayout>{children}</MobileLayout>
 			</div>
 		</div>

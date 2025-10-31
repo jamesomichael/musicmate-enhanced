@@ -16,7 +16,7 @@ const SearchResultsPage = async ({
 
 	const results = await search(query, {}, accessToken);
 
-	return <SearchResults data={results} />;
+	return <SearchResults query={query} data={results} />;
 };
 
 export default SearchResultsPage;

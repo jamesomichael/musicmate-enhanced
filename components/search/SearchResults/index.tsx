@@ -8,12 +8,19 @@ import PlaylistResults from './PlaylistResults';
 import AlbumResults from './AlbumResults';
 import ArtistResults from './ArtistResults';
 import TrackResults from './TrackResults';
+import SearchBar from '../SearchBar';
 
 import useSearchTabs from '@/hooks/useSearchTabs';
 
 import type { SearchResultsData, SearchTabType } from '@/types/search';
 
-const SearchResults = ({ data }: { data: SearchResultsData }) => {
+const SearchResults = ({
+	query,
+	data,
+}: {
+	query: string;
+	data: SearchResultsData;
+}) => {
 	const [activeTab, setActiveTab] = useState<SearchTabType>('results');
 	const tabs = useSearchTabs(data);
 
@@ -31,6 +38,9 @@ const SearchResults = ({ data }: { data: SearchResultsData }) => {
 
 	return (
 		<div className="flex flex-col gap-6 p-4 lg:p-6">
+			<div className="lg:hidden h-11">
+				<SearchBar value={query} />
+			</div>
 			<div className="flex items-center gap-2">
 				{Object.entries(tabs).map(([type, { label }]) => (
 					<Tab

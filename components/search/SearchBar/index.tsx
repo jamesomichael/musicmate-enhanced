@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 
 import { HiMiniMagnifyingGlass } from 'react-icons/hi2';
 
-const SearchBar = () => {
-	const [query, setQuery] = useState('');
+const SearchBar = ({ value = '' }: { value?: string }) => {
+	const [query, setQuery] = useState(value);
 	const router = useRouter();
 
 	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,6 +30,7 @@ const SearchBar = () => {
 			<input
 				id="search"
 				placeholder="What do you want to play?"
+				value={query}
 				className="text-black lg:text-white transition-all duration-200 rounded-md lg:rounded-full bg-white lg:bg-neutral-800 h-full w-full lg:focus:w-96 lg:w-96 pl-11 font-funnel text-xs md:text-sm font-medium placeholder-spotify-black lg:placeholder-neutral-400 focus:outline-none focus:ring-2 lg:focus:ring-white focus:border-transparent lg:group-hover:bg-neutral-700"
 				type="text"
 				onChange={(e) => setQuery(e.target.value)}

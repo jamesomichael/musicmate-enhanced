@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { LuSquareLibrary } from 'react-icons/lu';
 
@@ -10,25 +10,10 @@ import LibraryAlbums from './LibraryAlbums';
 import LibrarySongs from './LibrarySongs';
 import LibraryArtists from './LibraryArtists';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import {
-	fetchUserPlaylists,
-	fetchUserAlbums,
-	fetchUserLikedSongs,
-	fetchFollowedArtists,
-} from '@/redux/slices/librarySlice';
+import { useAppSelector } from '@/redux/hooks';
 
 const LibraryPanel = () => {
 	const { activeTab } = useAppSelector((state) => state.library.panel);
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		dispatch(fetchUserPlaylists({}));
-		dispatch(fetchUserAlbums({}));
-		dispatch(fetchUserLikedSongs({}));
-		dispatch(fetchFollowedArtists({}));
-	}, []);
-
 	return (
 		<div className="h-full flex flex-col gap-2 p-2">
 			<div className="flex flex-col gap-4 p-2">

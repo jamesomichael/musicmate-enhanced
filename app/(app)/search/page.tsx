@@ -23,7 +23,7 @@ const Browse = () => {
 				<div className="pt-3 lg:pt-0 flex gap-1.5 justify-start items-center">
 					<IoWarning className="hidden md:block w-5 h-5 text-amber-400" />
 					<span className="font-funnel text-xs md:text-sm text-spotify-green">
-						Unfortunately, this page is no longer supported. For
+						Unfortunately, categories are no longer supported. For
 						more information, please&nbsp;
 						<Link
 							href="https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api"

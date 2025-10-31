@@ -65,22 +65,27 @@ const TracklistItem = ({
 
 	return (
 		<div
-			className={`group h-16 px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel`}
+			className={`group h-16 px-2 md:px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel`}
 			onDoubleClick={playTrack}
 		>
-			{isNowPlaying ? (
-				<img src="/eq-animated.gif" className="h-4 w-4 ml-2.5"></img>
-			) : (
-				<span
-					className={`mr-1 text-right group-hover:text-white ${
-						isActiveTrack
-							? 'text-spotify-green'
-							: 'text-neutral-400'
-					}`}
-				>
-					{number}
-				</span>
-			)}
+			<div className="hidden md:block text-right">
+				{isNowPlaying ? (
+					<img
+						src="/eq-animated.gif"
+						className="h-4 w-4 ml-2.5"
+					></img>
+				) : (
+					<span
+						className={`mr-1 group-hover:text-white ${
+							isActiveTrack
+								? 'text-spotify-green'
+								: 'text-neutral-400'
+						}`}
+					>
+						{number}
+					</span>
+				)}
+			</div>
 			<div className="flex items-center gap-2.5 h-full truncate">
 				{showAlbumArt && album && (
 					<div
@@ -91,20 +96,30 @@ const TracklistItem = ({
 					></div>
 				)}
 				<div className="flex flex-col justify-center truncate">
-					<span
-						className={`${
-							isActiveTrack ? 'text-spotify-green' : 'text-white'
-						} truncate`}
-					>
-						{name}
-					</span>
+					<div className="flex items-center gap-1">
+						{isNowPlaying && (
+							<img
+								src="/eq-animated.gif"
+								className="md:hidden h-3 w-3"
+							></img>
+						)}
+						<span
+							className={`${
+								isActiveTrack
+									? 'text-spotify-green'
+									: 'text-white'
+							} text-sm md:text-base truncate`}
+						>
+							{name}
+						</span>
+					</div>
 					<div className="flex items-center">
 						{isExplicit && <ExplicitBadge />}
 						{artists && artists.length > 0
 							? artists.map((artist, idx) => (
 									<div
 										key={artist.id}
-										className={`text-sm text-neutral-400 group-hover:text-white ${
+										className={`text-xs md:text-sm text-neutral-400 group-hover:text-white ${
 											idx < artists.length - 1
 												? "after:content-[','] after:mr-1"
 												: ''
@@ -127,18 +142,20 @@ const TracklistItem = ({
 				{album && (
 					<Link
 						href={`/album/${album.id}`}
-						className="hover:underline truncate text-neutral-400 group-hover:text-white"
+						className="hidden md:block hover:underline truncate text-neutral-400 group-hover:text-white"
 						prefetch={false}
 					>
 						{album.name}
 					</Link>
 				)}
 				{formattedAddedAt && (
-					<span className="text-neutral-300">{formattedAddedAt}</span>
+					<span className="hidden md:block text-neutral-300">
+						{formattedAddedAt}
+					</span>
 				)}
 			</>
 			{duration && (
-				<span className="mr-2 text-right text-neutral-400">
+				<span className="hidden md:block mr-2 text-right text-neutral-400">
 					{dayjs.duration(duration, 'milliseconds').format('m:ss')}
 				</span>
 			)}

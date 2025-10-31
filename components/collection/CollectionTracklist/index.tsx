@@ -17,18 +17,18 @@ const CollectionTracklist = ({
 	const gridConfig = useMemo(
 		() =>
 			type === 'results'
-				? 'grid grid-cols-[1.75rem_1.5fr_1fr_5rem] gap-5'
+				? 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_5rem] gap-5'
 				: type === 'playlist'
-				? 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5'
-				: 'grid grid-cols-[1.75rem_1.5fr_5rem] gap-5',
+				? 'md:grid md:grid-cols-[1.75rem_1.5fr] md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5'
+				: 'md:grid md:grid-cols-[1.75rem_1.5fr] md:grid-cols-[1.75rem_1.5fr_5rem] gap-5',
 		[type]
 	);
 
 	return (
 		<div>
-			<div className="text-white p-8 divide-y divide-neutral-700 rounded-full">
+			<div className="text-white p-2 md:p-8 divide-y divide-neutral-700 rounded-full">
 				<div
-					className={`${gridConfig} items-end px-4 pb-3 font-funnel text-neutral-400 text-sm`}
+					className={`hidden ${gridConfig} items-end px-4 pb-3 font-funnel text-neutral-400 text-sm`}
 				>
 					<span className="text-right mr-1">#</span>
 					<span>Title</span>
@@ -41,7 +41,7 @@ const CollectionTracklist = ({
 					</div>
 				</div>
 
-				<div className="mt-4 flex flex-col">
+				<div className="md:mt-4 flex flex-col">
 					{type === 'results'
 						? tracks.map((track, idx) => (
 								<TracklistItem

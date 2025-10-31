@@ -17,7 +17,7 @@ const Browse = () => {
 						Browse all
 					</span>
 				</div>
-				<div className="flex lg:hidden justify-center items-center h-12">
+				<div className="lg:hidden h-11">
 					<SearchBar />
 				</div>
 				<div className="pt-3 lg:pt-0 flex gap-1.5 justify-start items-center">

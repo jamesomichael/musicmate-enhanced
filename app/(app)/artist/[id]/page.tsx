@@ -53,7 +53,7 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 				<div
 					className={
 						featuredItem
-							? 'flex flex-col md:grid md:grid-cols-[1.25fr_1fr] gap-10 md:gap-6'
+							? 'flex flex-col xl:grid xl:grid-cols-[1.25fr_1fr] gap-10 md:gap-6'
 							: ''
 					}
 				>

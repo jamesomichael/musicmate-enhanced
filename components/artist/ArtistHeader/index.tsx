@@ -32,7 +32,7 @@ const ArtistHeader = ({
 			actions={
 				<div
 					onClick={isFollowed ? unfollow : follow}
-					className="hover:scale-105 hover:cursor-pointer hover:outline-white transition-all duration-150 font-funnel font-bold text-white text-sm outline-1 outline-neutral-400 px-4 py-1.5 rounded-full"
+					className="hover:scale-105 hover:cursor-pointer hover:outline-white transition-all duration-150 font-funnel font-bold text-white text-xs md:text-sm outline-1 outline-neutral-400 px-4 py-1.5 rounded-full"
 				>
 					<span>{isFollowed ? 'Following' : 'Follow'}</span>
 				</div>

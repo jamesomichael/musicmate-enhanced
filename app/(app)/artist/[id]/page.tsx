@@ -49,10 +49,12 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 				genres={artistData.genres}
 				contextUri={artistData.uri}
 			/>
-			<div className="flex flex-col gap-10 px-8 pt-4 pb-8">
+			<div className="flex flex-col gap-10 px-4 md:px-8 pt-4 pb-8">
 				<div
 					className={
-						featuredItem ? 'grid grid-cols-[1.25fr_1fr] gap-6' : ''
+						featuredItem
+							? 'flex flex-col md:grid md:grid-cols-[1.25fr_1fr] gap-10 md:gap-6'
+							: ''
 					}
 				>
 					<ArtistTopTracks

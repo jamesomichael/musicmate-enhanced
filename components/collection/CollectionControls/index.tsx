@@ -19,19 +19,19 @@ const CollectionControls = ({ contextUri }: { contextUri: string }) => {
 	} = useCollectionPlayback(contextUri);
 
 	return (
-		<div className={'flex items-center gap-6'}>
+		<div className={'flex items-center gap-4 md:gap-6'}>
 			<ControlIcon
 				title={isPlayingCollection ? 'Pause' : 'Play'}
 				onClick={isPlayingCollection ? pause : play}
 				Icon={isPlayingCollection ? FaCirclePause : FaCirclePlay}
 				inactiveClassName="text-spotify-green"
-				size="w-16 h-16"
+				size="w-10 h-10 md:w-16 md:h-16"
 			/>
 			<ControlIcon
 				title={`${shuffleState ? 'Disable' : 'Enable'} shuffle`}
 				onClick={toggleShuffle}
 				Icon={PiShuffleBold}
-				size="w-10 h-10"
+				size="w-6 h-6 md:w-10 md:h-10"
 				activeClassName="text-spotify-green"
 				inactiveClassName="text-neutral-400 hover:text-white"
 				isActive={shuffleState && isActiveCollection}

@@ -84,7 +84,7 @@ const HeroHeader = ({
 				</div>
 			</div>
 			{actions && (
-				<div className="relative h-24 flex items-center gap-6 bg-gradient-to-b from-black/40 to-spotify-black px-8 py-4">
+				<div className="relative h-20 md:h-24 flex items-center gap-4 md:gap-6 bg-gradient-to-b from-black/40 to-spotify-black px-4 md:px-8 py-4">
 					{actions}
 				</div>
 			)}

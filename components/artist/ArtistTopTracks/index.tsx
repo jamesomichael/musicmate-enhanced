@@ -38,14 +38,14 @@ const ArtistTopTracks = ({
 							position={track.track_number - 1}
 							showAlbumArt={true}
 							album={track.album}
-							gridConfig="-ml-2 grid grid-cols-[2rem_1.25fr_1fr_5rem] gap-4"
+							gridConfig="-ml-2 md:grid md:grid-cols-[2rem_1.25fr_1fr_5rem] gap-4"
 						/>
 					);
 				})}
 			</div>
 			<span
 				onClick={toggleShowMore}
-				className="mt-3 pl-5 font-funnel text-sm font-bold text-neutral-400 hover:text-white"
+				className="mt-3 md:pl-5 font-funnel text-sm font-bold text-neutral-400 hover:text-white"
 			>
 				{shouldShowMore ? 'Show less' : 'Show more'}
 			</span>

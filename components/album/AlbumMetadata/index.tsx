@@ -30,7 +30,7 @@ const AlbumMetadata = ({
 	}
 
 	return (
-		<div className="flex flex-col px-8 pb-8">
+		<div className="flex flex-col px-4 md:px-8 pb-8">
 			<span className="font-funnel text-neutral-400 text-sm">
 				{formattedReleaseDate}
 			</span>

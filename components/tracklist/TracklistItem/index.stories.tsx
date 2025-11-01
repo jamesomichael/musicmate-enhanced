@@ -24,7 +24,7 @@ const meta: Meta<typeof TracklistItem> = {
 		duration: trackMock.duration_ms,
 		isExplicit: trackMock.explicit,
 		contextUri: 'test-context-uri',
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_5rem] gap-5',
 	},
 	parameters: {
 		layout: 'centered',
@@ -51,7 +51,7 @@ export const WithAlbum: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 	},
 };
 
@@ -59,7 +59,7 @@ export const WithArtists: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 		artists: trackMock.artists as unknown as SpotifyArtist[],
 	},
 };
@@ -68,7 +68,7 @@ export const WithExplicitBadge: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 		artists: trackMock.artists as unknown as SpotifyArtist[],
 		isExplicit: true,
 	},
@@ -78,7 +78,7 @@ export const WithinPlaylist: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 		artists: trackMock.artists as unknown as SpotifyArtist[],
 		addedAt: '2025-10-01 00:00:00',
 	},
@@ -88,7 +88,7 @@ export const NowPlaying: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 		artists: trackMock.artists as unknown as SpotifyArtist[],
 	},
 	decorators: [
@@ -130,7 +130,7 @@ export const Paused: Story = {
 	args: {
 		album: trackMock.album as unknown as SpotifyAlbum,
 		showAlbumArt: true,
-		gridConfig: 'grid grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
+		gridConfig: 'md:grid md:grid-cols-[1.75rem_1.5fr_1fr_1fr_5rem] gap-5',
 		artists: trackMock.artists as unknown as SpotifyArtist[],
 	},
 	decorators: [

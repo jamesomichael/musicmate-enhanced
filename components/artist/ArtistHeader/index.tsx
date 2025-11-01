@@ -37,15 +37,17 @@ const ArtistHeader = ({
 					<span>{isFollowed ? 'Following' : 'Follow'}</span>
 				</div>
 			}
-			height="h-80"
+			height="h-fit md:h-80"
 		>
-			<div className="flex flex-wrap items-center gap-2">
-				<span className="font-funnel text-sm text-neutral-200">
+			<div className="flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-3 md:gap-2">
+				<span className="font-funnel text-xs sm:text-sm text-neutral-200">
 					{followers.toLocaleString()} followers
 				</span>
 				{genres.length > 0 && (
-					<div className="flex items-center gap-2">
-						<span className="font-funnel text-neutral-400">•</span>
+					<div className="flex flex-wrap gap-2">
+						<span className="font-funnel text-neutral-400 hidden md:inline-block">
+							•
+						</span>
 						{genres.map((genre) => {
 							return <GenreTag key={genre} genre={genre} />;
 						})}

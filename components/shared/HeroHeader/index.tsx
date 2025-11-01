@@ -13,7 +13,7 @@ const HeroHeader = ({
 	title,
 	gradientFrom = 'from-neutral-600',
 	gradientTo = 'to-neutral-800',
-	height = 'h-72',
+	height = 'h-fit md:h-72',
 	showBlurredBackground = true,
 	children,
 	actions,
@@ -50,33 +50,33 @@ const HeroHeader = ({
 				</>
 			)}
 			<div
-				className={`relative ${height} grid grid-cols-[auto_1fr] gap-6 p-8 overflow-hidden`}
+				className={`relative ${height} flex flex-col justify-center items-center md:items-end md:grid md:grid-cols-[auto_1fr] gap-6 p-4 lg:p-8 overflow-hidden`}
 			>
 				{imageUrl ? (
 					<div
-						className={`shadow-lg bg-cover bg-center h-full aspect-square ${imageBorderRadius}`}
+						className={`h-64 sm:h-96 md:h-full shadow-lg bg-cover bg-center aspect-square ${imageBorderRadius}`}
 						style={{
 							backgroundImage: `url(${imageUrl})`,
 						}}
 					></div>
 				) : (
 					<div
-						className={`h-full flex justify-center items-center aspect-square bg-neutral-800 ${imageBorderRadius}`}
+						className={`h-64 sm:h-96 md:h-full flex justify-center items-center aspect-square bg-neutral-800 ${imageBorderRadius}`}
 					>
 						{userTypes.includes(type) ? (
-							<FaRegUser className="w-20 h-20 text-neutral-400" />
+							<FaRegUser className="w-16 h-16 md:w-20 md:h-20 text-neutral-400" />
 						) : (
-							<IoIosMusicalNotes className="w-28 h-28 text-neutral-400" />
+							<IoIosMusicalNotes className="w-20 h-20 md:w-28 md:h-28 text-neutral-400" />
 						)}
 					</div>
 				)}
-				<div className="flex flex-col justify-end gap-2 overflow-auto">
+				<div className="flex flex-col justify-end items-start gap-2 w-full overflow-hidden">
 					<span className="capitalize leading-none font-funnel text-xs text-white">
 						{type}
 					</span>
 					<FadeInSlide
 						key={title}
-						className="font-unbounded font-black text-white text-4xl xl:leading-16 xl:text-[3.25rem] line-clamp-2"
+						className="font-unbounded font-black text-white text-3xl md:text-4xl xl:leading-16 xl:text-[3.25rem] line-clamp-2"
 					>
 						{title}
 					</FadeInSlide>

@@ -43,26 +43,28 @@ const PlaylistHeader = ({
 						</span>
 					</span>
 				)}
-				<div className="font-funnel text-sm flex items-center flex-wrap">
+				<div className="font-funnel text-sm flex gap-2 md:gap-0 flex-col md:flex-row items-start md:flex-wrap">
 					<Link
 						href={`/user/${owner.id}`}
 						className="hover:underline font-bold text-white"
 					>
 						{owner.displayName || owner.id}
 					</Link>
-					{totalFollowers && totalFollowers > 0 ? (
-						<div className="before:content-['•'] before:mx-1 text-neutral-300">
+					<div className="flex items-center">
+						{totalFollowers && totalFollowers > 0 ? (
+							<div className="after:content-['•'] after:mx-1 md:after:content-none md:before:content-['•'] md:before:mx-1 text-neutral-300">
+								<span>
+									{totalFollowers.toLocaleString()}{' '}
+									{totalFollowers === 1 ? 'save' : 'saves'}
+								</span>
+							</div>
+						) : null}
+						<div className="md:before:content-['•'] md:before:mx-1 text-neutral-300">
 							<span>
-								{totalFollowers.toLocaleString()}{' '}
-								{totalFollowers === 1 ? 'save' : 'saves'}
+								{totalTracks.toLocaleString()}{' '}
+								{totalTracks === 1 ? 'song' : 'songs'}
 							</span>
 						</div>
-					) : null}
-					<div className="before:content-['•'] before:mx-1 text-neutral-300">
-						<span>
-							{totalTracks.toLocaleString()}{' '}
-							{totalTracks === 1 ? 'song' : 'songs'}
-						</span>
 					</div>
 				</div>
 			</div>

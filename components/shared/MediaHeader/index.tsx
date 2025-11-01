@@ -8,7 +8,7 @@ import type { SpotifyAlbumType } from '@/types/spotify';
 const MediaHeader = ({
 	imageUrl,
 	type,
-	height = 'h-72',
+	height = 'h-fit md:h-72',
 	gradientFrom = 'from-neutral-600',
 	gradientTo = 'to-neutral-800',
 	title,

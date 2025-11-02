@@ -50,7 +50,7 @@ const HeroHeader = ({
 				</>
 			)}
 			<div
-				className={`relative ${height} flex flex-col justify-center items-center md:items-end md:grid md:grid-cols-[auto_1fr] gap-6 p-4 lg:p-8 overflow-hidden`}
+				className={`relative ${height} flex flex-col justify-center items-center md:items-end md:grid md:grid-cols-[auto_1fr] gap-6 p-4 pt-8 md:pt-4 lg:p-8 overflow-hidden`}
 			>
 				{imageUrl ? (
 					<div
@@ -84,7 +84,7 @@ const HeroHeader = ({
 				</div>
 			</div>
 			{actions && (
-				<div className="relative h-20 md:h-24 flex items-center gap-4 md:gap-6 bg-gradient-to-b from-black/40 to-spotify-black px-4 md:px-8 py-4">
+				<div className="relative h-fit md:h-24 flex items-center gap-4 md:gap-6 bg-gradient-to-b from-black/40 to-spotify-black px-4 pt-4 pb-2 lg:px-8 md:py-8">
 					{actions}
 				</div>
 			)}

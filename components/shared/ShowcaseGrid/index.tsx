@@ -22,7 +22,7 @@ const ShowcaseGrid = <T,>({
 					</div>
 				</div>
 			)}
-			<div className="-mx-3 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7">
+			<div className="-mx-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7">
 				{(maxItems ? items.slice(0, maxItems) : items).map(
 					(item, idx) => (
 						<Fragment key={idx}>{renderItem(item, idx)}</Fragment>

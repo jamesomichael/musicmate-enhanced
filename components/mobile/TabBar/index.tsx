@@ -14,7 +14,7 @@ const TabBar = () => {
 	const user = useAppSelector((state) => state.user);
 
 	return (
-		<div className="h-full bg-gradient-to-b from-transparent to-black/50 grid grid-cols-4">
+		<div className="relative h-full bg-gradient-to-b from-spotify-black to-neutral-950 grid grid-cols-4">
 			<TabButton
 				title="Home"
 				href="/"

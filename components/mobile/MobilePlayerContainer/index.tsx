@@ -43,7 +43,7 @@ const MobilePlayerContainer = () => {
 					{isExpanded && (
 						<motion.div
 							key="mobile-player"
-							className="lg:hidden fixed inset-0 z-50 w-screen h-screen overflow-hidden"
+							className="lg:hidden fixed inset-0 z-50 w-screen min-h-[100dvh] overflow-hidden"
 							initial={{ y: '100%' }}
 							animate={{ y: 0 }}
 							exit={{ y: '100%' }}

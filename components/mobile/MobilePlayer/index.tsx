@@ -15,7 +15,7 @@ import type { SpotifyArtist } from '@/types/spotify';
 const MobilePlayer = ({ onClose }: { onClose: () => void }) => {
 	const { isExternal, item, device } = useAppSelector(getNowPlaying);
 	return (
-		<div className="relative p-6 h-full bg-spotify-black grid grid-rows-[auto_1.5fr_1fr] max-w-screen-lg">
+		<div className="relative p-6 min-h-[100dvh] bg-spotify-black grid grid-rows-[auto_1.5fr_1fr] max-w-screen-lg">
 			<>
 				<div
 					className="absolute inset-0 bg-cover bg-center blur-3xl scale-125"

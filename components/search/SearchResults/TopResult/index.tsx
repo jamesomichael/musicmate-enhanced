@@ -41,7 +41,7 @@ const TopResult = ({
 					></div>
 				)}
 				<div className="truncate flex flex-col gap-2 justify-center">
-					<span className="truncate font-funnel text-white font-bold text-3xl hover:underline">
+					<span className="truncate font-funnel text-white font-bold text-2xl md:text-3xl hover:underline">
 						{name}
 					</span>
 					<div className="flex items-center text-sm font-funnel text-neutral-400">

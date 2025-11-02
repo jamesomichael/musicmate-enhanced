@@ -16,7 +16,7 @@ const AllResults = ({ data }: { data: SearchResultsData }) => {
 
 	return (
 		<div className="flex flex-col gap-10">
-			<div className="flex flex-col lg:grid lg:grid-cols-[1.3fr_2fr] gap-10 lg:gap-4">
+			<div className="flex flex-col xl:grid xl:grid-cols-[1.3fr_2fr] gap-10 lg:gap-4">
 				<TopResult
 					id={topResult.id}
 					imageUrl={topResult.images?.[0]?.url}

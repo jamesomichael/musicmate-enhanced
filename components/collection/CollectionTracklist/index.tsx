@@ -26,7 +26,7 @@ const CollectionTracklist = ({
 
 	return (
 		<div>
-			<div className="text-white p-2 md:p-8 divide-y divide-neutral-700 rounded-full">
+			<div className="text-white p-2 lg:p-8 divide-y divide-neutral-700 rounded-full">
 				<div
 					className={`hidden ${gridConfig} items-end px-4 pb-3 font-funnel text-neutral-400 text-sm`}
 				>

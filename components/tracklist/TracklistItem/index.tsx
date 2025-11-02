@@ -108,7 +108,7 @@ const TracklistItem = ({
 								isActiveTrack
 									? 'text-spotify-green'
 									: 'text-white'
-							} text-sm md:text-base truncate`}
+							} text-base truncate`}
 						>
 							{name}
 						</span>
@@ -119,7 +119,7 @@ const TracklistItem = ({
 							? artists.map((artist, idx) => (
 									<div
 										key={artist.id}
-										className={`text-xs md:text-sm text-neutral-400 group-hover:text-white ${
+										className={`text-sm text-neutral-400 group-hover:text-white ${
 											idx < artists.length - 1
 												? "after:content-[','] after:mr-1"
 												: ''

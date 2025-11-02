@@ -31,7 +31,11 @@ const ControlIcon = ({
 		>
 			<Icon
 				className={`cursor-pointer ${
-					size ? size : isPrimary ? 'w-9 h-9' : 'w-5 h-5'
+					size
+						? size
+						: isPrimary
+						? 'w-[4rem] h-[4rem] lg:w-9 lg:h-9'
+						: 'w-7 h-7 lg:w-5 lg:h-5'
 				} ${
 					isActive
 						? activeClassName

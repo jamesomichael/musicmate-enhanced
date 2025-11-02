@@ -28,8 +28,8 @@ const PlayerControls = () => {
 	} = usePlayerControls();
 
 	return (
-		<div className="flex flex-col gap-2 justify-center items-center">
-			<div className="flex items-center gap-6">
+		<div className="flex flex-col gap-6 lg:gap-2 justify-center items-center">
+			<div className="order-2 lg:order-1 flex w-full justify-between lg:w-auto lg:justify-center items-center gap-2 lg:gap-6">
 				<ControlIcon
 					title={`${shuffleState ? 'Disable' : 'Enable'} shuffle`}
 					onClick={toggleShuffle}
@@ -65,7 +65,9 @@ const PlayerControls = () => {
 					}
 				/>
 			</div>
-			<ProgressBar onSeek={seek} />
+			<div className="order-1 lg:order-2 w-full">
+				<ProgressBar onSeek={seek} />
+			</div>
 		</div>
 	);
 };

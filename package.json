@@ -1,7 +1,9 @@
 {
-	"name": "musicmate-ts",
-	"version": "0.1.0",
+	"name": "musicmate-enhanced",
+	"version": "1.0.0",
+	"description": "A web-based Spotify clone.",
 	"private": true,
+	"author": "James Michael",
 	"scripts": {
 		"type-check": "tsc --noEmit",
 		"dev": "next dev",

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import MobilePlayerContainer from '@/components/mobile/MobilePlayerContainer';
-import TabBar from '@/components/mobile/TabBar';
+import MobilePlayerContainer from '@/components/player/MobilePlayerContainer';
+import TabBar from '@/components/tabbar/TabBar';
 
 const MobileLayout = ({ children }: { children: React.ReactNode }) => {
 	return (

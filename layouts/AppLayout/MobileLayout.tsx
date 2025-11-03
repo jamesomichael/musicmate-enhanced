@@ -3,10 +3,18 @@ import React from 'react';
 import MobilePlayerContainer from '@/components/player/MobilePlayerContainer';
 import TabBar from '@/components/tabbar/TabBar';
 
+import { useAppSelector } from '@/redux/hooks';
+import { getNowPlaying } from '@/redux/slices/playerSlice';
+
 const MobileLayout = ({ children }: { children: React.ReactNode }) => {
+	const { isActive: playerIsActive, item } = useAppSelector(getNowPlaying);
 	return (
 		<div className="h-full bg-spotify-black flex flex-col overflow-hidden">
-			<div className="flex-1 overflow-auto pb-[calc(5rem + env(safe-area-inset-bottom))]">
+			<div
+				className={`flex-1 overflow-auto mb-20 ${
+					playerIsActive && item ? 'pb-12' : ''
+				}`}
+			>
 				{children}
 			</div>
 			<MobilePlayerContainer />

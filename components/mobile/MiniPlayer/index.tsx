@@ -15,6 +15,17 @@ import type { SpotifyArtist } from '@/types/spotify';
 const MiniPlayer = () => {
 	const { isExternal, item, device } = useAppSelector(getNowPlaying);
 	const { isPlaying, pause, resume } = usePlayerControls();
+
+	const handleResume = (e: React.MouseEvent<SVGAElement>) => {
+		e.stopPropagation();
+		resume();
+	};
+
+	const handlePause = (e: React.MouseEvent<SVGElement>) => {
+		e.stopPropagation();
+		pause();
+	};
+
 	return (
 		<div className="relative p-2 h-14 rounded-md bg-black grid grid-cols-[1fr_2.5rem] overflow-hidden">
 			<>
@@ -33,7 +44,7 @@ const MiniPlayer = () => {
 						backgroundImage: `url(${item.album?.images?.[0]?.url})`,
 					}}
 				></div>
-				<div className="w-full flex flex-col gap-0.5 sm:gap-0 justify-center truncate">
+				<div className="w-full flex flex-col gap-0.5 justify-center truncate">
 					<FadeInSlide
 						key={item.id}
 						className="leading-5 font-funnel text-white font-medium text-sm truncate"
@@ -44,12 +55,12 @@ const MiniPlayer = () => {
 						{isExternal ? (
 							<div className="flex items-center gap-1.5 text-spotify-green truncate">
 								<FaVolumeHigh className="h-3 w-3" />
-								<span className="text-xs sm:text-sm font-funnel truncate">
+								<span className="text-xs font-funnel truncate">
 									{device.name}
 								</span>
 							</div>
 						) : (
-							<span className="font-funnel text-neutral-400 text-xs sm:text-sm truncate">
+							<span className="font-funnel text-neutral-400 text-xs truncate">
 								{item.artists
 									.map((artist: SpotifyArtist) => artist.name)
 									.join(', ')}
@@ -61,12 +72,12 @@ const MiniPlayer = () => {
 			<div className="relative flex mr-1 justify-end items-center">
 				{isPlaying ? (
 					<IoIosPause
-						onClick={pause}
+						onClick={handlePause}
 						className="h-7 w-7 text-white active:scale-95"
 					/>
 				) : (
 					<IoIosPlay
-						onClick={resume}
+						onClick={handleResume}
 						className="h-7 w-7 text-white active:scale-95"
 					/>
 				)}

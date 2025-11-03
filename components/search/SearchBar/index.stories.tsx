@@ -11,7 +11,7 @@ const meta: Meta<typeof SearchBar> = {
 	component: SearchBar,
 	args: {},
 	parameters: {
-		layout: 'centered',
+		layout: 'fullscreen',
 		nextjs: {
 			appDirectory: true,
 			router: {
@@ -22,7 +22,7 @@ const meta: Meta<typeof SearchBar> = {
 	decorators: [
 		(Story) => (
 			<StoreProvider>
-				<div className="h-14">
+				<div className="px-4 py-1.5 lg:p-1.5 h-14 flex justify-center items-center">
 					<Story />
 				</div>
 			</StoreProvider>

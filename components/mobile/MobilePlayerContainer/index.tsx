@@ -49,8 +49,8 @@ const MobilePlayerContainer = () => {
 							exit={{ y: '100%' }}
 							transition={{
 								type: 'spring',
-								stiffness: 350,
-								damping: 60,
+								stiffness: 400,
+								damping: 50,
 							}}
 						>
 							<MobilePlayer

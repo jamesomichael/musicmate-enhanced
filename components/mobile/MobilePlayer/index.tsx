@@ -33,7 +33,7 @@ const MobilePlayer = ({ onClose }: { onClose: () => void }) => {
 			</div>
 			<div className="relative flex justify-center items-center">
 				<div
-					className="w-full aspect-square rounded-md bg-cover bg-center shadow-xl"
+					className="w-full md:w-2/3 aspect-square rounded-md bg-cover bg-center shadow-xl"
 					style={{
 						backgroundImage: `url(${item.album?.images?.[0]?.url})`,
 					}}

@@ -40,7 +40,7 @@ const ArtistHeader = ({
 			height="h-fit md:h-80"
 		>
 			<div className="flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-3 md:gap-2">
-				<span className="font-funnel text-xs sm:text-sm text-neutral-200">
+				<span className="font-funnel text-sm text-neutral-200">
 					{followers.toLocaleString()} followers
 				</span>
 				{genres.length > 0 && (

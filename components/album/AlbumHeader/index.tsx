@@ -30,7 +30,7 @@ const AlbumHeader = ({
 			title={name}
 			contextUri={contextUri}
 		>
-			<div className="font-funnel text-xs sm:text-sm flex flex-col gap-2 md:gap-0 md:flex-row flex-wrap">
+			<div className="font-funnel text-sm flex flex-col gap-2 md:gap-0 md:flex-row flex-wrap">
 				<div className="flex items-center">
 					{artists.map((artist, idx) => (
 						<div
@@ -50,7 +50,7 @@ const AlbumHeader = ({
 						</div>
 					))}
 				</div>
-				<div className="flex items-center">
+				<div className="text-xs md:text-sm flex items-center">
 					<div className="md:before:content-['•'] md:before:mx-1 text-neutral-300">
 						<span>{dayjs(releaseDate).year()}</span>
 					</div>

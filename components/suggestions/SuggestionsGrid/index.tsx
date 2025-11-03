@@ -14,7 +14,7 @@ const SuggestionsGrid = () => {
 			<Loader />
 		</div>
 	) : (
-		<div className="p-6 grid grid-cols-2 xl:grid-cols-4 gap-3 bg-gradient-to-b from-neutral-700/60 to-spotify-black">
+		<div className="p-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 bg-gradient-to-b from-neutral-700/60 to-spotify-black">
 			{albums.items.slice(0, 8).map(({ album }) => (
 				<SuggestionItem
 					key={album.id}

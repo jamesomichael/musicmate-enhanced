@@ -25,7 +25,7 @@ const FeaturedItem = ({ item }: { item: SpotifyAlbum }) => {
 			</div>
 			<Link
 				href={`/album/${item.id}`}
-				className="group relative flex justify-start items-end h-full gap-5 p-5 rounded-lg bg-cover bg-center"
+				className="group relative flex justify-start items-end h-full gap-5 p-4 sm:p-5 rounded-lg bg-cover bg-center"
 				style={{ backgroundImage: `url(${item.images?.[0]?.url})` }}
 			>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/95 group-hover:bg-black/25 transition-colors duration-150 rounded-lg"></div>
@@ -34,13 +34,13 @@ const FeaturedItem = ({ item }: { item: SpotifyAlbum }) => {
 					style={{ backgroundImage: `url(${item.images?.[0]?.url})` }}
 				></div>
 				<div className="relative flex flex-col justify-center">
-					<span className="hover:underline font-funnel font-bold text-white text-2xl line-clamp-3">
+					<span className="hover:underline font-funnel font-bold text-white text-xl sm:text-2xl line-clamp-3">
 						{item.name}
 					</span>
-					<span className="font-funnel text-neutral-300 font-medium text-md">
+					<span className="font-funnel text-neutral-300 font-medium text-sm sm:text-md">
 						{formattedReleaseDate}
 					</span>
-					<span className="capitalize font-funnel text-sm text-neutral-400">
+					<span className="capitalize font-funnel text-xs sm:text-sm text-neutral-400">
 						{item.album_type}
 					</span>
 				</div>

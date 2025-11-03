@@ -22,7 +22,7 @@ const Browse = () => {
 				</div>
 				<div className="pt-3 lg:pt-0 flex gap-1.5 justify-start items-center">
 					<IoWarning className="hidden md:block w-5 h-5 text-amber-400" />
-					<span className="font-funnel text-xs md:text-sm text-spotify-green">
+					<span className="font-funnel text-sm text-spotify-green">
 						Unfortunately, categories are no longer supported. For
 						more information, please&nbsp;
 						<Link

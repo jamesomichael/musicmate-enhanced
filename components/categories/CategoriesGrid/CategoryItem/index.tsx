@@ -15,7 +15,7 @@ const CategoryItem = ({
 			}}
 		>
 			<div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-65"></div>
-			<span className="leading-5 relative font-funnel text-sm xl:text-lg text-white truncate">
+			<span className="leading-5 relative font-funnel xl:text-lg text-white truncate">
 				{name}
 			</span>
 		</div>

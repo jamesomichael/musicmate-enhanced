@@ -50,7 +50,7 @@ const PlaylistHeader = ({
 					>
 						{owner.displayName || owner.id}
 					</Link>
-					<div className="flex items-center">
+					<div className="flex items-center text-xs md:text-sm">
 						{totalFollowers && totalFollowers > 0 ? (
 							<div className="after:content-['•'] after:mx-1 md:after:content-none md:before:content-['•'] md:before:mx-1 text-neutral-300">
 								<span>

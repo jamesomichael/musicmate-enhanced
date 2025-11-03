@@ -16,7 +16,7 @@ const MiniPlayer = () => {
 	const { isExternal, item, device } = useAppSelector(getNowPlaying);
 	const { isPlaying, pause, resume } = usePlayerControls();
 
-	const handleResume = (e: React.MouseEvent<SVGAElement>) => {
+	const handleResume = (e: React.MouseEvent<SVGElement>) => {
 		e.stopPropagation();
 		resume();
 	};

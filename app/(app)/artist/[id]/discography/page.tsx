@@ -35,7 +35,7 @@ const ArtistDiscography = async ({
 	);
 
 	return (
-		<div className="p-4 md:p-8">
+		<div className="p-4 lg:p-8">
 			<Discography
 				artistId={artistData.id}
 				title={artistData.name}

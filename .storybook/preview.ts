@@ -1,5 +1,6 @@
 import '../app/globals.css';
 
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { usePathname } from '@storybook/nextjs/navigation.mock';
 import mockRouter from 'next-router-mock';
 
@@ -22,6 +23,9 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/i,
 			},
+		},
+		viewport: {
+			options: INITIAL_VIEWPORTS,
 		},
 	},
 	beforeEach: () => {

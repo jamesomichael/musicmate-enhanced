@@ -10,12 +10,10 @@ musicmate is a web-based Spotify clone built with Next.js, Tailwind CSS, Redux T
 ![Artist](https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/artist-fontaines-dc.jpg)
 
 <p align="center">
-  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/album-linkin-park_mob.jpg" width="18%" />
-  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/artist-gorillaz-1_mob.jpg" width="18%" />
-  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/artist-qotsa_mob.jpg" width="18%" />
-  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/library-1_mob.jpg" width="18%" />
-  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/player-beck_mob.jpg" width="18%" />
-  
+  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/album-linkin-park_mob.jpg" width="22%" />
+  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/artist-qotsa_mob.jpg" width="22%" />
+  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/library-1_mob.jpg" width="22%" />
+  <img src="https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/player-beck_mob.jpg" width="22%" />
 </p>
 
 ## **Features**

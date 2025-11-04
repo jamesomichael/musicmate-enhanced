@@ -15,7 +15,7 @@ import type { SpotifyArtist } from '@/types/spotify';
 const MobilePlayer = ({ onClose }: { onClose: () => void }) => {
 	const { isExternal, item, device } = useAppSelector(getNowPlaying);
 	return (
-		<div className="relative p-6 min-h-[100dvh] bg-spotify-black grid grid-rows-[auto_1.5fr_1fr] max-w-screen-lg">
+		<div className="relative p-6 min-h-[100dvh] h-full bg-spotify-black grid grid-rows-[auto_1fr_auto] max-w-screen-lg">
 			<>
 				<div
 					className="absolute inset-0 bg-cover bg-center blur-3xl scale-125"
@@ -31,15 +31,15 @@ const MobilePlayer = ({ onClose }: { onClose: () => void }) => {
 					className="text-white h-5 w-5"
 				/>
 			</div>
-			<div className="relative flex justify-center items-center">
+			<div className="relative flex justify-center items-center overflow-hidden">
 				<div
-					className="w-full md:w-2/3 aspect-square rounded-md bg-cover bg-center shadow-xl"
+					className="aspect-square w-full sm:w-96 rounded-md shadow-xl bg-center bg-cover"
 					style={{
 						backgroundImage: `url(${item.album?.images?.[0]?.url})`,
 					}}
 				></div>
 			</div>
-			<div className="relative flex flex-col justify-end gap-4 overflow-hidden">
+			<div className="relative pt-4 flex flex-col justify-end gap-4 overflow-hidden">
 				<div className="flex flex-col gap-0.5">
 					<FadeInSlide
 						key={item.id}

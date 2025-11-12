@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { PiDevicesBold } from 'react-icons/pi';
 import { FaChevronDown } from 'react-icons/fa6';
@@ -43,17 +44,23 @@ const MobilePlayer = ({ onClose }: { onClose: () => void }) => {
 				<div className="flex flex-col gap-0.5">
 					<FadeInSlide
 						key={item.id}
+						href={`/album/${item.album.id}`}
+						onClick={onClose}
 						className="line-clamp-3 leading-6 font-funnel font-medium text-white text-lg"
 					>
 						{item.name}
 					</FadeInSlide>
 					<div className="flex items-center overflow-hidden truncate">
 						{item.explicit && <ExplicitBadge />}
-						<span className="font-funnel text-neutral-400 text-sm truncate">
+						<Link
+							href={`/artist/${item.artists[0].id}`}
+							onClick={onClose}
+							className="font-funnel text-neutral-400 text-sm truncate"
+						>
 							{item.artists
 								.map((artist: SpotifyArtist) => artist.name)
 								.join(', ')}
-						</span>
+						</Link>
 					</div>
 				</div>
 				<div className="flex flex-col gap-6">

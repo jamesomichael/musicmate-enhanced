@@ -11,6 +11,7 @@ const FadeInSlide = ({
 	duration = 0.5,
 	x = 40,
 	y = 0,
+	onClick,
 	...props
 }: {
 	children: React.ReactNode;
@@ -20,6 +21,7 @@ const FadeInSlide = ({
 	duration?: number;
 	x?: number;
 	y?: number;
+	onClick?: () => void;
 }) => {
 	return (
 		<motion.div
@@ -27,6 +29,7 @@ const FadeInSlide = ({
 			initial={{ opacity: 0, x, y }}
 			animate={{ opacity: 1, x: 0, y: 0 }}
 			transition={{ duration, delay }}
+			onClick={onClick}
 			{...props}
 		>
 			{href ? (

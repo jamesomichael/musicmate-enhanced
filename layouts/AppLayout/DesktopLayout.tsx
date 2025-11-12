@@ -13,7 +13,7 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
 			<div className="flex-1 px-2 pb-2 h-full overflow-hidden">
 				<div className="h-full grid grid-cols-[auto_1fr] gap-2">
 					<div className="bg-spotify-black w-80 rounded-md overflow-hidden">
-						<LibraryPanel />
+						{/* <LibraryPanel /> */}
 					</div>
 					<div className="bg-spotify-black rounded-md overflow-y-scroll">
 						{children}

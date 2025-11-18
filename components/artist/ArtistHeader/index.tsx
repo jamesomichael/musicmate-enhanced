@@ -37,7 +37,7 @@ const ArtistHeader = ({
 					<span>{isFollowed ? 'Following' : 'Follow'}</span>
 				</div>
 			}
-			height="h-fit md:h-80"
+			height="h-[30rem] md:h-80"
 		>
 			<div className="flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-3 md:gap-2">
 				<span className="font-funnel text-sm text-neutral-200">

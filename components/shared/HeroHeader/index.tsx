@@ -38,23 +38,31 @@ const HeroHeader = ({
 		<div
 			className={`relative flex flex-col bg-gradient-to-b ${gradientFrom} ${gradientTo} overflow-hidden`}
 		>
-			{imageUrl && showBlurredBackground && (
+			{imageUrl && (
 				<>
 					<div
-						className="absolute inset-0 bg-cover bg-center blur-3xl"
+						className={`absolute inset-0 bg-cover bg-center ${
+							type === 'artist'
+								? 'md:blur-3xl'
+								: showBlurredBackground
+								? 'blur-3xl'
+								: 'hidden'
+						}`}
 						style={{
 							backgroundImage: `url(${imageUrl})`,
 						}}
 					></div>
-					<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/65"></div>
+					<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"></div>
 				</>
 			)}
 			<div
-				className={`relative ${height} flex flex-col justify-center items-center md:items-end md:grid md:grid-cols-[auto_1fr] gap-6 p-4 pt-8 md:pt-4 lg:p-8 overflow-hidden`}
+				className={`relative ${height} flex flex-col justify-end items-center md:items-end md:grid md:grid-cols-[auto_1fr] gap-6 p-4 pt-8 md:pt-4 lg:p-8 overflow-hidden`}
 			>
 				{imageUrl ? (
 					<div
-						className={`h-64 sm:h-96 md:h-full shadow-lg bg-cover bg-center aspect-square ${imageBorderRadius}`}
+						className={`h-64 sm:h-96 md:h-full shadow-lg bg-cover bg-center aspect-square ${imageBorderRadius} ${
+							type === 'artist' ? 'hidden md:block' : ''
+						}`}
 						style={{
 							backgroundImage: `url(${imageUrl})`,
 						}}

@@ -28,11 +28,9 @@ const HeroHeader = ({
 	children: React.ReactNode;
 	actions?: React.ReactNode;
 }) => {
-	const userTypes = ['artist', 'profile'];
+	const isUserType = ['artist', 'profile'].includes(type);
 
-	const imageBorderRadius = userTypes.includes(type)
-		? 'rounded-full'
-		: 'rounded-md';
+	const imageBorderRadius = isUserType ? 'rounded-full' : 'rounded-md';
 
 	return (
 		<div
@@ -71,7 +69,7 @@ const HeroHeader = ({
 					<div
 						className={`h-64 sm:h-96 md:h-full flex justify-center items-center aspect-square bg-neutral-800 ${imageBorderRadius}`}
 					>
-						{userTypes.includes(type) ? (
+						{isUserType ? (
 							<FaRegUser className="w-16 h-16 md:w-20 md:h-20 text-neutral-400" />
 						) : (
 							<IoIosMusicalNotes className="w-20 h-20 md:w-28 md:h-28 text-neutral-400" />

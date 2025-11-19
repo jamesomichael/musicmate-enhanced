@@ -1,34 +1,28 @@
 import React from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import Loader from '../Loader';
 
 const InfiniteScrollContainer = ({
-	id,
-	dataLength,
 	hasMore,
 	next,
 	children,
 }: {
-	id: string;
-	dataLength: number;
 	hasMore: boolean;
 	next: () => void;
 	children: React.ReactNode;
 }) => {
 	return (
-		<div className="h-full overflow-auto" id={id}>
+		<div className="h-full overflow-auto">
 			<InfiniteScroll
-				dataLength={dataLength}
-				next={next}
+				loadMore={next}
 				hasMore={hasMore}
+				useWindow={false}
 				loader={
-					<div className="py-6">
+					<div className="py-6 mb-8" key={0}>
 						<Loader />
 					</div>
 				}
-				scrollableTarget={id}
-				style={{ overflow: 'visible' }}
 			>
 				{children}
 			</InfiniteScroll>

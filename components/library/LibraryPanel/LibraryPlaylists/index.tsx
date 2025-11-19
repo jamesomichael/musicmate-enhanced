@@ -25,12 +25,7 @@ const LibraryPlaylists = () => {
 	return playlists.isLoading && playlists.items.length === 1 ? (
 		<Loader />
 	) : (
-		<InfiniteScrollContainer
-			id="panel-playlists-scroll-container"
-			dataLength={playlists.items.length}
-			next={loadMore}
-			hasMore={hasMore}
-		>
+		<InfiniteScrollContainer next={loadMore} hasMore={hasMore}>
 			<div className="flex flex-col pb-3">
 				{playlists.items.map(
 					(playlist: LikedSongsPlaylist | SpotifyPlaylist) => {

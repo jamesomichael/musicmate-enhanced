@@ -21,12 +21,7 @@ const LibraryAlbums = () => {
 	return albums.isLoading && albums.items.length === 0 ? (
 		<Loader />
 	) : (
-		<InfiniteScrollContainer
-			id="panel-albums-scroll-container"
-			dataLength={albums.items.length}
-			hasMore={hasMore}
-			next={loadMore}
-		>
+		<InfiniteScrollContainer hasMore={hasMore} next={loadMore}>
 			<div className="flex flex-col pb-3">
 				{albums.items.map(({ album }) => {
 					const artistNames = album.artists.map(

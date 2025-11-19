@@ -21,12 +21,7 @@ const LibrarySongs = () => {
 	return likedSongs.isLoading && likedSongs.items.length === 0 ? (
 		<Loader />
 	) : (
-		<InfiniteScrollContainer
-			id="panel-songs-scroll-container"
-			dataLength={likedSongs.items.length}
-			hasMore={hasMore}
-			next={loadMore}
-		>
+		<InfiniteScrollContainer hasMore={hasMore} next={loadMore}>
 			<div className="flex flex-col pb-3">
 				{likedSongs.items.map(({ track }) => {
 					const artistNames = track.artists.map(

@@ -5,17 +5,13 @@ import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer
 import ListItem from '../ListItem';
 
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-
-import { useAppSelector } from '@/redux/hooks';
-import { fetchUserAlbums } from '@/redux/slices/librarySlice';
-
-import type { SpotifyLibraryAlbum } from '@/types/spotify';
+import useLibraryAlbums from '@/hooks/useLibraryAlbums';
 
 const LibraryAlbums = () => {
-	const { albums } = useAppSelector((state) => state.library);
-	const { hasMore, loadMore } = useInfiniteScroll<SpotifyLibraryAlbum>(
+	const { albums, fetchPaginatedAlbums } = useLibraryAlbums();
+	const { hasMore, loadMore } = useInfiniteScroll(
 		albums?.pagination,
-		fetchUserAlbums
+		fetchPaginatedAlbums
 	);
 
 	return albums.isLoading && albums.items.length === 0 ? (

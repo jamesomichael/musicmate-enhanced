@@ -12,26 +12,22 @@ export interface Creator {
 	id: string;
 }
 
-interface BaseProps {
-	paginationData: Pagination;
-}
-
 export type CollectionTracklistProps =
-	| (BaseProps & {
+	| {
 			type: 'playlist';
 			tracks: SpotifyPlaylistItem[] | SpotifyLibraryLikedSong[];
 			album?: never;
 			contextUri: string;
-	  })
-	| (BaseProps & {
+	  }
+	| {
 			type: 'results';
 			tracks: SpotifyTrack[];
 			album?: never;
 			contextUri?: never;
-	  })
-	| (BaseProps & {
+	  }
+	| {
 			type: SpotifyAlbumType;
 			tracks: SpotifyTrack[];
 			album: SpotifyAlbum;
 			contextUri: string;
-	  });
+	  };

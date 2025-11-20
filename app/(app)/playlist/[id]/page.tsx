@@ -1,8 +1,7 @@
 import React from 'react';
 import { cookies } from 'next/headers';
 
-import PlaylistHeader from '@/components/playlist/PlaylistHeader';
-import CollectionTracklist from '@/components/collection/CollectionTracklist';
+import PlaylistContainer from '@/components/playlist/PlaylistContainer';
 
 import { fetchPlaylistById } from '@/services/spotify';
 
@@ -26,23 +25,18 @@ const Playlist = async ({ params }: { params: Promise<{ id: string }> }) => {
 	};
 
 	return (
-		<>
-			<PlaylistHeader
-				imageUrl={playlistData.images?.[0]?.url}
-				contextUri={playlistData.uri}
-				name={playlistData.name}
-				description={playlistData.description}
-				owner={owner}
-				totalFollowers={playlistData.followers?.total}
-				totalTracks={playlistData.tracks.total}
-			/>
-			<CollectionTracklist
-				type={playlistData.type}
-				tracks={items}
-				paginationData={paginationData}
-				contextUri={playlistData.uri}
-			/>
-		</>
+		<PlaylistContainer
+			id={id}
+			name={playlistData.name}
+			uri={playlistData.uri}
+			imageUrl={playlistData.images?.[0]?.url}
+			description={playlistData.description}
+			owner={owner}
+			tracks={items}
+			totalFollowers={playlistData.followers?.total}
+			totalTracks={playlistData.tracks.total}
+			paginationData={paginationData}
+		/>
 	);
 };
 

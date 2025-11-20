@@ -10,13 +10,7 @@ const TrackResults = ({
 	tracks: SpotifyPaginatedResponse<SpotifyTrack>;
 }) => {
 	const { items, ...paginationData } = tracks;
-	return (
-		<CollectionTracklist
-			type="results"
-			tracks={items}
-			paginationData={paginationData}
-		/>
-	);
+	return <CollectionTracklist type="results" tracks={items} />;
 };
 
 export default TrackResults;

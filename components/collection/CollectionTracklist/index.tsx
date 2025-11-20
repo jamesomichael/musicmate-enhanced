@@ -10,7 +10,6 @@ import type { CollectionTracklistProps } from '@/types/collections';
 const CollectionTracklist = ({
 	type,
 	contextUri,
-	paginationData,
 	album,
 	tracks,
 }: CollectionTracklistProps) => {

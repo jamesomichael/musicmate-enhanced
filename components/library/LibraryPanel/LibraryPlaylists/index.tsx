@@ -5,18 +5,19 @@ import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer
 import ListItem from '../ListItem';
 
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useLibraryPlaylists from '@/hooks/useLibraryPlaylists';
 
 import { useAppSelector } from '@/redux/hooks';
-import { fetchUserPlaylists } from '@/redux/slices/librarySlice';
 
 import type { LikedSongsPlaylist } from '@/types/playlists';
 import type { SpotifyPlaylist } from '@/types/spotify';
 
 const LibraryPlaylists = () => {
-	const { playlists, likedSongs } = useAppSelector((state) => state.library);
-	const { hasMore, loadMore } = useInfiniteScroll<SpotifyPlaylist>(
+	const { playlists, fetchPaginatedPlaylists } = useLibraryPlaylists();
+	const { likedSongs } = useAppSelector((state) => state.library);
+	const { hasMore, loadMore } = useInfiniteScroll(
 		playlists?.pagination,
-		fetchUserPlaylists
+		fetchPaginatedPlaylists
 	);
 
 	const totalLikedSongs = likedSongs.pagination?.total;

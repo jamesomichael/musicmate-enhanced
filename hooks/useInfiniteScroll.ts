@@ -1,21 +1,11 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch } from '@/redux/hooks';
-
-import type { AsyncThunk } from '@reduxjs/toolkit';
 import type { Pagination } from '@/types/library';
-import type { SpotifyPaginatedResponse } from '@/types/spotify';
 
-const useInfiniteScroll = <T>(
+const useInfiniteScroll = (
 	paginationData: Pagination | null,
-	fetchThunk: AsyncThunk<
-		SpotifyPaginatedResponse<T>,
-		{ offset?: number; limit?: number },
-		object
-	>
+	loadMoreFn: ({ offset, limit }: { offset: number; limit: number }) => void
 ): { hasMore: boolean; loadMore: () => void } => {
-	const dispatch = useAppDispatch();
-
 	const hasMore = !!paginationData?.next;
 
 	const loadMore = useCallback(() => {
@@ -24,8 +14,8 @@ const useInfiniteScroll = <T>(
 		}
 		const { offset, limit } = paginationData;
 		const newOffset = offset + limit;
-		dispatch(fetchThunk({ offset: newOffset, limit }));
-	}, [paginationData, hasMore, dispatch, fetchThunk]);
+		loadMoreFn({ offset: newOffset, limit });
+	}, [paginationData, hasMore, loadMoreFn]);
 
 	return { hasMore, loadMore };
 };

@@ -3,19 +3,28 @@ import React from 'react';
 
 import PlaylistHeader from '@/components/playlist/PlaylistHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
+import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
+
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useLikedSongs from '@/hooks/useLikedSongs';
 
 import { useAppSelector } from '@/redux/hooks';
 
 const LikedSongs = () => {
-	const { likedSongs } = useAppSelector((state) => state.library);
+	const { likedSongs, fetchPaginatedLikedSongs } = useLikedSongs();
 	const user = useAppSelector((state) => state.user);
+
+	const { loadMore, hasMore } = useInfiniteScroll(
+		likedSongs.pagination,
+		fetchPaginatedLikedSongs
+	);
 
 	if (!user || !likedSongs || !likedSongs.pagination) {
 		return null;
 	}
 
 	return (
-		<>
+		<InfiniteScrollContainer hasMore={hasMore} next={loadMore}>
 			<PlaylistHeader
 				isLikedSongs={true}
 				imageUrl="/liked-songs-300.jpg"
@@ -26,11 +35,10 @@ const LikedSongs = () => {
 			/>
 			<CollectionTracklist
 				type="playlist"
-				paginationData={likedSongs.pagination}
 				tracks={likedSongs.items}
 				contextUri={`${user.uri}:collection`}
 			/>
-		</>
+		</InfiniteScrollContainer>
 	);
 };
 

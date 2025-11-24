@@ -1,10 +1,10 @@
-import type { Pagination } from './library';
 import type {
 	SpotifyPlaylistItem,
 	SpotifyLibraryLikedSong,
 	SpotifyTrack,
 	SpotifyAlbumType,
-	SpotifyAlbum,
+	SpotifyCopyright,
+	SpotifyReleaseDatePrecision,
 } from './spotify';
 
 export interface Creator {
@@ -16,18 +16,24 @@ export type CollectionTracklistProps =
 	| {
 			type: 'playlist';
 			tracks: SpotifyPlaylistItem[] | SpotifyLibraryLikedSong[];
-			album?: never;
+			releaseDate?: never;
+			releaseDatePrecision?: never;
+			copyrightNotices?: never;
 			contextUri: string;
 	  }
 	| {
 			type: 'results';
 			tracks: SpotifyTrack[];
-			album?: never;
+			releaseDate?: never;
+			releaseDatePrecision?: never;
+			copyrightNotices?: never;
 			contextUri?: never;
 	  }
 	| {
 			type: SpotifyAlbumType;
 			tracks: SpotifyTrack[];
-			album: SpotifyAlbum;
+			releaseDate: string;
+			releaseDatePrecision?: SpotifyReleaseDatePrecision;
+			copyrightNotices?: SpotifyCopyright[];
 			contextUri: string;
 	  };

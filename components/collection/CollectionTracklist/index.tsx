@@ -10,7 +10,9 @@ import type { CollectionTracklistProps } from '@/types/collections';
 const CollectionTracklist = ({
 	type,
 	contextUri,
-	album,
+	releaseDate,
+	releaseDatePrecision,
+	copyrightNotices,
 	tracks,
 }: CollectionTracklistProps) => {
 	const gridConfig = useMemo(
@@ -95,9 +97,9 @@ const CollectionTracklist = ({
 			</div>
 			{type !== 'playlist' && type !== 'results' && (
 				<AlbumMetadata
-					releaseDate={album?.release_date}
-					releaseDatePrecision={album?.release_date_precision}
-					copyrightNotices={album?.copyrights}
+					releaseDate={releaseDate}
+					releaseDatePrecision={releaseDatePrecision}
+					copyrightNotices={copyrightNotices}
 				/>
 			)}
 		</div>

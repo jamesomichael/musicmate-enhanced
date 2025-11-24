@@ -11,7 +11,7 @@ const AlbumMetadata = ({
 }: {
 	releaseDate?: string;
 	releaseDatePrecision?: 'year' | 'month' | 'day';
-	copyrightNotices: SpotifyCopyright[];
+	copyrightNotices?: SpotifyCopyright[];
 }) => {
 	const formattedReleaseDate = useFormattedDate(
 		releaseDate,
@@ -34,7 +34,7 @@ const AlbumMetadata = ({
 			<span className="font-funnel text-neutral-400 text-sm">
 				{formattedReleaseDate}
 			</span>
-			{copyrightNotices?.map(
+			{copyrightNotices.map(
 				({ type: noticeType, text: noticeText }, idx) => (
 					<span
 						key={`${idx}_${noticeType}`}

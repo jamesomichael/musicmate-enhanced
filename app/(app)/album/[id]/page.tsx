@@ -1,8 +1,7 @@
 import React from 'react';
 import { cookies } from 'next/headers';
 
-import AlbumHeader from '@/components/album/AlbumHeader';
-import CollectionTracklist from '@/components/collection/CollectionTracklist';
+import AlbumContainer from '@/components/album/AlbumContainer';
 
 import { fetchAlbumById } from '@/services/spotify';
 
@@ -18,23 +17,20 @@ const Album = async ({ params }: { params: Promise<{ id: string }> }) => {
 	const { items, ...paginationData } = albumData.tracks;
 
 	return (
-		<>
-			<AlbumHeader
-				imageUrl={albumData.images?.[0]?.url}
-				type={albumData.album_type}
-				name={albumData.name}
-				artists={albumData.artists}
-				contextUri={albumData.uri}
-				releaseDate={albumData.release_date}
-				totalTracks={albumData.total_tracks}
-			/>
-			<CollectionTracklist
-				type={albumData.album_type}
-				tracks={items}
-				album={albumData}
-				contextUri={albumData.uri}
-			/>
-		</>
+		<AlbumContainer
+			id={id}
+			imageUrl={albumData.images?.[0]?.url}
+			type={albumData.album_type}
+			name={albumData.name}
+			artists={albumData.artists}
+			uri={albumData.uri}
+			releaseDate={albumData.release_date}
+			releaseDatePrecision={albumData.release_date_precision}
+			copyrightNotices={albumData.copyrights}
+			totalTracks={albumData.total_tracks}
+			tracks={items}
+			paginationData={paginationData}
+		/>
 	);
 };
 

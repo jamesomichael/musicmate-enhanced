@@ -10,6 +10,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import type {
 	SpotifyAlbum,
 	SpotifyPlaylistItem,
+	SpotifyReleaseDatePrecision,
 	SpotifyTrack,
 } from '@/types/spotify';
 
@@ -43,7 +44,10 @@ export const Playlist: Story = {};
 export const Album: Story = {
 	args: {
 		type: 'album',
-		album: albumMock as unknown as SpotifyAlbum,
+		releaseDate: albumMock.release_date,
+		releaseDatePrecision:
+			albumMock.release_date_precision as unknown as SpotifyReleaseDatePrecision,
+		copyrightNotices: albumMock.copyrights,
 		tracks: albumTracksMock.items as unknown as SpotifyTrack[],
 	},
 };

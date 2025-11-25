@@ -1,4 +1,4 @@
-[![musicmate](https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-pub//musicmate.png)](https://musicmate.jamesmichael.dev)
+[![musicmate](https://mexhjsdibsoshbepazwt.supabase.co/storage/v1/object/public/musicmate-enhanced/musicmate.png)](https://musicmate.jamesmichael.dev)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/79adfa93-df1d-4af5-b139-664f90d05941/deploy-status)](https://musicmate.jamesmichael.dev)
 [![Storybook](https://img.shields.io/badge/Storybook-View-ff4785?logo=storybook&logoColor=white)](https://jamesomichael.github.io/musicmate-enhanced)

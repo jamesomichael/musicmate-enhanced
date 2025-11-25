@@ -31,6 +31,7 @@ const LibrarySongs = () => {
 						<ListItem
 							type="track"
 							key={track.id}
+							uri={track.uri}
 							href={`/album/${track.album.id}`}
 							imageUrl={track.album.images[0]?.url}
 							name={track.name}

@@ -15,6 +15,7 @@ import type { SpotifyPlaylist } from '@/types/spotify';
 const LibraryPlaylists = () => {
 	const { playlists, fetchPaginatedPlaylists } = useLibraryPlaylists();
 	const { likedSongs } = useAppSelector((state) => state.library);
+	const user = useAppSelector((state) => state.user);
 	const { hasMore, loadMore } = useInfiniteScroll(
 		playlists?.pagination,
 		fetchPaginatedPlaylists
@@ -41,6 +42,11 @@ const LibraryPlaylists = () => {
 							<ListItem
 								type="playlist"
 								key={playlist.id}
+								uri={
+									isLikedSongs
+										? `${user.uri}:collection`
+										: (playlist as SpotifyPlaylist).uri
+								}
 								href={
 									playlist.id === 'liked-songs'
 										? '/liked-songs'

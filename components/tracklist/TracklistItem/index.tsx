@@ -9,6 +9,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
+import { IoIosPlay, IoIosPause } from 'react-icons/io';
+
 import ExplicitBadge from '../ExplicitBadge';
 
 import useTrackPlayback from '@/hooks/useTrackPlayback';
@@ -44,12 +46,13 @@ const TracklistItem = ({
 	addedAt?: string;
 	gridConfig: string;
 }) => {
-	const { isNowPlaying, isActiveTrack, playTrack } = useTrackPlayback({
-		trackId: id,
-		contextUri,
-		...(uri && { uri }),
-		...(position && { position }),
-	});
+	const { isNowPlaying, isActiveTrack, playTrack, pauseTrack } =
+		useTrackPlayback({
+			trackId: id,
+			contextUri,
+			...(uri && { uri }),
+			...(position && { position }),
+		});
 
 	const formattedAddedAt = useMemo(() => {
 		if (!addedAt) {
@@ -72,11 +75,11 @@ const TracklistItem = ({
 				{isNowPlaying ? (
 					<img
 						src="/eq-animated.gif"
-						className="h-4 w-4 ml-2.5"
+						className="h-4 w-4 ml-2.5 group-hover:hidden"
 					></img>
 				) : (
 					<span
-						className={`mr-1 group-hover:text-white ${
+						className={`mr-1 group-hover:hidden ${
 							isActiveTrack
 								? 'text-spotify-green'
 								: 'text-neutral-400'
@@ -85,6 +88,19 @@ const TracklistItem = ({
 						{number}
 					</span>
 				)}
+				<div className="-mr-2 hidden group-hover:flex justify-center items-center">
+					{isNowPlaying ? (
+						<IoIosPause
+							onClick={pauseTrack}
+							className="h-6 w-6 text-white active:scale-95"
+						/>
+					) : (
+						<IoIosPlay
+							onClick={playTrack}
+							className="h-6 w-6 text-white active:scale-95"
+						/>
+					)}
+				</div>
 			</div>
 			<div className="flex items-center gap-2.5 h-full truncate">
 				{showAlbumArt && album && (

@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Loader from '@/components/shared/Loader';
+import CollectionItem from '../CollectionItem';
 
 import { useAppSelector } from '@/redux/hooks';
-
-import ListItem from '../ListItem';
 
 const LibraryArtists = () => {
 	const { artists } = useAppSelector((state) => state.library);
@@ -15,10 +14,9 @@ const LibraryArtists = () => {
 		<div className="flex flex-col pb-3">
 			{artists.items.map((artist) => {
 				return (
-					<ListItem
+					<CollectionItem
 						key={artist.id}
 						uri={artist.uri}
-						type="artist"
 						href={`/artist/${artist.id}`}
 						imageUrl={artist.images?.[0]?.url}
 						name={artist.name}

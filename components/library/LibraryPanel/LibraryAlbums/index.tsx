@@ -2,7 +2,7 @@ import React from 'react';
 
 import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
-import ListItem from '../ListItem';
+import CollectionItem from '../CollectionItem';
 
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 import useLibraryAlbums from '@/hooks/useLibraryAlbums';
@@ -28,8 +28,7 @@ const LibraryAlbums = () => {
 							? `Single • ${artistNames.join(', ')}`
 							: artistNames.join(', ');
 					return (
-						<ListItem
-							type="album"
+						<CollectionItem
 							key={album.id}
 							uri={album.uri}
 							href={`/album/${album.id}`}

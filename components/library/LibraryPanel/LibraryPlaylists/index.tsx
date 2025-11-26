@@ -2,7 +2,7 @@ import React from 'react';
 
 import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
-import ListItem from '../ListItem';
+import CollectionItem from '../CollectionItem';
 
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 import useLibraryPlaylists from '@/hooks/useLibraryPlaylists';
@@ -39,8 +39,7 @@ const LibraryPlaylists = () => {
 								? playlist.owner.display_name
 								: undefined;
 						return (
-							<ListItem
-								type="playlist"
+							<CollectionItem
 								key={playlist.id}
 								uri={
 									isLikedSongs

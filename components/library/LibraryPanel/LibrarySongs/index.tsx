@@ -2,7 +2,7 @@ import React from 'react';
 
 import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
-import ListItem from '../ListItem';
+import TrackItem from '../TrackItem';
 
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 import useLikedSongs from '@/hooks/useLikedSongs';
@@ -28,10 +28,11 @@ const LibrarySongs = () => {
 						', '
 					)} • ${albumName}`;
 					return (
-						<ListItem
-							type="track"
+						<TrackItem
 							key={track.id}
+							id={track.id}
 							uri={track.uri}
+							contextUri={track.album.uri}
 							href={`/album/${track.album.id}`}
 							imageUrl={track.album.images[0]?.url}
 							name={track.name}

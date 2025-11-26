@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
 	getNowPlaying,
 	play,
+	pause,
 	fetchPlaybackState,
 } from '@/redux/slices/playerSlice';
 
@@ -62,7 +63,12 @@ const useTrackPlayback = ({
 		dispatch,
 	]);
 
-	return { isNowPlaying, isActiveTrack, playTrack };
+	const pauseTrack = useCallback(
+		() => dispatch(pause(activeDeviceId)),
+		[activeDeviceId, dispatch]
+	);
+
+	return { isNowPlaying, isActiveTrack, playTrack, pauseTrack };
 };
 
 export default useTrackPlayback;

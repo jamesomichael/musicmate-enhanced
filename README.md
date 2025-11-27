@@ -70,9 +70,9 @@ touch .env.local
 ```bash
 NEXT_PUBLIC_CLIENT_ID="YOUR_SPOTIFY_CLIENT_ID"
 NEXT_PUBLIC_CLIENT_SECRET="YOUR_SPOTIFY_CLIENT_SECRET"
-NEXT_PUBLIC_REDIRECT_URI=http://localhost:3000/api/callback
+NEXT_PUBLIC_REDIRECT_URI=http://127.0.0.1:3000/api/callback
 NEXT_PUBLIC_SPOTIFY_AUTH_URL=https://accounts.spotify.com/authorize
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://127.0.0.1:3000
 ```
 
 4. Start the development server:

@@ -57,6 +57,7 @@ const CollectionTracklist = ({
 									uri={track.uri}
 									showAlbumArt={true}
 									album={track.album}
+									isLocal={track.is_local}
 									gridConfig={gridConfig}
 								/>
 						  ))
@@ -75,6 +76,7 @@ const CollectionTracklist = ({
 									showAlbumArt={true}
 									album={track.album}
 									addedAt={added_at}
+									isLocal={track.is_local}
 									gridConfig={gridConfig}
 								/>
 						  ))
@@ -90,6 +92,7 @@ const CollectionTracklist = ({
 									contextUri={contextUri}
 									uri={track.uri}
 									showAlbumArt={false}
+									isLocal={track.is_local}
 									gridConfig={gridConfig}
 								/>
 						  ))}

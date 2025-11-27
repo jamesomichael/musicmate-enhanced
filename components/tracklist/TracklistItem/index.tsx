@@ -30,6 +30,7 @@ const TracklistItem = ({
 	album,
 	showAlbumArt = true,
 	addedAt,
+	isLocal = false,
 	gridConfig,
 }: {
 	id: string;
@@ -44,6 +45,7 @@ const TracklistItem = ({
 	album?: SpotifyAlbum;
 	showAlbumArt?: boolean;
 	addedAt?: string;
+	isLocal?: boolean;
 	gridConfig: string;
 }) => {
 	const { isNowPlaying, isActiveTrack, playTrack, pauseTrack } =
@@ -68,7 +70,11 @@ const TracklistItem = ({
 
 	return (
 		<div
-			className={`group h-16 px-2 md:px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel`}
+			className={`group h-16 px-2 md:px-4 py-2 ${gridConfig} hover:bg-[#ffffff1a] rounded-md items-center font-funnel ${
+				isLocal
+					? 'opacity-30 cursor-not-allowed pointer-events-none'
+					: ''
+			}`}
 			onDoubleClick={playTrack}
 		>
 			<div className="hidden md:block text-right">

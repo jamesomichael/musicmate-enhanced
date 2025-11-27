@@ -73,11 +73,13 @@ const LibraryListItem = ({
 							<IoIosPause
 								onClick={onPause}
 								className="h-7 w-7 text-white active:scale-95"
+								title={`Pause ${name}`}
 							/>
 						) : (
 							<IoIosPlay
 								onClick={onPlay}
 								className="h-7 w-7 text-white active:scale-95"
+								title={`Play ${name}`}
 							/>
 						)}
 					</div>

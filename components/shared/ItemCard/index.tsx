@@ -48,7 +48,10 @@ const ItemCard = ({
 				</div>
 			)}
 			<div className="h-16 xl:h-20 flex flex-col gap-0.5 font-funnel">
-				<span className="line-clamp-2 leading-5 font-medium text-white hover:underline">
+				<span
+					className="line-clamp-2 leading-5 font-medium text-white hover:underline"
+					title={name}
+				>
 					{name}
 				</span>
 				{children && (

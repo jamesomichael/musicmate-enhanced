@@ -9,7 +9,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(duration);
 dayjs.extend(relativeTime);
 
-import { IoIosPlay, IoIosPause } from 'react-icons/io';
+import { IoIosMusicalNotes, IoIosPlay, IoIosPause } from 'react-icons/io';
 
 import ExplicitBadge from '../ExplicitBadge';
 
@@ -98,25 +98,31 @@ const TracklistItem = ({
 					{isNowPlaying ? (
 						<IoIosPause
 							onClick={pauseTrack}
+							title={`Pause ${name}`}
 							className="h-6 w-6 text-white active:scale-95"
 						/>
 					) : (
 						<IoIosPlay
 							onClick={playTrack}
+							title={`Play ${name}`}
 							className="h-6 w-6 text-white active:scale-95"
 						/>
 					)}
 				</div>
 			</div>
 			<div className="flex items-center gap-2.5 h-full truncate">
-				{showAlbumArt && album && (
+				{showAlbumArt && album && album.images?.length > 0 ? (
 					<div
 						className="bg-center bg-cover h-full aspect-square rounded"
 						style={{
-							backgroundImage: `url(${album.images?.[0]?.url})`,
+							backgroundImage: `url(${album.images[0].url})`,
 						}}
 					></div>
-				)}
+				) : showAlbumArt ? (
+					<div className="h-full flex justify-center items-center aspect-square bg-neutral-800 rounded">
+						<IoIosMusicalNotes className="h-6 w-6 text-neutral-400" />
+					</div>
+				) : null}
 				<div className="flex flex-col justify-center truncate">
 					<div className="flex items-center gap-1">
 						{isNowPlaying && (
@@ -131,6 +137,7 @@ const TracklistItem = ({
 									? 'text-spotify-green'
 									: 'text-white'
 							} text-base truncate`}
+							title={name}
 						>
 							{name}
 						</span>
@@ -150,6 +157,7 @@ const TracklistItem = ({
 										<Link
 											href={`/artist/${artist.id}`}
 											className="hover:underline"
+											title={artist.name}
 											prefetch={false}
 										>
 											{artist.name}
@@ -165,6 +173,7 @@ const TracklistItem = ({
 					<Link
 						href={`/album/${album.id}`}
 						className="hidden md:block hover:underline truncate text-neutral-400 group-hover:text-white"
+						title={album.name}
 						prefetch={false}
 					>
 						{album.name}

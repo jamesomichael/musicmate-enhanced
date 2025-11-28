@@ -5,9 +5,6 @@ import { FaRegClock } from 'react-icons/fa6';
 import TracklistItem from '@/components/tracklist/TracklistItem';
 import AlbumMetadata from '@/components/album/AlbumMetadata';
 
-import { useAppSelector } from '@/redux/hooks';
-import { isUserPremium } from '@/redux/slices/userSlice';
-
 import type { CollectionTracklistProps } from '@/types/collections';
 
 const CollectionTracklist = ({
@@ -18,8 +15,6 @@ const CollectionTracklist = ({
 	copyrightNotices,
 	tracks,
 }: CollectionTracklistProps) => {
-	const userHasPremium = useAppSelector(isUserPremium);
-
 	const gridConfig = useMemo(
 		() =>
 			type === 'results'
@@ -63,7 +58,6 @@ const CollectionTracklist = ({
 									showAlbumArt={true}
 									album={track.album}
 									isLocal={track.is_local}
-									userHasPremium={userHasPremium}
 									gridConfig={gridConfig}
 								/>
 						  ))
@@ -83,7 +77,6 @@ const CollectionTracklist = ({
 									album={track.album}
 									addedAt={added_at}
 									isLocal={track.is_local}
-									userHasPremium={userHasPremium}
 									gridConfig={gridConfig}
 								/>
 						  ))
@@ -100,7 +93,6 @@ const CollectionTracklist = ({
 									uri={track.uri}
 									showAlbumArt={false}
 									isLocal={track.is_local}
-									userHasPremium={userHasPremium}
 									gridConfig={gridConfig}
 								/>
 						  ))}

@@ -2,13 +2,9 @@ import React from 'react';
 
 import TracklistItem from '@/components/tracklist/TracklistItem';
 
-import { useAppSelector } from '@/redux/hooks';
-import { isUserPremium } from '@/redux/slices/userSlice';
-
 import type { SpotifyTrack } from '@/types/spotify';
 
 const TopTracks = ({ tracks }: { tracks: SpotifyTrack[] }) => {
-	const userHasPremium = useAppSelector(isUserPremium);
 	return (
 		<div className="flex flex-col gap-2">
 			<div className="flex items-center gap-2 text-white">
@@ -29,7 +25,6 @@ const TopTracks = ({ tracks }: { tracks: SpotifyTrack[] }) => {
 							position={track.track_number - 1}
 							showAlbumArt={true}
 							album={track.album}
-							userHasPremium={userHasPremium}
 							gridConfig="-ml-2 md:grid md:grid-cols-[2rem_1.25fr_1fr_5rem] gap-4"
 						/>
 					);

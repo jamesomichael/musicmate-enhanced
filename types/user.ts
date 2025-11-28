@@ -3,6 +3,7 @@ import type {
 	SpotifyExternalUrl,
 	SpotifyFollowers,
 	SpotifyImage,
+	SpotifyProduct,
 } from './spotify';
 
 export interface UserState {
@@ -15,7 +16,7 @@ export interface UserState {
 	href: string | null;
 	id: string | null;
 	images: SpotifyImage[] | null;
-	product: string | null;
+	product: SpotifyProduct | null;
 	type: string | null;
 	uri: string | null;
 }

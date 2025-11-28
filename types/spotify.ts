@@ -153,6 +153,8 @@ export interface SpotifyUser extends SpotifyBaseUser {
 	images?: SpotifyImage[];
 }
 
+export type SpotifyProduct = 'premium' | 'free' | 'open';
+
 export interface SpotifyCurrentUser extends SpotifyBaseUser {
 	country?: string;
 	display_name?: string;
@@ -161,7 +163,7 @@ export interface SpotifyCurrentUser extends SpotifyBaseUser {
 	followers: SpotifyFollowers;
 	href: string;
 	images: SpotifyImage[];
-	product: string;
+	product: SpotifyProduct;
 }
 
 interface SpotifyDevice {

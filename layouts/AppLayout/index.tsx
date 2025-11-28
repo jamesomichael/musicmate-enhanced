@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import DesktopLayout from './DesktopLayout';
 import MobileLayout from './MobileLayout';
@@ -10,6 +11,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	useLibrary();
 	return (
 		<div className="overflow-auto h-screen">
+			<ToastContainer theme="colored" />
 			<div className="h-full hidden lg:block">
 				<DesktopLayout>{children}</DesktopLayout>
 			</div>

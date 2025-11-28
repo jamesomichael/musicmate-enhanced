@@ -15,6 +15,8 @@ import ExplicitBadge from '../ExplicitBadge';
 
 import useTrackPlayback from '@/hooks/useTrackPlayback';
 
+import { showToast } from '@/utils/toast';
+
 import type { SpotifyAlbum, SpotifyArtist } from '@/types/spotify';
 
 const TracklistItem = ({
@@ -31,6 +33,7 @@ const TracklistItem = ({
 	showAlbumArt = true,
 	addedAt,
 	isLocal = false,
+	userHasPremium,
 	gridConfig,
 }: {
 	id: string;
@@ -46,6 +49,7 @@ const TracklistItem = ({
 	showAlbumArt?: boolean;
 	addedAt?: string;
 	isLocal?: boolean;
+	userHasPremium: boolean;
 	gridConfig: string;
 }) => {
 	const { isNowPlaying, isActiveTrack, playTrack, pauseTrack } =
@@ -75,7 +79,11 @@ const TracklistItem = ({
 					? 'opacity-30 cursor-not-allowed pointer-events-none'
 					: ''
 			}`}
-			onDoubleClick={playTrack}
+			onDoubleClick={
+				userHasPremium
+					? playTrack
+					: () => showToast('Requires Spotify Premium.')
+			}
 		>
 			<div className="hidden md:block text-right">
 				{isNowPlaying ? (

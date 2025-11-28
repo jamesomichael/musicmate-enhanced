@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 import { logOut } from './authSlice';
 
@@ -62,6 +62,11 @@ const userSlice = createSlice({
 		});
 	},
 });
+
+export const isUserPremium = createSelector(
+	[(state) => state.user.product],
+	(product) => product === 'premium'
+);
 
 export const { setUser } = userSlice.actions;
 export default userSlice.reducer;

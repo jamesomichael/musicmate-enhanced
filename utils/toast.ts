@@ -6,5 +6,6 @@ export const showToast = (text: string) => {
 		position: 'bottom-center',
 		closeButton: false,
 		transition: Slide,
+		autoClose: 2000,
 	});
 };

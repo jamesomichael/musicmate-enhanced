@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { isUserPremium } from '@/redux/slices/userSlice';
 import {
 	getNowPlaying,
 	pause,
@@ -11,20 +12,45 @@ import {
 	setRepeatState,
 } from '@/redux/slices/playerSlice';
 
+import { showToast } from '@/utils/toast';
+
 import type { SpotifyRepeatState } from '@/types/spotify';
 
 const usePlayerControls = () => {
 	const dispatch = useAppDispatch();
 	const { isPlaying, isExternal, device, repeatState, shuffleState } =
 		useAppSelector(getNowPlaying);
+	const userHasPremium = useAppSelector(isUserPremium);
 
-	const handlePause = () => dispatch(pause(device.id));
+	const handlePause = () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(pause(device.id));
+	};
 
-	const handleResume = () => dispatch(resume(device.id));
+	const handleResume = () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(resume(device.id));
+	};
 
-	const handleSeek = (position: number) => dispatch(seek(position));
+	const handleSeek = (position: number) => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(seek(position));
+	};
 
 	const handleSkipToNext = async () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
 		await dispatch(skipToNext());
 		if (isExternal) {
 			setTimeout(() => dispatch(fetchPlaybackState()), 500);
@@ -32,15 +58,30 @@ const usePlayerControls = () => {
 	};
 
 	const handleSkipToPrevious = async () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
 		await dispatch(skipToPrevious());
 		if (isExternal) {
 			setTimeout(() => dispatch(fetchPlaybackState()), 500);
 		}
 	};
 
-	const toggleShuffle = () => dispatch(setShuffleState(!shuffleState));
+	const toggleShuffle = () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(setShuffleState(!shuffleState));
+	};
 
 	const toggleRepeat = () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+
 		let nextState: SpotifyRepeatState;
 
 		switch (repeatState) {

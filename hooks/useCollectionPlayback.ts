@@ -9,12 +9,16 @@ import {
 	pause,
 	setShuffleState,
 } from '@/redux/slices/playerSlice';
+import { isUserPremium } from '@/redux/slices/userSlice';
+
+import { showToast } from '@/utils/toast';
 
 const useCollectionPlayback = (contextUri: string) => {
 	const dispatch = useAppDispatch();
 	const { deviceId: localDeviceId } = useAppSelector((state) => state.player);
 	const { isPlaying, isActive, isExternal, shuffleState, context, device } =
 		useAppSelector(getNowPlaying);
+	const userHasPremium = useAppSelector(isUserPremium);
 
 	const deviceId = device?.id ?? localDeviceId;
 
@@ -23,6 +27,10 @@ const useCollectionPlayback = (contextUri: string) => {
 	const isActiveCollection = isActive && isCurrentContext;
 
 	const handlePlay = useCallback(async () => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
 		if (isActiveCollection) {
 			await dispatch(resume(deviceId));
 		} else {
@@ -36,17 +44,30 @@ const useCollectionPlayback = (contextUri: string) => {
 		if (isExternal) {
 			setTimeout(() => dispatch(fetchPlaybackState()), 500);
 		}
-	}, [isActiveCollection, deviceId, contextUri, isExternal, dispatch]);
+	}, [
+		userHasPremium,
+		isActiveCollection,
+		deviceId,
+		contextUri,
+		isExternal,
+		dispatch,
+	]);
 
-	const handlePause = useCallback(
-		() => dispatch(pause(deviceId)),
-		[deviceId, dispatch]
-	);
+	const handlePause = useCallback(() => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(pause(deviceId));
+	}, [userHasPremium, deviceId, dispatch]);
 
-	const toggleShuffle = useCallback(
-		() => dispatch(setShuffleState(!shuffleState)),
-		[shuffleState, dispatch]
-	);
+	const toggleShuffle = useCallback(() => {
+		if (!userHasPremium) {
+			showToast('Requires Spotify Premium.');
+			return;
+		}
+		dispatch(setShuffleState(!shuffleState));
+	}, [userHasPremium, shuffleState, dispatch]);
 
 	return {
 		isPlayingCollection,

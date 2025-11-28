@@ -13,6 +13,9 @@ import ControlIcon from '../../shared/ControlIcon';
 
 import usePlayerControls from '@/hooks/usePlayerControls';
 
+import { useAppSelector } from '@/redux/hooks';
+import { isUserPremium } from '@/redux/slices/userSlice';
+
 const PlayerControls = () => {
 	const {
 		isPlaying,
@@ -26,9 +29,16 @@ const PlayerControls = () => {
 		toggleShuffle,
 		toggleRepeat,
 	} = usePlayerControls();
+	const userHasPremium = useAppSelector(isUserPremium);
 
 	return (
-		<div className="flex flex-col gap-6 lg:gap-2 justify-center items-center">
+		<div
+			className={`flex flex-col gap-6 lg:gap-2 justify-center items-center ${
+				!userHasPremium
+					? 'opacity-25 pointer-events-none cursor-not-allowed'
+					: ''
+			}`}
+		>
 			<div className="order-2 lg:order-1 flex w-full justify-between lg:w-auto lg:justify-center items-center gap-2 lg:gap-6">
 				<ControlIcon
 					title={`${shuffleState ? 'Disable' : 'Enable'} shuffle`}

@@ -7,14 +7,20 @@ import VolumeIcon from './VolumeIcon';
 
 import useVolumeControl from '@/hooks/useVolumeControl';
 
+import { useAppSelector } from '@/redux/hooks';
+import { isUserPremium } from '@/redux/slices/userSlice';
+
 const VolumeControl = () => {
 	const { isSupported, isMuted, value, changeVolume, toggleMute } =
 		useVolumeControl();
+	const userHasPremium = useAppSelector(isUserPremium);
 
 	return (
 		<div
 			className={`flex items-center gap-2.5 ${
-				!isSupported ? 'opacity-40 pointer-events-none' : ''
+				!isSupported || !userHasPremium
+					? 'opacity-25 pointer-events-none cursor-not-allowed'
+					: ''
 			}`}
 		>
 			<VolumeIcon

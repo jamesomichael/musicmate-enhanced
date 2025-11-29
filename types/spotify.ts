@@ -86,6 +86,12 @@ export interface SpotifyPlaylistItem {
 	track: SpotifyTrack;
 }
 
+export interface SpotifyRecentlyPlayedItem {
+	track: SpotifyTrack;
+	context: SpotifyContext | null;
+	played_at: string;
+}
+
 export interface SpotifyArtist {
 	external_urls: SpotifyExternalUrl;
 	followers: SpotifyFollowers;
@@ -177,7 +183,7 @@ interface SpotifyDevice {
 	supports_volume: boolean;
 }
 
-interface SpotifyContext {
+export interface SpotifyContext {
 	type: string;
 	href: string;
 	external_urls: SpotifyExternalUrl;

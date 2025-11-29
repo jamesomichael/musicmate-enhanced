@@ -23,6 +23,86 @@ export const fetchCurrentUser = async (accessToken: string) => {
 	}
 };
 
+export const fetchUserTopTracks = async (
+	{ period = 'long_term' }: { period?: string },
+	accessToken: string
+) => {
+	console.log('[fetchUserTopTracks] Fetching top tracks...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/me/top/tracks?time_range=${period}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchUserTopTracks] Top tracks retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchUserTopTracks] Unable to fetch top tracks:',
+				error.message
+			);
+		}
+		return false;
+	}
+};
+
+export const fetchUserTopArtists = async (
+	{ period = 'long_term' }: { period?: string },
+	accessToken: string
+) => {
+	console.log('[fetchUserTopArtists] Fetching top artists...');
+	try {
+		const response = await axios.get(
+			`https://api.spotify.com/v1/me/top/artists?time_range=${period}`,
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log('[fetchUserTopArtists] Top artists retrieved.');
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchUserTopArtists] Unable to fetch top artists:',
+				error.message
+			);
+		}
+		return false;
+	}
+};
+
+export const fetchUserRecentlyPlayed = async (accessToken: string) => {
+	console.log('[fetchUserRecentlyPlayed] Fetching recently played items...');
+	try {
+		const response = await axios.get(
+			'https://api.spotify.com/v1/me/player/recently-played?limit=50',
+			{
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		);
+		console.log(
+			'[fetchUserRecentlyPlayed] Recently played items retrieved.'
+		);
+		return response.data;
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(
+				'[fetchUserRecentlyPlayed] Unable to fetch recently played items:',
+				error.message
+			);
+		}
+		return false;
+	}
+};
+
 export const fetchUser = async (id: string, accessToken: string) => {
 	console.log('[fetchUser] Fetching user...');
 	try {

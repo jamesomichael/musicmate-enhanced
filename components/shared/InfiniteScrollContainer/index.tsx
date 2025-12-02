@@ -19,7 +19,7 @@ const InfiniteScrollContainer = ({
 				hasMore={hasMore}
 				useWindow={false}
 				loader={
-					<div className="py-6 mb-8" key={0}>
+					<div className="py-6 mb-10" key={0}>
 						<Loader />
 					</div>
 				}

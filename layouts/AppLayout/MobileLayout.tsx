@@ -11,8 +11,8 @@ const MobileLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className="h-full bg-spotify-black flex flex-col overflow-hidden">
 			<div
-				className={`flex-1 overflow-auto mb-20 ${
-					playerIsActive && item ? 'pb-12' : ''
+				className={`flex-1 overflow-auto ${
+					playerIsActive && item ? 'mb-[8.5rem]' : 'mb-20'
 				}`}
 			>
 				{children}

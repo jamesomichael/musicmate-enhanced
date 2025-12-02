@@ -50,11 +50,12 @@ export async function middleware(request: NextRequest) {
 export const config = {
 	matcher: [
 		'/',
-		'/profile/:path*',
-		'/library/:path*',
 		'/album/:path*',
 		'/artist/:path*',
+		'/library/:path*',
+		'/liked-songs/:path*',
 		'/playlist/:path*',
 		'/search/:path*',
+		'/user/:path*',
 	],
 };

@@ -10,7 +10,7 @@ const useLogOut = () => {
 
 	const handleLogOut = useCallback(async () => {
 		try {
-			await dispatch(logOut()).unwrap();
+			await dispatch(logOut());
 			router.push('/login');
 		} catch (err) {
 			console.error('Logout failed', err);

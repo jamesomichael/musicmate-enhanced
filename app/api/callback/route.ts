@@ -46,7 +46,7 @@ const GET = async (request: NextRequest) => {
 		cookieStore.set(cookieOptions)
 	);
 
-	return NextResponse.redirect(new URL('/', request.url));
+	return NextResponse.redirect(new URL('/', process.env.NEXT_PUBLIC_API_URL));
 };
 
 export { GET };

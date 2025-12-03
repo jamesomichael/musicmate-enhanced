@@ -42,11 +42,11 @@ const LibraryListItem = ({
 			} group transition-all duration-200 hover:cursor-pointer flex justify-between items-center gap-2 p-2 h-16 rounded-md`}
 		>
 			<div className="relative h-full flex items-center gap-2 truncate">
-				<div className="relative h-full aspect-square rounded-md">
+				<div className="relative h-full aspect-square rounded">
 					{imageUrl ? (
 						<div
 							className={`relative h-full aspect-square bg-cover bg-center ${
-								hasCircularImage ? 'rounded-full' : 'rounded-md'
+								hasCircularImage ? 'rounded-full' : 'rounded'
 							}`}
 							style={{
 								backgroundImage: `url(${imageUrl})`,
@@ -55,7 +55,7 @@ const LibraryListItem = ({
 					) : (
 						<div
 							className={`relative h-full flex justify-center items-center aspect-square bg-neutral-800 ${
-								hasCircularImage ? 'rounded-full' : 'rounded-md'
+								hasCircularImage ? 'rounded-full' : 'rounded'
 							}`}
 						>
 							<IoIosMusicalNotes
@@ -66,7 +66,7 @@ const LibraryListItem = ({
 					)}
 					<div
 						className={`hidden group-hover:flex absolute inset-0 z-50 bg-black/50 justify-center items-center transition-all duration-150 ${
-							hasCircularImage ? 'rounded-full' : 'rounded-md'
+							hasCircularImage ? 'rounded-full' : 'rounded'
 						}`}
 					>
 						{isPlaying ? (

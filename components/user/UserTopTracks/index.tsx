@@ -1,11 +1,18 @@
+'use client';
 import React from 'react';
 
 import TracklistItem from '@/components/tracklist/TracklistItem';
+import Loader from '@/components/shared/Loader';
 
-import type { SpotifyTrack } from '@/types/spotify';
+import useUserTopTracks from '@/hooks/useUserTopTracks';
 
-const UserTopTracks = ({ tracks }: { tracks: SpotifyTrack[] }) => {
-	return (
+const UserTopTracks = () => {
+	const { isLoading, tracks } = useUserTopTracks();
+	return isLoading ? (
+		<div className="h-44">
+			<Loader />
+		</div>
+	) : tracks && tracks.length > 0 ? (
 		<div className="flex flex-col gap-2">
 			<span className="font-funnel font-bold text-2xl leading-none text-white">
 				Top tracks this year
@@ -14,7 +21,7 @@ const UserTopTracks = ({ tracks }: { tracks: SpotifyTrack[] }) => {
 				Only visible to you
 			</span>
 			<div className="flex flex-col">
-				{tracks?.slice(0, 10).map((track, idx) => {
+				{tracks.slice(0, 10).map((track, idx) => {
 					return (
 						<TracklistItem
 							key={`${idx}_${track.id}`}
@@ -34,7 +41,7 @@ const UserTopTracks = ({ tracks }: { tracks: SpotifyTrack[] }) => {
 				})}
 			</div>
 		</div>
-	);
+	) : null;
 };
 
 export default UserTopTracks;

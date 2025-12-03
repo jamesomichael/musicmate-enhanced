@@ -15,7 +15,6 @@ const Home = async () => {
 	const cookieStore = await cookies();
 	const accessToken = cookieStore.get('access_token')!.value;
 
-	const { items: topTracks } = await fetchUserTopTracks({}, accessToken);
 	const { items: topArtists } = await fetchUserTopArtists({}, accessToken);
 
 	return (
@@ -26,7 +25,7 @@ const Home = async () => {
 				{topArtists?.length > 0 && (
 					<UserTopArtists artists={topArtists} />
 				)}
-				{topTracks?.length > 0 && <UserTopTracks tracks={topTracks} />}
+				<UserTopTracks />
 			</div>
 		</div>
 	);

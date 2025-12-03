@@ -1,28 +1,23 @@
-import React, { useMemo } from 'react';
+'use client';
+import React from 'react';
 
 import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import DiscographyCard from '@/components/artist/Discography/DiscographyCard';
+import Loader from '@/components/shared/Loader';
 
-import type { SpotifyRecentlyPlayedItem } from '@/types/spotify';
+import useRecentlyPlayed from '@/hooks/useRecentlyPlayed';
 
-const RecentlyPlayed = ({
-	tracks,
-}: {
-	tracks: SpotifyRecentlyPlayedItem[];
-}) => {
-	const recentAlbums = useMemo(
-		() => [
-			...new Map(
-				tracks.map(({ track }) => [track.album.id, track.album])
-			).values(),
-		],
-		[tracks]
-	);
+const RecentlyPlayed = () => {
+	const { isLoading, albums } = useRecentlyPlayed();
 
-	return (
+	return isLoading ? (
+		<div className="h-44">
+			<Loader />
+		</div>
+	) : (
 		<ShowcaseGrid
 			title="Recently played"
-			items={recentAlbums}
+			items={albums}
 			maxItems={7}
 			renderItem={(item) => (
 				<DiscographyCard

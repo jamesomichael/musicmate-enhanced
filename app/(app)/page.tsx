@@ -17,17 +17,12 @@ const Home = async () => {
 
 	const { items: topTracks } = await fetchUserTopTracks({}, accessToken);
 	const { items: topArtists } = await fetchUserTopArtists({}, accessToken);
-	const { items: recentlyPlayedTracks } = await fetchUserRecentlyPlayed(
-		accessToken
-	);
 
 	return (
 		<div className="h-full flex flex-col gap-4">
 			<SuggestionsGrid />
 			<div className="flex flex-col gap-4 px-6 pb-6">
-				{recentlyPlayedTracks?.length > 0 && (
-					<RecentlyPlayed tracks={recentlyPlayedTracks} />
-				)}
+				<RecentlyPlayed />
 				{topArtists?.length > 0 && (
 					<UserTopArtists artists={topArtists} />
 				)}

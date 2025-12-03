@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import Tab from '../../../shared/Tab';
+import Tab from '../../shared/Tab';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setActiveTab } from '@/redux/slices/librarySlice';

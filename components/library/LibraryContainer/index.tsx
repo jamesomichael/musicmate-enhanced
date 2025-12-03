@@ -4,15 +4,15 @@ import React from 'react';
 import { LuSquareLibrary } from 'react-icons/lu';
 
 import Loader from '@/components/shared/Loader';
-import LibraryTabs from './LibraryTabs';
-import LibraryPlaylists from './LibraryPlaylists';
-import LibraryAlbums from './LibraryAlbums';
-import LibrarySongs from './LibrarySongs';
-import LibraryArtists from './LibraryArtists';
+import LibraryTabs from '../LibraryTabs';
+import LibraryPlaylists from '../LibraryPlaylists';
+import LibraryAlbums from '../LibraryAlbums';
+import LibrarySongs from '../LibrarySongs';
+import LibraryArtists from '../LibraryArtists';
 
 import { useAppSelector } from '@/redux/hooks';
 
-const LibraryPanel = () => {
+const LibraryContainer = () => {
 	const { activeTab } = useAppSelector((state) => state.library.panel);
 	return (
 		<div className="h-full flex flex-col gap-2 p-2">
@@ -42,4 +42,4 @@ const LibraryPanel = () => {
 	);
 };
 
-export default LibraryPanel;
+export default LibraryContainer;

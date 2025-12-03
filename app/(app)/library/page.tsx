@@ -1,9 +1,9 @@
 import React from 'react';
 
-import LibraryPanel from '@/components/library/LibraryPanel';
+import LibraryContainer from '@/components/library/LibraryContainer';
 
 const Library = () => {
-	return <LibraryPanel />;
+	return <LibraryContainer />;
 };
 
 export default Library;

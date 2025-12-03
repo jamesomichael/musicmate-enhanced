@@ -4,7 +4,10 @@ import LibraryListItem from '../LibraryListItem';
 
 import useCollectionPlayback from '@/hooks/useCollectionPlayback';
 
+import type { SpotifyAlbumType } from '@/types/spotify';
+
 const CollectionItem = ({
+	type,
 	uri,
 	href,
 	imageUrl,
@@ -12,6 +15,7 @@ const CollectionItem = ({
 	isPinned,
 	secondaryText,
 }: {
+	type: SpotifyAlbumType | 'artist' | 'playlist';
 	uri: string;
 	href: string;
 	imageUrl?: string;
@@ -45,6 +49,7 @@ const CollectionItem = ({
 			isPlaying={isPlayingCollection}
 			onPlay={handlePlay}
 			onPause={handlePause}
+			hasCircularImage={type === 'artist'}
 		/>
 	);
 };

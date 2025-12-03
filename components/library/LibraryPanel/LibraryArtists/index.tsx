@@ -16,6 +16,7 @@ const LibraryArtists = () => {
 				return (
 					<CollectionItem
 						key={artist.id}
+						type="artist"
 						uri={artist.uri}
 						href={`/artist/${artist.id}`}
 						imageUrl={artist.images?.[0]?.url}

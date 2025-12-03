@@ -41,6 +41,7 @@ const LibraryPlaylists = () => {
 						return (
 							<CollectionItem
 								key={playlist.id}
+								type="playlist"
 								uri={
 									isLikedSongs
 										? `${user.uri}:collection`

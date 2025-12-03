@@ -30,6 +30,7 @@ const LibraryAlbums = () => {
 					return (
 						<CollectionItem
 							key={album.id}
+							type={album.album_type}
 							uri={album.uri}
 							href={`/album/${album.id}`}
 							imageUrl={album.images[0]?.url}

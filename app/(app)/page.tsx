@@ -1,30 +1,15 @@
-import { cookies } from 'next/headers';
-
 import SuggestionsGrid from '@/components/suggestions/SuggestionsGrid';
 import UserTopTracks from '@/components/user/UserTopTracks';
 import UserTopArtists from '@/components/user/UserTopArtists';
 import RecentlyPlayed from '@/components/user/RecentlyPlayed';
 
-import {
-	fetchUserRecentlyPlayed,
-	fetchUserTopArtists,
-	fetchUserTopTracks,
-} from '@/services/spotify';
-
-const Home = async () => {
-	const cookieStore = await cookies();
-	const accessToken = cookieStore.get('access_token')!.value;
-
-	const { items: topArtists } = await fetchUserTopArtists({}, accessToken);
-
+const Home = () => {
 	return (
 		<div className="h-full flex flex-col gap-4">
 			<SuggestionsGrid />
 			<div className="flex flex-col gap-4 px-6 pb-6">
 				<RecentlyPlayed />
-				{topArtists?.length > 0 && (
-					<UserTopArtists artists={topArtists} />
-				)}
+				<UserTopArtists />
 				<UserTopTracks />
 			</div>
 		</div>

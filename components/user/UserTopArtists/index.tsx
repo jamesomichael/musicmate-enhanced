@@ -1,12 +1,19 @@
+'use client';
 import React from 'react';
 
 import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import ArtistCard from '@/components/artist/ArtistCard';
+import Loader from '@/components/shared/Loader';
 
-import type { SpotifyArtist } from '@/types/spotify';
+import useUserTopArtists from '@/hooks/useUserTopArtists';
 
-const UserTopArtists = ({ artists }: { artists: SpotifyArtist[] }) => {
-	return (
+const UserTopArtists = () => {
+	const { isLoading, artists } = useUserTopArtists();
+	return isLoading ? (
+		<div className="h-44">
+			<Loader />
+		</div>
+	) : artists && artists.length > 0 ? (
 		<div className="flex flex-col gap-2">
 			<span className="font-funnel font-bold text-2xl leading-none text-white">
 				Top artists this year
@@ -26,7 +33,7 @@ const UserTopArtists = ({ artists }: { artists: SpotifyArtist[] }) => {
 				)}
 			/>
 		</div>
-	);
+	) : null;
 };
 
 export default UserTopArtists;

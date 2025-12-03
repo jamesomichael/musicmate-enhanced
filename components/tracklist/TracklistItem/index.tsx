@@ -13,7 +13,7 @@ import { IoIosMusicalNotes, IoIosPlay, IoIosPause } from 'react-icons/io';
 
 import ExplicitBadge from '../ExplicitBadge';
 
-import useTrackPlayback from '@/hooks/useTrackPlayback';
+import useTrackPlayback from '@/hooks/player/useTrackPlayback';
 
 import type { SpotifyAlbum, SpotifyArtist } from '@/types/spotify';
 

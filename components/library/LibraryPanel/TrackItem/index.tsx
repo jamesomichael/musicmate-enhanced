@@ -2,7 +2,7 @@ import React from 'react';
 
 import LibraryListItem from '../LibraryListItem';
 
-import useTrackPlayback from '@/hooks/useTrackPlayback';
+import useTrackPlayback from '@/hooks/player/useTrackPlayback';
 
 const TrackItem = ({
 	id,

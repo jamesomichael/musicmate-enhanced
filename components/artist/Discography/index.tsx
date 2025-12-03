@@ -8,7 +8,7 @@ import Tab from '@/components/shared/Tab';
 import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import DiscographyCard from './DiscographyCard';
 
-import useDiscographyTabs from '@/hooks/useDiscographyTabs';
+import useDiscographyTabs from '@/hooks/artist/useDiscographyTabs';
 
 import type { ArtistDiscography, DiscographyTabType } from '@/types/artists';
 

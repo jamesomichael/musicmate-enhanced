@@ -2,7 +2,7 @@ import React from 'react';
 
 import LibraryListItem from '../LibraryListItem';
 
-import useCollectionPlayback from '@/hooks/useCollectionPlayback';
+import useCollectionPlayback from '@/hooks/player/useCollectionPlayback';
 
 import type { SpotifyAlbumType } from '@/types/spotify';
 

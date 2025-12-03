@@ -4,7 +4,7 @@ import React from 'react';
 import MediaHeader from '@/components/shared/MediaHeader';
 import GenreTag from './GenreTag';
 
-import useFollowArtist from '@/hooks/useFollowArtist';
+import useFollowArtist from '@/hooks/artist/useFollowArtist';
 
 const ArtistHeader = ({
 	id,

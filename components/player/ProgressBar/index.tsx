@@ -6,7 +6,7 @@ dayjs.extend(duration);
 
 import SeekBar from '@/components/shared/SeekBar';
 
-import useProgress from '@/hooks/useProgress';
+import useProgress from '@/hooks/player/useProgress';
 
 const ProgressBar = ({ onSeek }: { onSeek: (position: number) => void }) => {
 	const { position, duration, seekTo } = useProgress(onSeek);

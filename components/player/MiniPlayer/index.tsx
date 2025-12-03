@@ -5,7 +5,7 @@ import { IoIosPlay, IoIosPause } from 'react-icons/io';
 
 import FadeInSlide from '@/components/shared/FadeInSlide';
 
-import usePlayerControls from '@/hooks/usePlayerControls';
+import usePlayerControls from '@/hooks/player/usePlayerControls';
 
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';

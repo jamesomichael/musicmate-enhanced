@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import DesktopLayout from './DesktopLayout';
 import MobileLayout from './MobileLayout';
 
-import useLibrary from '@/hooks/useLibrary';
+import useLibrary from '@/hooks/library/useLibrary';
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	useLibrary();

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { FaRegStar } from 'react-icons/fa6';
 
-import useFormattedDate from '@/hooks/useFormattedDate';
+import useFormattedDate from '@/hooks/shared/useFormattedDate';
 
 import type { SpotifyAlbum } from '@/types/spotify';
 

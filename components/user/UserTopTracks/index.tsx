@@ -4,7 +4,7 @@ import React from 'react';
 import TracklistItem from '@/components/tracklist/TracklistItem';
 import Loader from '@/components/shared/Loader';
 
-import useUserTopTracks from '@/hooks/useUserTopTracks';
+import useUserTopTracks from '@/hooks/user/useUserTopTracks';
 
 const UserTopTracks = () => {
 	const { isLoading, tracks } = useUserTopTracks();

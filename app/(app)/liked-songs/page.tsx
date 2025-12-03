@@ -5,8 +5,8 @@ import PlaylistHeader from '@/components/playlist/PlaylistHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import useLikedSongs from '@/hooks/useLikedSongs';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
+import useLikedSongs from '@/hooks/library/useLikedSongs';
 
 import { useAppSelector } from '@/redux/hooks';
 

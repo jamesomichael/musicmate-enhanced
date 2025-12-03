@@ -2,7 +2,7 @@ import React from 'react';
 
 import AccountMenu from '../AccountMenu';
 
-import useDropdown from '@/hooks/useDropdown';
+import useDropdown from '@/hooks/shared/useDropdown';
 
 import { useAppSelector } from '@/redux/hooks';
 

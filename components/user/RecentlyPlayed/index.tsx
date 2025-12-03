@@ -5,7 +5,7 @@ import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import DiscographyCard from '@/components/artist/Discography/DiscographyCard';
 import Loader from '@/components/shared/Loader';
 
-import useRecentlyPlayed from '@/hooks/useRecentlyPlayed';
+import useRecentlyPlayed from '@/hooks/user/useRecentlyPlayed';
 
 const RecentlyPlayed = () => {
 	const { isLoading, albums } = useRecentlyPlayed();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useFormattedDate from '@/hooks/useFormattedDate';
+import useFormattedDate from '@/hooks/shared/useFormattedDate';
 
 import type { SpotifyCopyright } from '@/types/spotify';
 

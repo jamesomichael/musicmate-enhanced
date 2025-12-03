@@ -5,7 +5,7 @@ import { FaVolumeXmark, FaVolumeLow, FaVolumeHigh } from 'react-icons/fa6';
 import SeekBar from '@/components/shared/SeekBar';
 import VolumeIcon from './VolumeIcon';
 
-import useVolumeControl from '@/hooks/useVolumeControl';
+import useVolumeControl from '@/hooks/player/useVolumeControl';
 
 import { useAppSelector } from '@/redux/hooks';
 import { isUserPremium } from '@/redux/slices/userSlice';

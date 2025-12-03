@@ -7,7 +7,7 @@ import RecentlyPlayed from '../RecentlyPlayed';
 import UserTopArtists from '../UserTopArtists';
 import UserTopTracks from '../UserTopTracks';
 
-import useLogOut from '@/hooks/useLogOut';
+import useLogOut from '@/hooks/auth/useLogOut';
 
 import { useAppSelector } from '@/redux/hooks';
 

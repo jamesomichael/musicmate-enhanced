@@ -5,8 +5,8 @@ import AlbumHeader from '../AlbumHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 
-import useAlbumTracks from '@/hooks/useAlbumTracks';
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useAlbumTracks from '@/hooks/album/useAlbumTracks';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
 
 import type {
 	SpotifyAlbumType,

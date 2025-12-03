@@ -5,7 +5,7 @@ import { FaFire } from 'react-icons/fa6';
 
 import TracklistItem from '@/components/tracklist/TracklistItem';
 
-import useToggle from '@/hooks/useToggle';
+import useToggle from '@/hooks/shared/useToggle';
 
 import type { SpotifyTrack } from '@/types/spotify';
 

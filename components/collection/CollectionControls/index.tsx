@@ -6,7 +6,7 @@ import { PiShuffleBold } from 'react-icons/pi';
 
 import ControlIcon from '@/components/shared/ControlIcon';
 
-import useCollectionPlayback from '@/hooks/useCollectionPlayback';
+import useCollectionPlayback from '@/hooks/player/useCollectionPlayback';
 
 const CollectionControls = ({ contextUri }: { contextUri: string }) => {
 	const {

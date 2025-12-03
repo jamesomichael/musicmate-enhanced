@@ -6,7 +6,7 @@ import { MdMail } from 'react-icons/md';
 
 import { BACKGROUND_IMAGES } from '@/constants/backgrounds';
 
-import useLogOut from '@/hooks/useLogOut';
+import useLogOut from '@/hooks/auth/useLogOut';
 
 import Button from '@/components/shared/Button';
 import Logo from '@/components/shared/Logo';

@@ -6,7 +6,7 @@ import PlayerControls from '../PlayerControls';
 import PlayerExtras from '../PlayerExtras';
 import ExternalDeviceIndicator from '../ExternalDeviceIndicator';
 
-import usePlayer from '@/hooks/usePlayer';
+import usePlayer from '@/hooks/player/usePlayer';
 
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';

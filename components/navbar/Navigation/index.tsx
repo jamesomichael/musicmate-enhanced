@@ -3,7 +3,7 @@ import React from 'react';
 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-import useNavigation from '@/hooks/useNavigation';
+import useNavigation from '@/hooks/shared/useNavigation';
 
 const Navigation = () => {
 	const {

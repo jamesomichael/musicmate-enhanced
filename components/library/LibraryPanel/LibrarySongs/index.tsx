@@ -4,8 +4,8 @@ import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 import TrackItem from '../TrackItem';
 
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import useLikedSongs from '@/hooks/useLikedSongs';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
+import useLikedSongs from '@/hooks/library/useLikedSongs';
 
 const LibrarySongs = () => {
 	const { likedSongs, fetchPaginatedLikedSongs } = useLikedSongs();

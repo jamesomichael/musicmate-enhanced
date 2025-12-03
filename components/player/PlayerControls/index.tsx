@@ -11,7 +11,7 @@ import { PiRepeatOnceBold, PiRepeatBold, PiShuffleBold } from 'react-icons/pi';
 import ProgressBar from '../ProgressBar';
 import ControlIcon from '../../shared/ControlIcon';
 
-import usePlayerControls from '@/hooks/usePlayerControls';
+import usePlayerControls from '@/hooks/player/usePlayerControls';
 
 import { useAppSelector } from '@/redux/hooks';
 import { isUserPremium } from '@/redux/slices/userSlice';

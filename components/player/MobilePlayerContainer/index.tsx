@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import MiniPlayer from '../MiniPlayer';
 import MobilePlayer from '../MobilePlayer';
 
-import usePlayer from '@/hooks/usePlayer';
+import usePlayer from '@/hooks/player/usePlayer';
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
 

@@ -5,7 +5,7 @@ import ShowcaseGrid from '@/components/shared/ShowcaseGrid';
 import ArtistCard from '@/components/artist/ArtistCard';
 import Loader from '@/components/shared/Loader';
 
-import useUserTopArtists from '@/hooks/useUserTopArtists';
+import useUserTopArtists from '@/hooks/user/useUserTopArtists';
 
 const UserTopArtists = () => {
 	const { isLoading, artists } = useUserTopArtists();

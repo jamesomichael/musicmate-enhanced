@@ -5,8 +5,8 @@ import PlaylistHeader from '../PlaylistHeader';
 import CollectionTracklist from '@/components/collection/CollectionTracklist';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import usePlaylistTracks from '@/hooks/usePlaylistTracks';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
+import usePlaylistTracks from '@/hooks/playlist/usePlaylistTracks';
 
 import type { SpotifyPlaylistItem } from '@/types/spotify';
 import type { Pagination } from '@/types/library';

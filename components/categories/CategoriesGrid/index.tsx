@@ -4,7 +4,7 @@ import React from 'react';
 import Loader from '@/components/shared/Loader';
 import CategoryItem from './CategoryItem';
 
-import useCategories from '@/hooks/useCategories';
+import useCategories from '@/hooks/categories/useCategories';
 
 const CategoriesGrid = () => {
 	const { isLoading, categories } = useCategories();

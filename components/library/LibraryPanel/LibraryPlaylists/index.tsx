@@ -4,8 +4,8 @@ import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 import CollectionItem from '../CollectionItem';
 
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import useLibraryPlaylists from '@/hooks/useLibraryPlaylists';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
+import useLibraryPlaylists from '@/hooks/library/useLibraryPlaylists';
 
 import { useAppSelector } from '@/redux/hooks';
 

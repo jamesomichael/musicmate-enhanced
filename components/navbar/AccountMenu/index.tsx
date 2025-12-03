@@ -4,7 +4,7 @@ import { TbExternalLink } from 'react-icons/tb';
 
 import MenuItem from './MenuItem';
 
-import useLogOut from '@/hooks/useLogOut';
+import useLogOut from '@/hooks/auth/useLogOut';
 
 import { useAppSelector } from '@/redux/hooks';
 

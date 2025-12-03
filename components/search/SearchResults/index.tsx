@@ -10,7 +10,7 @@ import ArtistResults from './ArtistResults';
 import TrackResults from './TrackResults';
 import SearchBar from '../SearchBar';
 
-import useSearchTabs from '@/hooks/useSearchTabs';
+import useSearchTabs from '@/hooks/search/useSearchTabs';
 
 import type { SearchResultsData, SearchTabType } from '@/types/search';
 

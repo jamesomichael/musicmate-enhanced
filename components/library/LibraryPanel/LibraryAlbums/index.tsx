@@ -4,8 +4,8 @@ import Loader from '@/components/shared/Loader';
 import InfiniteScrollContainer from '@/components/shared/InfiniteScrollContainer';
 import CollectionItem from '../CollectionItem';
 
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-import useLibraryAlbums from '@/hooks/useLibraryAlbums';
+import useInfiniteScroll from '@/hooks/shared/useInfiniteScroll';
+import useLibraryAlbums from '@/hooks/library/useLibraryAlbums';
 
 const LibraryAlbums = () => {
 	const { albums, fetchPaginatedAlbums } = useLibraryAlbums();

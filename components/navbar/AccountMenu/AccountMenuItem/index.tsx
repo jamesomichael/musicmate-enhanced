@@ -10,7 +10,7 @@ interface Props {
 	openInNewTab?: boolean;
 }
 
-const MenuItem = ({
+const AccountMenuItem = ({
 	label,
 	href,
 	onClick,
@@ -46,4 +46,4 @@ const MenuItem = ({
 	);
 };
 
-export default MenuItem;
+export default AccountMenuItem;

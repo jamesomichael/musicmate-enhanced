@@ -77,11 +77,14 @@ export const fetchUserTopArtists = async (
 	}
 };
 
-export const fetchUserRecentlyPlayed = async (accessToken: string) => {
+export const fetchUserRecentlyPlayed = async (
+	{ limit = 50 }: { limit?: number },
+	accessToken: string
+) => {
 	console.log('[fetchUserRecentlyPlayed] Fetching recently played items...');
 	try {
 		const response = await axios.get(
-			'https://api.spotify.com/v1/me/player/recently-played?limit=50',
+			`https://api.spotify.com/v1/me/player/recently-played?limit=${limit}`,
 			{
 				headers: {
 					Authorization: `Bearer ${accessToken}`,

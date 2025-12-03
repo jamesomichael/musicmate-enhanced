@@ -9,12 +9,11 @@ import useRecentlyPlayed from '@/hooks/useRecentlyPlayed';
 
 const RecentlyPlayed = () => {
 	const { isLoading, albums } = useRecentlyPlayed();
-
 	return isLoading ? (
 		<div className="h-44">
 			<Loader />
 		</div>
-	) : (
+	) : albums && albums.length > 0 ? (
 		<ShowcaseGrid
 			title="Recently played"
 			items={albums}
@@ -30,7 +29,7 @@ const RecentlyPlayed = () => {
 				/>
 			)}
 		/>
-	);
+	) : null;
 };
 
 export default RecentlyPlayed;

@@ -10,7 +10,7 @@ const SuggestionsGrid = () => {
 	const { albums } = useAppSelector((state) => state.library);
 
 	return albums.isLoading ? (
-		<div className="h-40">
+		<div className="h-44">
 			<Loader />
 		</div>
 	) : (

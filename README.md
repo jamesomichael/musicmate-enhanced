@@ -19,6 +19,7 @@ musicmate is a web-based Spotify clone built with Next.js, Tailwind CSS, Redux T
 ## **Features**
 
 -   View your Spotify library (with infinite scroll for pagination)
+-   Explore your top artists and most-played tracks
 -   Search for playlists, artists, albums, and tracks
 -   Enjoy full local playback **(requires Spotify Premium)**
 -   Control active external devices **(requires Spotify Premium)**
@@ -39,6 +40,7 @@ musicmate is a web-based Spotify clone built with Next.js, Tailwind CSS, Redux T
 -   **Tailwind CSS**
 -   **Redux Toolkit**
 -   **Motion**
+-   **React Infinite Scroller**
 -   **Storybook**
 
 ## **Local Development**

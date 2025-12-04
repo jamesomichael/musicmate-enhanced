@@ -14,7 +14,6 @@ const meta: Meta<typeof ArtistTopTracks> = {
 	component: ArtistTopTracks,
 	args: {
 		tracks: artistTopTracksMock.tracks as unknown as SpotifyTrack[],
-		contextUri: 'test-context-uri',
 	},
 	parameters: {
 		layout: 'centered',

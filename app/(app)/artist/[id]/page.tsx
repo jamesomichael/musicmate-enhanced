@@ -57,10 +57,7 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 							: ''
 					}
 				>
-					<ArtistTopTracks
-						tracks={topTracks}
-						contextUri={artistData.uri}
-					/>
+					<ArtistTopTracks tracks={topTracks} />
 					{featuredItem && <FeaturedItem item={featuredItem} />}
 				</div>
 				<Discography

@@ -6,6 +6,7 @@ import StoreProvider from '@/redux/StoreProvider';
 
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import type { PlayerState } from '@/types/player';
+import type { UserState } from '@/types/user';
 
 type Story = StoryObj<typeof MobilePlayer>;
 
@@ -33,6 +34,9 @@ const meta: Meta<typeof MobilePlayer> = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -61,6 +65,9 @@ export const Playing: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -85,6 +92,9 @@ export const Paused: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -110,6 +120,9 @@ export const WithShuffle: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -135,6 +148,9 @@ export const WithRepeatAll: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -160,6 +176,9 @@ export const WithRepeatOne: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">
@@ -189,6 +208,41 @@ export const External: Story = {
 							},
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
+				}}
+			>
+				<div className="w-screen overflow-hidden">
+					<Story />
+				</div>
+			</StoreProvider>
+		),
+	],
+};
+
+export const NotPremium: Story = {
+	decorators: [
+		(Story) => (
+			<StoreProvider
+				preloadedState={{
+					player: {
+						playbackState: {
+							deviceId: 'local-device-id',
+							is_playing: true,
+							shuffle_state: true,
+							repeat_state: 'track',
+							item: trackMock,
+							progress_ms: 140000,
+							device: {
+								id: 'external-device-id',
+								name: "James's iPhone",
+							},
+						},
+					} as unknown as PlayerState,
+					user: {
+						product: 'free',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen overflow-hidden">

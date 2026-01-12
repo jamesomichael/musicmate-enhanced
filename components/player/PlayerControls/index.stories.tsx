@@ -6,6 +6,7 @@ import StoreProvider from '@/redux/StoreProvider';
 
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import type { PlayerState } from '@/types/player';
+import type { UserState } from '@/types/user';
 
 type Story = StoryObj<typeof PlayerControls>;
 
@@ -31,6 +32,9 @@ const meta: Meta<typeof PlayerControls> = {
 							device: { is_active: true, name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="px-4">
@@ -44,3 +48,30 @@ const meta: Meta<typeof PlayerControls> = {
 export default meta;
 
 export const Default: Story = {};
+
+export const NotPremium: Story = {
+	decorators: [
+		(Story) => (
+			<StoreProvider
+				preloadedState={{
+					player: {
+						playbackState: {
+							is_playing: false,
+							repeat_state: 'off',
+							item: trackMock,
+							progress_ms: 140000,
+							device: { is_active: true, name: "James's iPhone" },
+						},
+					} as unknown as PlayerState,
+					user: {
+						product: 'free',
+					} as unknown as UserState,
+				}}
+			>
+				<div className="px-4">
+					<Story />
+				</div>
+			</StoreProvider>
+		),
+	],
+};

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '@/redux/store';
+
 import { fetchCategories } from '@/redux/slices/categoriesSlice';
+
+import type { RootState, AppDispatch } from '@/redux/store';
 
 export default function useCategories() {
 	const dispatch = useDispatch<AppDispatch>();

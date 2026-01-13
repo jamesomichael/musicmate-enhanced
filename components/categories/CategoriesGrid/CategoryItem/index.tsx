@@ -14,7 +14,7 @@ const CategoryItem = ({
 				backgroundImage: `url(${imageUrl})`,
 			}}
 		>
-			<div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-65"></div>
+			<div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-65 rounded-md"></div>
 			<span className="leading-5 relative font-funnel xl:text-lg text-white truncate">
 				{name}
 			</span>

@@ -1,17 +1,5 @@
 export const categoriesMock = [
 	{
-		href: 'https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFC7do0jUgBzi',
-		id: '0JQ5DAqbMKFC7do0jUgBzi',
-		icons: [
-			{
-				height: 274,
-				url: 'https://campaigns-service.spotifycdn.com/wrapped-2025/subfeed/shortcut-music-55473faa772a83c5e6b7150079dcdfa1.png',
-				width: 274,
-			},
-		],
-		name: '2025 in Music',
-	},
-	{
 		href: 'https://api.spotify.com/v1/browse/categories/0JQ5DAt0tbjZptfcdMSKl3',
 		id: '0JQ5DAt0tbjZptfcdMSKl3',
 		icons: [

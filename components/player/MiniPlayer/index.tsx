@@ -9,11 +9,13 @@ import usePlayerControls from '@/hooks/player/usePlayerControls';
 
 import { useAppSelector } from '@/redux/hooks';
 import { getNowPlaying } from '@/redux/slices/playerSlice';
+import { isUserPremium } from '@/redux/slices/userSlice';
 
 import type { SpotifyArtist } from '@/types/spotify';
 
 const MiniPlayer = () => {
 	const { isExternal, item, device } = useAppSelector(getNowPlaying);
+	const userHasPremium = useAppSelector(isUserPremium);
 	const { isPlaying, pause, resume } = usePlayerControls();
 
 	const handleResume = (e: React.MouseEvent<SVGElement>) => {
@@ -73,12 +75,20 @@ const MiniPlayer = () => {
 				{isPlaying ? (
 					<IoIosPause
 						onClick={handlePause}
-						className="h-7 w-7 text-white active:scale-95"
+						className={`h-7 w-7 text-white active:scale-95 ${
+							!userHasPremium
+								? 'opacity-25 pointer-events-none cursor-not-allowed'
+								: ''
+						}`}
 					/>
 				) : (
 					<IoIosPlay
 						onClick={handleResume}
-						className="h-7 w-7 text-white active:scale-95"
+						className={`h-7 w-7 text-white active:scale-95 ${
+							!userHasPremium
+								? 'opacity-25 pointer-events-none cursor-not-allowed'
+								: ''
+						}`}
 					/>
 				)}
 			</div>

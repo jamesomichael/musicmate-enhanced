@@ -6,6 +6,7 @@ import StoreProvider from '@/redux/StoreProvider';
 
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import type { PlayerState } from '@/types/player';
+import type { UserState } from '@/types/user';
 
 type Story = StoryObj<typeof MiniPlayer>;
 
@@ -29,6 +30,9 @@ const meta: Meta<typeof MiniPlayer> = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen">
@@ -55,6 +59,9 @@ export const Playing: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen">
@@ -77,6 +84,9 @@ export const Paused: Story = {
 							device: { name: "James's iPhone" },
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen">
@@ -103,6 +113,38 @@ export const External: Story = {
 							},
 						},
 					} as unknown as PlayerState,
+					user: {
+						product: 'premium',
+					} as unknown as UserState,
+				}}
+			>
+				<div className="w-screen">
+					<Story />
+				</div>
+			</StoreProvider>
+		),
+	],
+};
+
+export const NotPremium: Story = {
+	decorators: [
+		(Story) => (
+			<StoreProvider
+				preloadedState={{
+					player: {
+						deviceId: 'local-device-id',
+						playbackState: {
+							is_playing: false,
+							item: trackMock,
+							device: {
+								id: 'external-device-id',
+								name: "James's iPhone",
+							},
+						},
+					} as unknown as PlayerState,
+					user: {
+						product: 'free',
+					} as unknown as UserState,
 				}}
 			>
 				<div className="w-screen">

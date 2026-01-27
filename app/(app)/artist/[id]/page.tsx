@@ -1,5 +1,6 @@
 import React from 'react';
 import { cookies } from 'next/headers';
+import dayjs from 'dayjs';
 
 import { DISCOGRAPHY_GROUPS } from '@/constants/discography';
 
@@ -32,12 +33,17 @@ const Artist = async ({ params }: { params: Promise<{ id: string }> }) => {
 
 	const [albums, singles, compilations] = await Promise.all(
 		DISCOGRAPHY_GROUPS.map((group) =>
-			fetchArtistAlbums(id, { limit: 10, groups: group }, accessToken)
-		)
+			fetchArtistAlbums(id, { limit: 10, groups: group }, accessToken),
+		),
 	);
 
-	const featuredItem =
-		albums?.items?.[0] || singles?.items?.[0] || compilations?.items?.[0];
+	const featuredItem = [...(albums?.items ?? []), ...(singles?.items ?? [])]
+		.filter((item) => item.release_date)
+		.sort(
+			(a, b) =>
+				dayjs(b.release_date).valueOf() -
+				dayjs(a.release_date).valueOf(),
+		)?.[0];
 
 	return (
 		<>

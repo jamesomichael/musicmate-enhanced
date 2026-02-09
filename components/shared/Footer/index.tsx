@@ -17,14 +17,14 @@ const Footer = () => {
 				<div className="h-10 flex gap-8 sm:gap-10 text-neutral-500 justify-center md:justify-end items-center">
 					<Link
 						href="https://jamesmichael.dev"
-						title="Portfolio '25"
+						title="Portfolio '26"
 						className="group font-georama text-2xl sm:text-[1.8rem]"
 						target="_blank"
 					>
-						<span className="transition-all duration-150 group-hover:text-white font-stretch-110% font-extralight">
+						<span className="transition-all duration-150 group-hover:text-white font-stretch-110% font-light">
 							J
 						</span>
-						<span className="transition-all duration-150 group-hover:text-orange-200 font-stretch-[130%] font-extrabold">
+						<span className="transition-all duration-150 group-hover:text-blue-400 font-stretch-[130%] font-extrabold">
 							M
 						</span>
 					</Link>
@@ -37,7 +37,7 @@ const Footer = () => {
 						<FaGithub size={30} />
 					</Link>
 					<Link
-						href="https://linkedin.com/in/jamesm94"
+						href="https://linkedin.com/in/jamesomichael"
 						target="_blank"
 						title="LinkedIn"
 						className="transition-all duration-150 hover:text-white"

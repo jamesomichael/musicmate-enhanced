@@ -1,36 +1,23 @@
 import React from 'react';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 import { BACKGROUND_IMAGES } from '@/constants/backgrounds';
+import { SPOTIFY_SCOPES } from '@/constants/auth';
 
 import Logo from '@/components/shared/Logo';
-
-// import spotifyService from '@/services/spotify';
-import { SPOTIFY_SCOPES } from '@/constants/auth';
 import Button from '@/components/shared/Button';
 
 const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID!;
 const SPOTIFY_REDIRECT_URI = process.env.NEXT_PUBLIC_REDIRECT_URI!;
 const SPOTIFY_AUTH_URL = process.env.NEXT_PUBLIC_SPOTIFY_AUTH_URL!;
 
-const authUrl = `${SPOTIFY_AUTH_URL}?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&redirect_uri=${encodeURIComponent(
-	SPOTIFY_REDIRECT_URI
-)}&scope=${encodeURIComponent(SPOTIFY_SCOPES.join(' '))}`;
-
 const Login = async () => {
+	const authUrl = `${SPOTIFY_AUTH_URL}?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&redirect_uri=${encodeURIComponent(
+		SPOTIFY_REDIRECT_URI,
+	)}&scope=${encodeURIComponent(SPOTIFY_SCOPES.join(' '))}`;
+
 	const backgroundImage =
 		BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
-	// const cookieStore = await cookies();
-	// const accessToken = cookieStore.get('access_token')?.value;
-
-	// if (accessToken) {
-	// 	const user = await spotifyService.fetchCurrentUser(accessToken);
-	// 	if (user) {
-	// 		redirect('/');
-	// 	}
-	// }
 
 	return (
 		<div className="h-full flex items-center relative">
